@@ -16,7 +16,7 @@ table {
                 </div>
                 <div class="card-body">
                 <div class="text-right">
-                      <button type="submit" class="btn btn-success"><i class="material-icons">add</i>เพิ่มต้นไม้</button>
+                  <a  href="<?php echo site_url("Trees/new_tree"); ?>" ><button type="submit" class="btn btn-success"><i class="material-icons">add</i>เพิ่มต้นไม้</button>
                   </div>
                   <div class="table-responsive">
                   <table id="example1" class="table table-striped table-bordered" style="width:100%">
