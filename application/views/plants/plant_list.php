@@ -15,10 +15,10 @@ table {
                   <h4 class="card-title "><?php echo $navbar_name?></h4>
                 </div>
                 <div class="card-body">
-                <div class="text-right"  <?php if($_SESSION['roleID'] == '3') {echo " style='display: none'"; } ?>>
+                <div class="text-right"  <?php if($_SESSION['authorityID'] == '3') {echo " style='display: none'"; } ?>>
                 
             
-<button  type="button" class="btn btn-success"><i class="material-icons" >add</i>เพิ่มพรรณไม้</button>
+                <a  href="<?php echo site_url("Plants/new_plant"); ?>" ><button  type="button" class="btn btn-success"><i class="material-icons" >add</i>เพิ่มพรรณไม้</button>
 
                       
                   </div>
@@ -38,12 +38,23 @@ table {
                     <tbody> 	
                     <?php foreach($plantList as $row){?>
                         <tr>
-                            <td><?php echo $row->plantID; ?></td>
-                            <td><?php echo $row->Common; ?></td>
-                            <td><?php echo $row->Sci; ?></td>
-                            <td><?php echo $row->Family; ?></td>
-                            <td><?php echo $row->Local; ?></td>
-                            <td><?php echo $row->Type; ?></td>
+                            <td><?php echo $row->vegetationID; ?></td>
+                            <td><?php echo $row->n_common_ENG; ?></td>
+                            <td><?php echo $row->n_scientific; ?></td>
+                            <td><?php echo $row->n_family; ?></td>
+                            <td><?php echo $row->localname; ?></td>
+                            <td><?php if ($row->type == "1") {
+                                        echo "ไม้ดอก";
+                                      }elseif($row->type == "2"){
+                                        echo "ไม้ประดับ";
+                                      }elseif($row->type == "3"){
+                                        echo "ไม้ยืนต้น";
+                                      }elseif($row->type == "4"){
+                                        echo "ไม้เลื้อย";
+                                      }elseif($row->type == "5"){
+                                        echo "ไม้อิงอาศัย";
+                                      }
+                            ?></td>
                             <td class="text-center">
                                   <button type="button" title="View" class="btn btn-info"><i class="material-icons">info</i></button>
                                   <button type="button" title="Edit" class="btn btn-warning"><i class="material-icons">edit</i></button>  
