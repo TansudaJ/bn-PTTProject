@@ -4,7 +4,7 @@ class DashboardModel extends CI_Model {
     {
             //$query = $this->db->get('users'); // SELECT * FROM users
 
-            $query = $this->db->query("SELECT * FROM trees ");
+            $query = $this->db->query("SELECT * FROM vegetation ");
             return $query->result();
     }
 
