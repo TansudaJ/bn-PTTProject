@@ -20,9 +20,15 @@ class Login extends CI_Controller {
 		$password = $_POST["psw"];
 		$this->load->model('UserModel');
 		$tmp = $this->UserModel->check_username_password($username,$password);
+		// echo "==$tmp==";
+		// die();
 		if($tmp){
+			
+			$this->session->set_flashdata('message_code', '202');
+			$this->session->set_flashdata('message_error', 'ยินดีต้อนรับคุณเข้าสู่ระบบ');
 			redirect('/Dashboards/dashboard');
 		}else{
+			$this->session->set_flashdata('message_code', '503');
 			$this->session->set_flashdata('message_error', 'กรุณาเข้าสู่ระบบใหม่อีกครั้ง');
 			redirect('/Login/');
 		}
