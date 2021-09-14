@@ -67,7 +67,7 @@ The above copyright notice and this permission notice shall be included in all c
               <p>จัดการข้อมูลต้นไม้</p>
             </a>
           </li>
-          <li class="nav-item dropdown <?php if ($activebar == "user"){echo "active";} ?> <?php if ($activebar == "simple"){echo "active";} ?>">
+          <li class="nav-item dropdown <?php if ($activebar == "simple"){echo "active";} ?>">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" style="font-size: 14px;" aria-haspopup="true" aria-expanded="false">
         <i class="material-icons">people</i>จัดการข้อมูลพื้นฐาน
         </a>

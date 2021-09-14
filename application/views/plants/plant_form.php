@@ -151,7 +151,7 @@
                     <div class="row">
                       <div class="col-md-12">
                           <div class="form-group">
-                            <label class="bmd-label-floating">ลักษณะ</label>
+                            <label class="bmd-label-floating">ลักษณะ<span class="s">*</span></label>
                             <input type="text" name="appearance" class="form-control" required>
                           </div>
                         </div> 

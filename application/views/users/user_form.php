@@ -1,4 +1,19 @@
-
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script type="text/javascript">
+            $(document).ready(function() {
+                $('#categories').change(function() {
+                    $.ajax({
+                        type: 'POST',
+                        data: {categories: $(this).val()},
+                        url: 'select_product.php',
+                        success: function(data) {
+                            $('#products').html(data);
+                        }
+                    });
+                    return false;
+                });
+            });
+        </script>
 <form method="post" action="<?php echo site_url("users/new_user_add");?>"> 
 <div class="row">
             <div class="col-md-12">
@@ -11,8 +26,8 @@
                     <div class="row">
                       <div class="col-md-2">
                         <div class="form-group">
-                          <label class="bmd-label-floating">ID</label>
-                          <input type="text" name="user_id" class="form-control" disabled>
+                          <label class="bmd-label-floating">รหัสพนักงาน</label>
+                          <input type="text" name="employeeID" class="form-control" required>
                         </div>
                       </div>
                       <div class="col-md-5">
@@ -35,13 +50,13 @@
                       <div class="col-md-3">
                         <div class="form-group">
                           <label class="bmd-label-floating">ชื่อ</label>
-                          <input type="text" name="fname" class="form-control" required>
+                          <input type="text" name="f_name" class="form-control" required>
                         </div>
                       </div>
                       <div class="col-md-3">
                         <div class="form-group">
                           <label class="bmd-label-floating">นามสกุล</label>
-                          <input type="text" name="lname" class="form-control" required>
+                          <input type="text" name="l_name" class="form-control" required>
                         </div>
                       </div>
                       <div class="col-md-6">
@@ -100,7 +115,7 @@
                       <div class="col-md-4">
                         <div class="form-group">
                           <label class="bmd-label-floating">สิทธิการใช้งาน</label><span>
-                          <select class="form-select form-control "name="roleID" required>
+                          <select class="form-select form-control "name="authority_authorityID" required>
                             <option value="">Open this select menu</option>
                             <option value="1">Administrator</option>
                             <option value="2">Editor</option>
@@ -114,7 +129,7 @@
                       <div class="col-md-4">
                         <div class="form-group">
                         <label class="bmd-label-floating">สถานะ</label><span>
-                        <select class="form-select form-control "name="activeFlag" required>
+                        <select class="form-select form-control "name="activeflag" required>
                           <option value="">Open this select menu</option>
                           <option value="0">Inactive</option>
                           <option value="1">Active</option>

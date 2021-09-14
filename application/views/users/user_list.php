@@ -20,7 +20,7 @@ if ($this->session->userdata('message_error')) {
                   <table id="example1" class="table table-striped table-bordered" style="width:100%">
                     <thead>
                         <tr>
-                            <th class="text-center">รหัสผู้ใช้งาน</th>
+                            <th class="text-center">รหัสพนักงาน</th>
                             <th class="text-center">ชื่อ-นามสกุล</th>
                             <th class="text-center">สถานะ</th>
                             <th class="text-center">สิทธิการใช้งาน</th>
@@ -30,11 +30,11 @@ if ($this->session->userdata('message_error')) {
                     <tbody> 	
                     <?php foreach ($userList as $row){?>
                         <tr>
-                            <td><?php echo $row->userID; ?></td>
-                            <td><?php echo $row->fname ." ".$row->lname; ?></td>
+                            <td class="text-center"><?php echo $row->employeeID; ?></td>
+                            <td><?php echo $row->f_name ." ".$row->l_name; ?></td>
                             
                             <td class="text-center">
-                                <?php if($row->activeFlag == '1') { ?>
+                                <?php if($row->activeflag == '1') { ?>
                                   <span class="badge badge-success">Active</span>
                                   
                                 <?php } 
@@ -43,7 +43,7 @@ if ($this->session->userdata('message_error')) {
                                   
                                 <?php } ?>
                             </td>
-                            <td class="text-center"><?php echo $row->rolename; ?></td>
+                            <td class="text-center"><?php echo $row->n_authority; ?></td>
                             
                             <td class="text-center">
                                   <button type="button" title="View" class="btn btn-info btn-sm"><i class="material-icons">info</i></button>

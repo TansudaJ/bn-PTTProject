@@ -35,8 +35,8 @@ class Login extends CI_Controller {
 	}
 		
 	public function logout(){
-		$array_items = array('userID', 'username','fname','lname','email','phone','roleID','logged_in');
-		$this->session->set_flashdata('message_error', 'ออกสู่ระบบสำเร็จ');
+		$array_items = array('employeeID', 'username','f_name','l_name','email','phone','authority_authorityID','logged_in');
+		$this->session->set_flashdata('message_error', 'ออกจากระบบสำเร็จ');
 		$this->session->unset_userdata($array_items);
 		redirect('/Login/');
 	}

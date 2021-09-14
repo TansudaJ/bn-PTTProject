@@ -4,14 +4,14 @@ class UserModel extends CI_Model {
     {
             //$query = $this->db->get('users'); // SELECT * FROM users
             
-            $query = $this->db->query("SELECT * FROM users u JOIN roles r ON u.roleID =r.roleID ");
+            $query = $this->db->query("SELECT * FROM employee e JOIN authority a on e.authority_authorityID = a.authorityID");
             return $query->result();
     }
 
     public function check_username_password($username,$password)
     {
             //$query = $this->db->get('users');
-            $sql = "SELECT * FROM users WHERE username='".$username."' and password='".$password."' and activeflag = 1";
+            $sql = "SELECT * FROM employee WHERE username='".$username."' and password='".$password."' and activeflag = 1";
             //echo $sql;
             //die();
             $query = $this->db->query($sql);
@@ -20,13 +20,13 @@ class UserModel extends CI_Model {
                 //var_dump($users);
                 $user = $users[0];
                 if($user->password == $password){
-                        $user_data["userID"] = $user->userID;
+                        $user_data["employeeID"] = $user->employeeID;
                         $user_data["username"] = $user->username;
-                        $user_data["fname"] = $user->fname;
-                        $user_data["lname"] = $user->lname;
+                        $user_data["f_name"] = $user->f_name;
+                        $user_data["l_name"] = $user->l_name;
                         $user_data["email"] = $user->email;
                         $user_data["telno"] = $user->telno;
-                        $user_data["roleID"] = $user->roleID;
+                        $user_data["authority_authorityID"] = $user->authority_authorityID;
                         $user_data["logged_in"] = TRUE;
                         $this->session->set_userdata($user_data);
                         return (true);
@@ -41,10 +41,12 @@ class UserModel extends CI_Model {
     }
 
     public function insert_users($user)
+    
     {
         if($this->getuser_by_username($user["username"])==TRUE){
-                $sql = "INSERT INTO `users`(`userID`, `fname`, `lname`, `activeFlag`, `roleID`, `telno`, `email`, `username`, `password`) 
-                VALUES (NULL,'".$user["fname"]."','".$user["lname"]."','".$user["activeFlag"]."','".$user["roleID"]."','".$user["telno"]."','".$user["email"]."','".$user["username"]."','".$user["password"]."')";
+             
+                $sql = "INSERT INTO `employee`(`employeeID`, `n_prefix`, `f_name`, `l_name`, `telno`, `email`, `username`, `password`, `authority_authorityID`, `imageURL`,  `activeflag`)
+                VALUES ('".$user["employeeID"]."','','".$user["f_name"]."','".$user["l_name"]."','".$user["telno"]."','".$user["email"]."','".$user["username"]."','".$user["password"]."','".$user["authority_authorityID"]."','','".$user["activeflag"]."')";
                 $query = $this->db->query($sql);
                 return (TRUE);
             }else{
@@ -55,7 +57,7 @@ class UserModel extends CI_Model {
 
     public function getuser_by_username($username)
     {
-        $sql = "SELECT * FROM users WHERE username = '".$username."' ";
+        $sql = "SELECT * FROM employee WHERE username = '".$username."' ";
         if( $this->db->query($sql)){
             
             return (TRUE);

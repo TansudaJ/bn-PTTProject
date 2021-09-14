@@ -15,9 +15,9 @@ table {
                   <h4 class="card-title "><?php echo $navbar_name?></h4>
                 </div>
                 <div class="card-body">
-                <div class="text-right"  <?php if($_SESSION['authorityID'] == '3') {echo " style='display: none'"; } ?>>
+                <div class="text-right"  <?php if($_SESSION['authority_authorityID'] == '3') {echo " style='display: none'"; } ?>>
                 
-            
+      
                 <a  href="<?php echo site_url("Plants/new_plant"); ?>" ><button  type="button" class="btn btn-success"><i class="material-icons" >add</i>เพิ่มพรรณไม้</button>
 
                       
@@ -30,7 +30,7 @@ table {
                             <th class="text-center">ชื่อ</th>
                             <th class="text-center">ชื่อวิทยาศาสตร์</th>
                             <th class="text-center">ชื่อวงศ์</th>
-                            <th class="text-center">ชื่อพื้นเมือง</th>
+                            
                             <th class="text-center">ประเภท</th>
                             <th class="text-center"></th>
                         </tr>
@@ -39,10 +39,20 @@ table {
                     <?php foreach($plantList as $row){?>
                         <tr>
                             <td><?php echo $row->vegetationID; ?></td>
-                            <td><?php echo $row->n_common_ENG; ?></td>
+                            <td><?php echo $row->n_common_TH ." (".$row->n_common_ENG.")"; ?></td>
                             <td><?php echo $row->n_scientific; ?></td>
                             <td><?php echo $row->n_family; ?></td>
-                            <td><?php echo $row->localname; ?></td>
+                            <!--<td><?php if ($row->region == "1") {
+                                        echo "ภาคเหนือ";
+                                      }elseif($row->region == "2"){
+                                        echo "ภาคกลาง";
+                                      }elseif($row->region == "3"){
+                                        echo "ภาคใต้";
+                                      }elseif($row->region == "4"){
+                                        echo "ภาคตะวันออกเฉียงเหนือ";
+                                      }
+                            ?>  (<?php echo $row->localname; ?>)</td>
+                            -->
                             <td><?php if ($row->type == "1") {
                                         echo "ไม้ดอก";
                                       }elseif($row->type == "2"){

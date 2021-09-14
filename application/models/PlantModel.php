@@ -3,8 +3,8 @@ class PlantModel extends CI_Model {
     public function get_all_plants()
     {
             //$query = $this->db->get('users'); // SELECT * FROM users
-
-            $query = $this->db->query("SELECT * FROM vegetation JOIN localname ON vegetation.vegetationID = localname.vegetationID; ");
+            $query = $this->db->query("SELECT * FROM vegetation");
+            //$query = $this->db->query("SELECT * FROM vegetation v JOIN localname l ON v.vegetationID = l.vegetation_vegetationID ");
             return $query->result();
     }
 

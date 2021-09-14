@@ -41,7 +41,7 @@
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
                   
                 <a class="dropdown-item" href="#"> <?php
-                     echo $_SESSION['fname']."  ".$_SESSION['lname'];
+                     echo $_SESSION['f_name']."  ".$_SESSION['l_name'];
                      
                      
                     //IF LOGADO TIRAR FORM. 

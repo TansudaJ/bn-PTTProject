@@ -56,24 +56,26 @@ class Users extends CI_Controller {
 	public function new_user_add()
 	{
 		$this->checklogin();
+		$employeeID 	= $_POST["employeeID"];
 		$username 	= $_POST["username"];
 		$email 		= $_POST["email"];
-		$fname 		= $_POST["fname"];
-		$lname 		= $_POST["lname"];
+		$f_name 		= $_POST["f_name"];
+		$l_name 		= $_POST["l_name"];
 		$telno 		= $_POST["telno"];
 		$password 	= $_POST["password"];
-		$roleID 		= $_POST["roleID"];
-		$activeFlag 		= $_POST["activeFlag"];
+		$authority_authorityID		= $_POST["authority_authorityID"];
+		$activeflag 		= $_POST["activeflag"];
 		
 		$data = array(
+			"employeeID"=>$employeeID, 
 			"username"=>$username, 
 			"email"=>$email,
-			"fname"=>$fname,
-			"lname"=>$lname,
+			"f_name"=>$f_name,
+			"l_name"=>$l_name,
 			"telno"=>$telno,
 			"password"=>$password,
-			"roleID"=>$roleID,
-			"activeFlag"=>$activeFlag
+			"authority_authorityID"=>$authority_authorityID,
+			"activeflag"=>$activeflag
 		);
 		
 		$this->load->model('UserModel');
@@ -112,7 +114,7 @@ class Users extends CI_Controller {
 			redirect('/login/');
 		}
 
-		if($_SESSION['roleID'] != '1'){
+		if($_SESSION['authority_authorityID'] != '1'){
 			$this->session->set_flashdata('message_error', 'คุณไม่มีสิทธิ์ใช้งาน');
 			redirect('/Dashboards/dashboard');
 		}
