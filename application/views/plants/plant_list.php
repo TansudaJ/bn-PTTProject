@@ -18,7 +18,7 @@ table {
                 <div class="text-right"  <?php if($_SESSION['authority_authorityID'] == '3') {echo " style='display: none'"; } ?>>
                 
       
-                <a  href="<?php echo site_url("Plants/new_plant"); ?>" ><button  type="button" class="btn btn-success"><i class="material-icons" >add</i>เพิ่มพรรณไม้</button>
+                <a  href="<?php echo site_url("Plants/new_plant"); ?>" ><button  type="button" class="btn btn-success"><i class="material-icons" >add</i>เพิ่มพันธุ์ไม้</button>
 
                       
                   </div>

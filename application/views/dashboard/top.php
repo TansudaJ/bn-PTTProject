@@ -82,14 +82,14 @@ The above copyright notice and this permission notice shall be included in all c
               <p>จัดการโซน</p>
             </a>
           </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="./typography.html">
+          <li class="nav-item <?php if ($activebar == "imagemap"){echo "active";} ?> ">
+            <a class="nav-link" href="<?php echo site_url("Imagemaps/imagemap"); ?>">
               <i class="material-icons">library_books</i>
               <p>จัดการแผนที่รูปภาพ</p>
             </a>
           </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="./icons.html">
+          <li class="nav-item <?php if ($activebar == "maintenance"){echo "active";} ?>">
+            <a class="nav-link" href="<?php echo site_url("Maintenances/maintenance"); ?>">
               <i class="material-icons">content_paste</i>
               <p>จัดการวิธีการดูแล</p>
             </a>

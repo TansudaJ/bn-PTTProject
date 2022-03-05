@@ -16,12 +16,12 @@
    }
 </style>
 
-<form method="post" action="<?php echo site_url("trees/new_plant_add");?>"> 
+<form method="post" action="<?php echo site_url("plantpath/new_plantpath_add");?>"> 
 <div class="row">
             <div class="col-md-12">
               <div class="card">
                 <div class="card-header card-header-success">
-                  <h3 class="card-title">เพิ่มข้อมูลต้นไม้</h3>
+                  <h3 class="card-title">เพิ่มข้อมูลส่วนประกอบต้นไม้</h3>
                 </div><br>
                 <div class="card-body">
                   <form>
@@ -111,7 +111,7 @@
                     </div>
                     
                     
-                    <a href="<?php echo site_url("Plants/plant"); ?>" class="btn btn-warning pull-left">ย้อนกลับ</a>
+                    <a href="<?php echo site_url("Plantpaths/plantpath"); ?>" class="btn btn-warning pull-left">ย้อนกลับ</a>
                     <button type="submit" class="btn btn-success pull-right">บันทึก</button>
                     <div class="clearfix"></div>
                   </form>

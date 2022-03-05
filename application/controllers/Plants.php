@@ -10,7 +10,7 @@ class Plants extends CI_Controller {
 		
 //		var_dump($tmp);
 
-		$data = array('navbar_name'=>'จัดการข้อมูลพรรณไม้');
+		$data = array('navbar_name'=>'ข้อมูลพันธุ์ไม้');
 		$data_top = array('activebar'=>'plant');
 		$this->load->view('dashboard/top',$data_top);
 		$this->load->view('dashboard/navbar',$data);
@@ -36,7 +36,7 @@ class Plants extends CI_Controller {
 		
 		//var_dump($tmp);die();
 
-		$data = array('navbar_name'=>'จัดการข้อมูลพรรณไม้');
+		$data = array('navbar_name'=>'จัดการข้อมูลพันธุ์ไม้');
 		$data_top = array('activebar'=>'plant');
 		$this->load->view('dashboard/top',$data_top);
 		$this->load->view('dashboard/navbar',$data);

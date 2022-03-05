@@ -7,6 +7,10 @@ th {
 table {
   margin: 0;
 }
+button.btn.btn-info:host {
+    width: 20px;
+    height: 34px;
+}
 </style>
 <div class="row">
             <div class="col-md-12">
@@ -16,30 +20,26 @@ table {
                 </div>
                 <div class="card-body">
                 <div class="text-right">
-                  <a  href="<?php echo site_url("Trees/new_tree"); ?>" ><button type="submit" class="btn btn-success"><i class="material-icons">add</i>เพิ่มต้นไม้</button>
+                  <a  href="<?php echo site_url("Maintenances/new_maintenance"); ?>" ><button type="submit" class="btn btn-success"><i class="material-icons">add</i>เพิ่มส่วนประกอบต้นไม้</button>
                   </div>
                   <div class="table-responsive">
                   <table id="example1" class="table table-striped table-bordered" style="width:100%">
                     <thead>
                         <tr>
                             <th class="text-center">รหัส</th>
-                            <th class="text-center">ชื่อ</th>
-                            <th class="text-center">ชื่อพื้นเมือง</th>
-                            <th class="text-center">สถานที่</th>
-                            <th class="text-center">QR code</th>
+                            <th class="text-center">ชื่อพันธุ์ไม้</th>
+                            <th class="text-center">ชื่อผู้ดูแล</th>
+                            <th class="text-center">วันที่</th>
                             <th class="text-center"></th>
                         </tr>
                     </thead>
                     <tbody> 	
-                    <?php foreach($treeList as $row){?>
+                    <?php foreach($maintenanceList as $row){?>
                         <tr>
-                            <td><?php echo $row->zones_zoneID ."-".$row->treeID; ?></td>
-                            <td><?php echo $row->Common; ?></td>
-                            <td><?php echo $row->Local; ?></td>
-                            <td><?php echo $row->name; ?></td>
-                            <td>
-                              
-                            </td>
+                            <td><?php echo $row->maintenanceID ."-".$row->maintenancetypeID; ?></td>
+                            <td><?php echo $row->n_common_TH; ?></td>
+                            <td><?php echo $row->n_prefix ."".$row->f_name ."".$row->l_name; ?></td>
+                            <td><?php echo $row->date; ?></td>
                             <td class="text-center">
                                   <button type="button" title="View" class="btn btn-info"><i class="material-icons">info</i></button>
                                   <button type="button" title="Edit" class="btn btn-warning"><i class="material-icons">edit</i></button>  

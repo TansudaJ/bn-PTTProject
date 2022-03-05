@@ -91,6 +91,27 @@ class Users extends CI_Controller {
 
 	}
 
+	public function view_user($id){
+		$data2 = array();
+
+		$this->load->model('UserModel');
+		if (!empty($id)) {
+			$data2['UserModel'] = $this->UserModel->getRows(array('employeeID' => $id)) ;
+
+			$data = array('navbar_name'=>'ข้อมูลผู้ใช้งาน');
+			$data_top = array('activebar'=>'user');
+			$this->load->view('dashboard/top',$data_top);
+			$this->load->view('dashboard/navbar',$data);
+			$this->load->view('dashboard/topcontent');
+
+			$this->load->view('users/user_view',$data2);
+			$this->load->view('dashboard/footcontent');
+			$this->load->view('dashboard/footer');
+
+		}else{
+			redirect('Users/user');
+		}
+	}
 
 	public function edit_user()
 	{
