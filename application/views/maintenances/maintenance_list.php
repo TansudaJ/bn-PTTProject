@@ -20,7 +20,7 @@ button.btn.btn-info:host {
                 </div>
                 <div class="card-body">
                 <div class="text-right">
-                  <a  href="<?php echo site_url("Maintenances/new_maintenance"); ?>" ><button type="submit" class="btn btn-success"><i class="material-icons">add</i>เพิ่มส่วนประกอบต้นไม้</button>
+                  <a  href="<?php echo site_url("Maintenances/new_maintenance"); ?>" ><button type="submit" class="btn btn-success"><i class="material-icons">add</i>เพิ่มวิธีการดูแล</button>
                   </div>
                   <div class="table-responsive">
                   <table id="example1" class="table table-striped table-bordered" style="width:100%">
