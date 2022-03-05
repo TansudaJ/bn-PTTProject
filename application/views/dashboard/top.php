@@ -45,7 +45,7 @@ The above copyright notice and this permission notice shall be included in all c
     -->
     <div class="sidebar" data-color="green" data-background-color="white" data-image="<?php echo base_url();?>/assets/img/sidebar-1.jpg">
       <div class="logo"><a href="#" class="simple-text logo-normal">
-          PTTEP ...
+          PTTEP
         </a></div>
       <div class="sidebar-wrapper">
         <ul class="nav">
@@ -55,18 +55,6 @@ The above copyright notice and this permission notice shall be included in all c
               <p>Dashboard</p>
             </a>
           </li>
-          <li class="nav-item <?php if ($activebar == "plant"){echo "active";} ?>">
-            <a class="nav-link" href="<?php echo site_url("Plants/plant"); ?>">
-            <i class="material-icons">park</i>
-              <p>จัดการข้อมูลพรรณไม้</p>
-            </a>
-          </li>
-          <li class="nav-item <?php if ($activebar == "tree"){echo "active";} ?>">
-              <a class="nav-link" href="<?php echo site_url("Trees/tree"); ?>">
-              <i class="material-icons">forest</i>
-              <p>จัดการข้อมูลต้นไม้</p>
-            </a>
-          </li>
           <li class="nav-item dropdown <?php if ($activebar == "simple"){echo "active";} ?>">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" style="font-size: 14px;" aria-haspopup="true" aria-expanded="false">
         <i class="material-icons">people</i>จัดการข้อมูลพื้นฐาน
@@ -74,13 +62,23 @@ The above copyright notice and this permission notice shall be included in all c
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
           <a class="dropdown-item <?php if ($activebar == "user"){echo "active";} ?>" href="<?php echo site_url("Users/user"); ?>">จัดการข้อมูลผู้ใช้งาน</a>
           <a class="dropdown-item <?php if ($activebar == "simple"){echo "active";} ?>" href="<?php echo site_url("Simples/simple"); ?>">จัดการข้อมูลตำแหน่งงาน</a>
-          
         </div>
       </li>
-      
-          <li class="nav-item ">
-            <a class="nav-link" href="./tables.html">
-              <i class="material-icons">content_paste</i>
+          <li class="nav-item <?php if ($activebar == "plant"){echo "active";} ?>">
+            <a class="nav-link" href="<?php echo site_url("Plants/plant"); ?>">
+            <i class="material-icons">park</i>
+              <p>จัดการข้อมูลพรรณไม้</p>
+            </a>
+          </li>
+          <li class="nav-item <?php if ($activebar == "vegetation"){echo "active";} ?>">
+              <a class="nav-link" href="<?php echo site_url("Vegetations/vegetation"); ?>">
+              <i class="material-icons">forest</i>
+              <p>จัดการข้อมูลต้นไม้</p>
+            </a>
+          </li>
+          <li class="nav-item <?php if ($activebar == "zone"){echo "active";} ?>">
+            <a class="nav-link" href="<?php echo site_url("Zones/zone"); ?>">
+              <i class="material-icons">bubble_chart</i>
               <p>จัดการโซน</p>
             </a>
           </li>
@@ -92,12 +90,12 @@ The above copyright notice and this permission notice shall be included in all c
           </li>
           <li class="nav-item ">
             <a class="nav-link" href="./icons.html">
-              <i class="material-icons">bubble_chart</i>
+              <i class="material-icons">content_paste</i>
               <p>จัดการวิธีการดูแล</p>
             </a>
           </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="./map.html">
+          <li class="nav-item <?php if ($activebar == "plantpath"){echo "active";} ?> ">
+            <a class="nav-link" href="<?php echo site_url("Plantpaths/plantpath"); ?>">
               <i class="material-icons">location_ons</i>
               <p>จัดการส่วนประกอบต้นไม้</p>
             </a>

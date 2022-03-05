@@ -1,55 +1,55 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Plants extends CI_Controller {
-	public function plant()
+class Vegetations extends CI_Controller {
+	public function vegetation()
 	{
-		$this->load->model('PlantModel');
-		$tmp = $this->PlantModel->get_all_plants();
+		$this->load->model('VegetationModel');
+		$tmp = $this->VegetationModel->get_all_vegetation();
 		//$tmp2 = $this->UserModel->check_username_password('111','222');
 		
 //		var_dump($tmp);
 
-		$data = array('navbar_name'=>'จัดการข้อมูลพรรณไม้');
-		$data_top = array('activebar'=>'plant');
+		$data = array('navbar_name'=>'จัดการข้อมูลต้นไม้');
+		$data_top = array('activebar'=>'vegetation');
 		$this->load->view('dashboard/top',$data_top);
 		$this->load->view('dashboard/navbar',$data);
 		$this->load->view('dashboard/topcontent');
 		//$this->load->view('users/user_form');
 		//$page_data = array('userList'=>$tmp,'datatml2'=>$tmp2);
-		$page_data['plantList'] = $tmp;
+		$page_data['vegetationList'] = $tmp;
 		//$page_data['datatmp2'] = $tmp2;
 
-		$this->load->view('plants/plant_list',$page_data);
+		$this->load->view('vegetations/vegetation_list',$page_data);
 
 		$this->load->view('dashboard/footcontent');
 		$this->load->view('dashboard/footer');
 	}
 
-	public function new_plant()
+	public function new_vegetation()
 	{
 		//$this->checklogin();
 		//$this->load->view('welcome_message');
-		$this->load->model('PlantModel');
-		$tmp = $this->PlantModel->get_all_plants();
+		$this->load->model('VegetationModel');
+		$tmp = $this->VegetationModel->get_all_vegetation();
 		//$tmp2 = $this->UserModel->check_username_password('111','222');
 		
 		//var_dump($tmp);die();
 
-		$data = array('navbar_name'=>'จัดการข้อมูลพรรณไม้');
-		$data_top = array('activebar'=>'plant');
+		$data = array('navbar_name'=>'จัดการข้อมูลต้นไม้');
+		$data_top = array('activebar'=>'vegetation');
 		$this->load->view('dashboard/top',$data_top);
 		$this->load->view('dashboard/navbar',$data);
 		$this->load->view('dashboard/topcontent');
-		$page_data['plantForm'] = $tmp;
+		$page_data['vegetationForm'] = $tmp;
 
-		$this->load->view('plants/plant_form',$page_data);
+		$this->load->view('vegetations/vegetation_form',$page_data);
 
 		$this->load->view('dashboard/footcontent');
 		$this->load->view('dashboard/footer');
 	}
 
-	public function new_plant_add()
+	public function new_vegetation_add()
 	{
 		//var_dump($_POST);
 		$loname_region = $_POST["loname_region"];
@@ -90,3 +90,4 @@ class Plants extends CI_Controller {
 
 	}
 }
+

@@ -30,7 +30,7 @@ table {
                             <th class="text-center">ชื่อ</th>
                             <th class="text-center">ชื่อวิทยาศาสตร์</th>
                             <th class="text-center">ชื่อวงศ์</th>
-                            
+                            <th class="text-center">ภูมิภาค</th>
                             <th class="text-center">ประเภท</th>
                             <th class="text-center"></th>
                         </tr>
@@ -42,7 +42,7 @@ table {
                             <td><?php echo $row->n_common_TH ." (".$row->n_common_ENG.")"; ?></td>
                             <td><?php echo $row->n_scientific; ?></td>
                             <td><?php echo $row->n_family; ?></td>
-                            <!--<td><?php if ($row->region == "1") {
+                            <td><?php if ($row->region == "1") {
                                         echo "ภาคเหนือ";
                                       }elseif($row->region == "2"){
                                         echo "ภาคกลาง";
@@ -52,7 +52,7 @@ table {
                                         echo "ภาคตะวันออกเฉียงเหนือ";
                                       }
                             ?>  (<?php echo $row->localname; ?>)</td>
-                            -->
+                           
                             <td><?php if ($row->type == "1") {
                                         echo "ไม้ดอก";
                                       }elseif($row->type == "2"){

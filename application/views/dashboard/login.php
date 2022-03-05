@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-<title>Free  Template by devbanban.com</title>
+<title>PTT</title>
 
 <!-- Bootstrap -->
 <!-- Latest compiled and minified CSS -->
@@ -22,10 +22,12 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <style type="text/css">
-#btn{
+.btn{
 	width:100%;
 }
-
+label{
+  font-size: medium;
+}
 </style>
 </head>
 <body>
@@ -37,12 +39,19 @@ if ($this->session->userdata('message_code')) {
       $this->session->unset_userdata('message_code');
       $this->session->unset_userdata('message_error');
 ?>
+
 <div class="alert alert-danger alert-dismissible">
     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-    <strong>Danger!</strong> <?php echo $message;?>
-
-  </div>
-
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-circle-fill" viewBox="0 0 16 16">
+      <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
+    </svg>
+    <strong><?php echo $message;?> !!</strong> 
+</div>
+<script>
+        $(".alert").fadeTo(2000, 500).slideUp(500, function(){
+        $(".alert").slideUp(500);
+        });
+    </script>
   <?php 
   }
   ?>
@@ -52,18 +61,18 @@ if ($this->session->userdata('message_code')) {
     <div class="col-md-4" style="background-color:#f4f4f4">
       <h3 align="center">
       <span class="glyphicon glyphicon-lock"> </span>
-       Form Login </h3>
+       Member Login </h3>
       <form  name="formlogin" action="<?php echo site_url("login/check_login");?>" method="POST" id="login" class="form-horizontal">
         <div class="form-group">
           <div class="col-sm-12">
-          <i class="material-icons">person</i>
+          <i class="fa fa-user"></i>
           <label for="uname">Username</label>
             <input type="text"  name="uname" class="form-control" required placeholder="Username" />
           </div>
         </div>
         <div class="form-group">
           <div class="col-sm-12">
-            <i class="material-icons">vpn_key</i> 
+            <i class="fa fa-lock"></i>
             <label for="psw">Password</label> 
             <input type="password" name="psw" class="form-control" required placeholder="Password" />
           </div>
@@ -73,7 +82,7 @@ if ($this->session->userdata('message_code')) {
               <label>
                 <input type="checkbox"  name="remember"> Remember me
                </label>
-            <button type="submit" class="btn btn-primary" id="btn">
+            <button type="submit" class="btn btn-primary">
             <span class="glyphicon glyphicon-log-in"> </span>
              Login </button>
           </div>
