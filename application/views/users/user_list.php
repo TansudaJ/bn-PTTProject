@@ -68,12 +68,13 @@ if ($this->session->userdata('message_error')) {
   
                 $.ajax({
                   type: "GET",
-                  url: "http://localhost/bn-PTTProject/index.php/Users/userbyID/"+userID,
+                  url: "http://localhost/bn-PTTProject/index.php/API001/userbyID/"+userID,
                   contentType: "application/x-www-form-urlencoded;charset=ISO-8859-15",
                   dataType: 'json',
                   success: function(data){
                     $user = data['data'][0];
         
+                    $('#image-profile').val($user['imageURL']);
                     $('#recipient-name').val($user['n_prefix']);
                     $('#info_modal').modal('toggle');
                   }
@@ -88,13 +89,16 @@ if ($this->session->userdata('message_error')) {
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+        <h5 class="modal-title" id="exampleModalLabel">ข้อมูลผู้ใช้งาน</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
         <form>
+        <div class="form-group">
+            <img class="rounded float-left" id="image-profile">
+          </div>
           <div class="form-group">
             <label for="recipient-name" class="col-form-label">Recipient:</label>
             <input type="text" class="form-control" id="recipient-name">

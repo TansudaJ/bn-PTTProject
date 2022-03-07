@@ -10,7 +10,6 @@ class UserModel extends CI_Model {
 
     public function get_user_byID($id)
     {
-            
             $query = $this->db->query("SELECT * FROM employee e JOIN authority a on e.authority_authorityID = a.authorityID WHERE employeeID = '".$id."'" );
             return $query->result();
     }
