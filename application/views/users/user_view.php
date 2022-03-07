@@ -21,9 +21,7 @@
                 </div>
                 <div class="card-body">
                 <div class="text-right">
-                      <a  href="<?php echo site_url("Users/new_user"); ?>" ><button type="button" class="btn btn-success"><i class="material-icons">add</i>เพิ่มผู้ใช้งาน</button></a>
-                  </div>
-                  <div class="table-responsive">
+                <div class="table-responsive">
                   <table id="example1" class="table table-striped table-bordered" style="width:100%">
                     <thead>
                         <tr>
@@ -35,7 +33,7 @@
                         </tr>
                     </thead>
                     <tbody> 	
-                    <?php foreach ($userList as $row){?>
+                    <?php foreach ($userView as $row){?>
                         <tr>
                             <td class="text-center"><?php echo $row->employeeID; ?></td>
                             <td><?php echo $row->f_name ." ".$row->l_name; ?></td>
@@ -51,9 +49,8 @@
                                 <?php } ?>
                             </td>
                             <td class="text-center"><?php echo $row->n_authority; ?></td>
-                            
                             <td class="text-center">
-                                  <button type="button" title="View" class="btn btn-info btn-sm"><i class="material-icons">info</i></button>
+                                  <button type="button" title="View" class="btn btn-info btn-sm"  href="<?php echo site_url("Users/view"); ?>"><i class="material-icons">info</i></button>
                                   <button type="button" title="Edit" class="btn btn-warning btn-sm" ><i class="material-icons">edit</i></button>    
                             </td>
                         </tr>
@@ -61,18 +58,15 @@
                     </tbody>
                 </table>
                   </div>
+    
+                  
                 </div>
               </div>
             </div>
           </div>
-
-          <script>
-              function page_script(){
-                $('#example1').DataTable();
-                $('#example2').DataTable();
-              }
-          </script>
-          
+          </div>
           
      
       <!-- </div> -->
+
+ 

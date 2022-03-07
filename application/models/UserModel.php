@@ -8,6 +8,13 @@ class UserModel extends CI_Model {
             return $query->result();
     }
 
+    public function get_user_byID($id)
+    {
+            
+            $query = $this->db->query("SELECT * FROM employee e JOIN authority a on e.authority_authorityID = a.authorityID WHERE employeeID = '".$id."'" );
+            return $query->result();
+    }
+
     public function check_username_password($username,$password)
     {
             //$query = $this->db->get('users');

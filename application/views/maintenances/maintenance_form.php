@@ -111,7 +111,7 @@
                     </div>
                     
                     
-                    <a href="<?php echo site_url("Plantpaths/plantpath"); ?>" class="btn btn-warning pull-left">ย้อนกลับ</a>
+                    <a href="<?php echo site_url("Maintenances/maintenance"); ?>" class="btn btn-warning pull-left">ย้อนกลับ</a>
                     <button type="submit" class="btn btn-success pull-right">บันทึก</button>
                     <div class="clearfix"></div>
                   </form>

@@ -27,6 +27,20 @@ class Users extends CI_Controller {
 		$this->load->view('dashboard/footer');
 		
 	}
+
+	public function userbyID($id)
+	{
+		$this->checklogin();
+		$this->load->model('UserModel');
+		$tmp = $this->UserModel->get_user_byID($id);
+		$data['ststus'] = '200';
+		$data['data'] = $tmp;
+		echo header('Content-Type: text/html; charset=UTF-8');
+		echo json_encode($data);
+		//var_dump($tmp);
+	}
+
+
 	public function new_user()
 	{
 		$this->checklogin();
@@ -91,26 +105,25 @@ class Users extends CI_Controller {
 
 	}
 
-	public function view_user($id){
-		$data2 = array();
+	public function view(){
 
+		$this->checklogin();
 		$this->load->model('UserModel');
-		if (!empty($id)) {
-			$data2['UserModel'] = $this->UserModel->getRows(array('employeeID' => $id)) ;
+		$tmp = $this->UserModel->get_all_users();
+		$data = array('navbar_name'=>'ข้อมูลผู้ใช้งาน');
+		$data_top = array('activebar'=>'user');
+		$this->load->view('dashboard/top',$data_top);
+		$this->load->view('dashboard/navbar',$data);
+		$this->load->view('dashboard/topcontent');
+		//$this->load->view('users/user_form');
+		//$page_data = array('userList'=>$tmp,'datatml2'=>$tmp2);
+		$page_data['userView'] = $tmp;
+		//$page_data['datatmp2'] = $tmp2;
 
-			$data = array('navbar_name'=>'ข้อมูลผู้ใช้งาน');
-			$data_top = array('activebar'=>'user');
-			$this->load->view('dashboard/top',$data_top);
-			$this->load->view('dashboard/navbar',$data);
-			$this->load->view('dashboard/topcontent');
+		$this->load->view('users/user_view',$page_data);
 
-			$this->load->view('users/user_view',$data2);
-			$this->load->view('dashboard/footcontent');
-			$this->load->view('dashboard/footer');
-
-		}else{
-			redirect('Users/user');
-		}
+		$this->load->view('dashboard/footcontent');
+		$this->load->view('dashboard/footer');
 	}
 
 	public function edit_user()
