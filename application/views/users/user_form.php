@@ -15,28 +15,29 @@
             });
         </script>
 <form method="post" action="<?php echo site_url("users/new_user_add");?>"> 
-<div class="row">
+      <div class="row">
             <div class="col-md-12">
               <div class="card">
                 <div class="card-header card-header-success">
-                  <h3 class="card-title">New User Profile</h3>
+                  <h3 class="card-title">เพิ่มข้อมูลผู้ใช้งาน</h3>
                 </div>
                 <div class="card-body">
                   <form>
-                    <div class="row">
+                    <!-- row1 -->
+                    <div class="row justify-content-md-center">
                       <div class="col-md-2">
                         <div class="form-group">
                           <label class="bmd-label-floating">รหัสพนักงาน</label>
                           <input type="text" name="employeeID" class="form-control" required>
                         </div>
                       </div>
-                      <div class="col-md-5">
+                      <div class="col-md-4">
                         <div class="form-group">
                           <label class="bmd-label-floating">Username</label>
                           <input type="text" name="username" class="form-control" required>
                         </div>
                       </div>
-                      <div class="col-md-5">
+                      <div class="col-md-4">
                         <div class="form-group input-group">
                           <label class="bmd-label-floating">Password</label>
                             <input type="text" class="form-control" id="password" name="password" readonly>
@@ -46,23 +47,29 @@
                         </div>
                       </div>
                     </div>
-                    <div class="row">
-                      <div class="col-md-3">
+                    <!-- row2 -->
+                    <div class="row justify-content-md-center">
+                    <div class="col-md-2">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">คำนำหน้า</label>
+                            <select class="form-select form-control" name="n_prefix" required>
+                              <option value="">ตัวเลือก</option>
+                              <option value="1">นาย</option>
+                              <option value="2">นาง</option>
+                              <option value="3">นางสาว</option>
+                            </select>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
                         <div class="form-group">
                           <label class="bmd-label-floating">ชื่อ</label>
                           <input type="text" name="f_name" class="form-control" required>
                         </div>
                       </div>
-                      <div class="col-md-3">
+                      <div class="col-md-4">
                         <div class="form-group">
                           <label class="bmd-label-floating">นามสกุล</label>
                           <input type="text" name="l_name" class="form-control" required>
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Email Address</label>
-                          <input type="text" name="email" class="form-control" required>
                         </div>
                       </div>
                     </div>
@@ -101,52 +108,58 @@
                         </div>
                       </div>
                     </div>-->
-                    <div class="row">
-                      <div class="col-md-4">
+                    <!-- row3 -->
+                    <div class="row justify-content-md-center">
+                      <div class="col-md-5">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Email Address</label>
+                          <input type="text" name="email" class="form-control" required>
+                        </div>
+                      </div>
+                      <div class="col-md-5">
                           <div class="form-group">
                             <label class="bmd-label-floating">เบอร์ติดต่อ</label>
                             <input type="text" name="telno" class="form-control" required>
                           </div>
                         </div>
+                    </div>
+                    <!-- row uploadsFile -->
+                    <div class="row">
                         
                     </div>
                     <hr>
-                    <div class="row">
-                      <div class="col-md-4">
+                    <div class="row justify-content-md-center">
+                      <div class="col-md-5">
                         <div class="form-group">
-                          <label class="bmd-label-floating">สิทธิการใช้งาน</label><span>
-                          <select class="form-select form-control "name="authority_authorityID" required>
-                            <option value="">Open this select menu</option>
-                            <option value="1">Administrator</option>
+                          <label class="bmd-label-floating">สิทธิการใช้งาน</label>
+                          <select class="form-select form-control " name="authority_authorityID" required>
+                            <option value="">ตัวเลือก</option>
+                            <option value="1">Admin</option>
                             <option value="2">Editor</option>
                             <option value="3">Employee</option>
                           </select>
                         </div>
-                    </div>
-                            
-
-                   
-                      <div class="col-md-4">
+                      </div>
+                      <div class="col-md-5">
                         <div class="form-group">
-                        <label class="bmd-label-floating">สถานะ</label><span>
-                        <select class="form-select form-control "name="activeflag" required>
-                          <option value="">Open this select menu</option>
+                        <label class="bmd-label-floating">สถานะ</label>
+                        <select class="form-select form-control " name="activeflag" required>
+                          <option value="">ตัวเลือก</option>
                           <option value="0">Inactive</option>
                           <option value="1">Active</option>
                         </select>
-                         
                         </div>
                       </div>
                     </div>
-                    
-                    <a href="<?php echo site_url("Users/user"); ?>" class="btn btn-warning pull-left">ย้อนกลับ</a>
-                    <button type="submit" class="btn btn-success pull-right">บันทึก</button>
+                    <br>
+                    <a href="<?php echo site_url("Users/user"); ?>" class="btn btn-warning pull-left" style="margin-left: 100px;">ย้อนกลับ</a>
+                    <button type="submit" class="btn btn-success pull-right" style="margin-right: 100px;">บันทึก</button>
                     <div class="clearfix"></div>
                   </form>
                 </div>
               </div>
             </div>
-    </div>
+      </div>
   </div>
 
   <script>

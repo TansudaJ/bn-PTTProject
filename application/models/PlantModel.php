@@ -27,27 +27,7 @@ class PlantModel extends CI_Model {
         }else {
             return (FALSE) ;
         }
-       
 
-        // //table1
-        // $sql1 = "INSERT INTO `vegetation`(`vegetationID`, `n_common_TH`, `n_common_ENG`, `n_scientific`, `n_family`, `appearance`, 
-        // `plant_origin`, `distribution`, `type`, `growth`, `shape`, `defoliation`, `flowering_period`, `reference`, 
-        // `co2_storage`, `propagation`, `reference_data`)
-        //  VALUES ('".$vegetationID."','".$n_common_TH."','".$n_common_ENG."','".$n_scientific."','".$n_family."','".$appearance."','".$plant_origin."',
-        //  '".$distribution."','".$type."','".$growth."','".$shape."','".$defoliation."','".$flowering_period."','".$reference."',
-        //  '".$co2_storage."','".$propagation."','".$reference_data."')";
-        //  $this->db->query($sql1);
-        //  $id = $this->db->insert_id();
-         //table2
-        //$sql2 = "INSERT INTO `localname`(`localnameID`, `localname`, `region`, `vegetationID`) 
-        //VALUES ('".$localname."','".$region."')";
-
-        // if ($this->db->query($sql1&&$sql2)) {
-        //     return (TRUE) ;
-        // }else {
-        //     return (FALSE) ;
-        // }
-        //$query = $this->db->query($sql);
                 
 
     }

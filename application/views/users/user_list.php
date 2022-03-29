@@ -31,22 +31,25 @@ if ($this->session->userdata('message_error')) {
                     <?php foreach ($userList as $row){?>
                         <tr>
                             <td class="text-center"><?php echo $row->employeeID; ?></td>
-                            <td><?php echo $row->f_name ." ".$row->l_name; ?></td>
-                            
+                            <td><?php if($row->n_prefix == 1){
+                                        echo "นาย"."".$row->f_name ." ".$row->l_name; 
+                                      }elseif($row->n_prefix == 2){
+                                        echo "นาง"."".$row->f_name ." ".$row->l_name ;
+                                      }elseif($row->n_prefix == 3){
+                                        echo "นางสาว"."".$row->f_name ." ".$row->l_name ;
+                                      } ?></td>
                             <td class="text-center">
                                 <?php if($row->activeflag == '1') { ?>
                                   <span class="badge badge-success">Active</span>
-                                  
                                 <?php } 
                                 else { ?>
                                 <span class="badge badge-danger">Inactive</span>
-                                  
                                 <?php } ?>
                             </td>
                             <td class="text-center"><?php echo $row->n_authority; ?></td>
                             <td class="text-center">
                                   <button type="button" title="View" class="btn btn-info btn-sm"  onclick="infoClick('<?php echo $row->employeeID; ?>')"><i class="material-icons">info</i></button>
-                                  <button type="button" title="Edit" class="btn btn-warning btn-sm" ><i class="material-icons">edit</i></button>    
+                                  <!-- <button type="button" title="Edit" class="btn btn-warning btn-sm" ><i class="material-icons">edit</i></button>     -->
                             </td>
                         </tr>
                     <?php }?>
@@ -72,10 +75,20 @@ if ($this->session->userdata('message_error')) {
                   contentType: "application/x-www-form-urlencoded;charset=ISO-8859-15",
                   dataType: 'json',
                   success: function(data){
-                    $user = data['data'][0];
+                    user = data['data'][0];
         
-                    $('#image-profile').val($user['imageURL']);
-                    $('#recipient-name').val($user['n_prefix']);
+                    //$('#image-profile').val($user['imageURL']);
+                    $("#image_profile").attr('src',user['imageURL']);
+                    $('#prefix').val(user['n_prefix']);
+                    $('#fname').val(user['f_name']);
+                    $('#lname').val(user['l_name']);
+                    $('#telno').val(user['telno']);
+                    $('#email').val(user['email']);
+                    $('#username').val(user['username']);
+                    $('#password').val(user['password']);
+                    $('#authority_authorityID').val(user['authority_authorityID']);
+                    $('#activeflag').val(user['activeflag']);
+
                     $('#info_modal').modal('toggle');
                   }
                 });
@@ -86,34 +99,75 @@ if ($this->session->userdata('message_error')) {
 
 <!-- open modal info--> 
       <div class="modal fade" id="info_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">ข้อมูลผู้ใช้งาน</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form>
-        <div class="form-group">
-            <img class="rounded float-left" id="image-profile">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content" style="width: fit-content;">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">ข้อมูลผู้ใช้งาน</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <!-- image -->
+                <div class="form-group">
+                  <img class="img-fluid rounded mx-auto d-block" id="image_profile" src="" style="width:50%; ">
+                </div>
+                <!-- row1 -->
+                <div class="form-group row">
+                  <label for="prefix" class="col-form-label">คำนำหน้าชื่อ:</label>
+                    <div class="col-sm-10" style="margin: -13px 0 0px 70px;">
+                      <input type="text" class="form-control" id="prefix" style="width:66px;">
+                    </div>
+                  <label for="fname" class="col-form-label" style="margin: 0 0 0 165px;">ชื่อ:</label>
+                    <div class="col-sm-10" style="margin: -35px 0 0px 180px;">
+                      <input type="text" class="form-control" id="fname" style="width:115px;">
+                    </div>
+                  <label for="lname" class="col-form-label" style="margin: 0 0 0 325px;">นามสกุล:</label>
+                    <div class="col-sm-10" style="margin: -35px 0 0px 375px;">
+                      <input type="text" class="form-control" id="lname" style="width:120px;">
+                    </div>
+                </div>
+                <!-- row2 -->
+                <div class="form-group row">
+                    <label for="telno" class="col-form-label">เบอร์ติดต่อ:</label>
+                      <div class="col-sm-10" style="margin: -13px 0 0px 59px;">
+                        <input type="text" class="form-control" id="telno" style="width:80px;">
+                      </div>
+                    <label for="email" class="col-form-label" style="margin: 0 0 0 185px;">Email:</label>
+                      <div class="col-sm-10" style="margin: -35px 0 0px 217px;">
+                        <input type="text" class="form-control" id="email" style="width:250px;">
+                      </div>
+                </div>
+                <!-- row 3 -->
+                <div class="form-group row">
+                  <label for="username" class="col-form-label">USERNAME:</label>
+                    <div class="col-sm-10" style="margin: -13px 0 0px 70px;">
+                      <input type="text" class="form-control" id="username" style="width:66px;">
+                    </div>
+                  <label for="password" class="col-form-label" style="margin: 0 0 0 165px;">PASSWORD:</label>
+                    <div class="col-sm-10" style="margin: -35px 0 0px 235px;">
+                      <input type="text" class="form-control" id="password" style="width:80px;">
+                    </div>
+                </div>
+                <!-- row 4 -->
+                <div class="form-group row">
+                  <label for="authority_authorityID" class="col-form-label">สิทธิการใช้งาน:</label>
+                    <div class="col-sm-10" style="margin: -13px 0 0px 80px;">
+                      <input type="text" class="form-control" id="authority_authorityID" style="width:80px;">
+                    </div>
+                  <label for="activeflag" class="col-form-label" style="margin: 0 0 0 195px;">สถานะ:</label>
+                    <div class="col-sm-10" style="margin: -35px 0 0px 235px;">
+                      <input type="text" class="form-control" id="activeflag" style="width:80px;">
+                    </div>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">ปิด</button>
+              <button type="button" class="btn btn-primary">บันทึกข้อมูล</button>
+            </div>
           </div>
-          <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Recipient:</label>
-            <input type="text" class="form-control" id="recipient-name">
-          </div>
-          <div class="form-group">
-            <label for="message-text" class="col-form-label">Message:</label>
-            <textarea class="form-control" id="message-text"></textarea>
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Send message</button>
-      </div>
-    </div>
-  </div>
+        </div>
 </div>
 <!-- close modal info--> 
