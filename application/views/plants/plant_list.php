@@ -1,3 +1,19 @@
+<?php 
+if ($this->session->userdata('message_error')) {
+    $message = $_SESSION['message_error'];
+    $this->session->unset_userdata('message_error');
+
+?>
+    <div class="alert alert-success">
+      <strong><?php echo $message;?>!</strong>
+    </div>
+    <script>
+        $(".alert").fadeTo(2000, 500).slideUp(500, function(){
+        $(".alert").slideUp(500);
+        });
+    </script>
+<?php } ?>
+
 <style>
   tr:nth-child(even){background-color: #f2f2f2}
 th {
@@ -58,12 +74,12 @@ table {
                                         echo "ไม้เลื้อย";
                                       }elseif($row->type == "5"){
                                         echo "ไม้อิงอาศัย";
+                                      }elseif($row->type == "6"){
+                                        echo "พืชสมุนไพร";
                                       }
                             ?></td>
                             <td class="text-center">
-                                  <button type="button" title="View" class="btn btn-info"><i class="material-icons">info</i></button>
-                                  <button type="button" title="Edit" class="btn btn-warning"><i class="material-icons">edit</i></button>  
-                                  <button type="button" title="Delete" class="btn btn-danger"><i class="material-icons">delete</i></button>      
+                                  <button type="button" title="View" class="btn btn-info"><i class="material-icons">info</i></button>     
                             </td>
                         </tr>
                     <?php }?>

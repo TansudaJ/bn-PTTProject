@@ -67,6 +67,7 @@
                                 <option value="3">ไม้ยืนต้น</option>
                                 <option value="4">ไม้เลื้อย</option>
                                 <option value="5">ไม้อิงอาศัย</option>
+                                <option value="6">พืชสมุนไพร</option>
                               </select>
                         </div>
                       </div>
@@ -152,7 +153,7 @@
                       <div class="col-md-12">
                           <div class="form-group">
                             <label class="bmd-label-floating">ลักษณะ<span class="s">*</span></label>
-                            <input type="text" name="appearance" class="form-control" required>
+                            <textarea class="form-control" rows="5" id="comment" name="appearance" required></textarea>
                           </div>
                         </div> 
                     </div>

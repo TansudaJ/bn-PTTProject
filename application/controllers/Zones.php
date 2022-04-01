@@ -53,4 +53,30 @@ class Zones extends CI_Controller {
 		$this->load->view('dashboard/footer');
 	}
 
+
+	public function new_zone_add()
+	{
+
+		$data["zoneID"] = NULL;
+		$data["nameEN"] = $_POST["nameEN"];
+		$data["nameTH"] 	= $_POST["nameTH"];
+		$data["detail"] 	= $_POST["detail"];
+		$data["status"] 	= $_POST["status"];
+		$data["mapimageURL"] 	= $_POST["mapimageURL"];
+		$data["location"] = $_POST["location"];
+		$data["headzoneID"] = $_POST["headzoneID"];
+		
+		$this->load->model('ZoneModel');
+		$tmp = $this->ZoneModel->insert_zone($data);
+		if($tmp){
+			$this->session->set_flashdata('message_error', 'เพิ่มโซนสำเร็จ');
+			redirect('Zones/zone');
+
+		}else{
+			$this->session->set_flashdata('message_error', 'เพิ่มโซนไม่สำเร็จ');
+			redirect('Zones/zone');
+		}
+
+	}
+
 }

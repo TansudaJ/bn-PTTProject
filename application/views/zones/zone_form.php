@@ -10,13 +10,14 @@
 
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 <style>
   .s{
     color: red;
    }
 </style>
 
-<form method="post" action="<?php echo site_url("Zones/new_zone_add");?>"> 
+<form method="post" action="<?php echo site_url("Zones/new_zone_add");?>" enctype="multipart/form-data"> 
 <div class="row">
             <div class="col-md-12">
               <div class="card">
@@ -30,84 +31,62 @@
                         <h4>ข้อมูลทั่วไป</h4>
                       </div>
                     </div><br>
+                    <!-- row1 -->
                     <div class="row">
                       <div class="col-md-4">
                         <div class="form-group">
-                          <label class="bmd-label-floating">ชื่อ<span class="s">*</span></label>
-                          <select class="form-select form-control "name="n_common_TH" required>
-                              <option value="">-เลือกชื่อ-</option>
-                              <?php foreach($result as $row){?>
-                                <option value="<?php echo $row["vegetationID"];?>">
-                                <?php echo $row["n_common_TH"];?>
-                            </option>
-                            <?php } ?>
-                            </select>
+                          <label class="bmd-label-floating">ชื่อโซนภาษาไทย<span class="s">*</span></label>
+                          <input type="text" name="nameTH" class="form-control" required>
+                        </div>
+                      </div><div class="col-md-4">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">ชื่อโซนภาษาอังกฤษ<span class="s">*</span></label>
+                          <input type="text" name="nameEN" class="form-control" required>
                         </div>
                       </div>
                       <div class="col-md-4">
                         <div class="form-group">
-                          <label class="bmd-label-floating">โซน<span class="s">*</span></label>
-                          <input type="text" name="diameter" class="form-control" required>
+                          <label class="bmd-label-floating">โซนที่<span class="s">*</span></label>
+                          <input type="text" name="headzoneID" class="form-control" required>
                         </div>
                       </div>
                     </div>
+                    <!-- row2 -->
                     <div class="row">
-                      <div class="col-md-4">
+                      <div class="col-md-4" style="margin: 30px 0px 0 0px;">
                         <div class="form-group">
                           <label class="bmd-label-floating">พิกัด<span class="s">*</span></label>
-                          <input type="text" name="coordinates" class="form-control" required>
+                          <input type="text" name="location" class="form-control" required>
                         </div>
                       </div>
                       <div class="col-md-4">
                         <div class="form-group">
-                          <label class="bmd-label-floating">เส้นผ่านศูนย์กลาง<span class="s">*</span></label>
-                          <input type="text" name="diameter" class="form-control" required>
-                        </div>
-                      </div>
-                      <div class="col-md-4">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">ความสูง<span class="s">*</span></label>
-                            <input type="text" name="height" class="form-control" required>
+                          <label class="bmd-label-floating">สถานะ<span class="s">*</span></label>
+                          <select class="form-select form-control "name="status" required>
+                              <option value=""></option>
+                                <option value="0">แสดง</option>
+                                <option value="1">ไม่แสดง</option>
+                            </select>
                         </div>
                       </div>
                     </div>
-                    <div class=row>
-                      <div class="col-md-12">
-                        <h4>รายละเอียด</h4>
-                      </div>
-                    </div><br>
+                    <!-- row3 -->
                     <div class="row">
                       <div class="col-md-4">
-                          <div class="form-group">
-                            <label class="bmd-label-floating">บริเวณที่ปลูก</label>
-                            <select class="form-select form-control "name="propagation" >
-                              <option value="">-เลือกบริเวณที่ปลูกต้นไม้-</option>
-                                <option value="1">ป่าเสม็ด</option>
-                                <option value="2">ป่าพลุ</option>
-                                <option value="3">ป่าดงดึบ</option>
-                                <option value="4">ป่าเบญจพรรณ</option>
-                                <option value="5">ป่าชายเลน</option>
-                                <option value="6">ป่าหาดทราย</option>
-                            </select>
-                          </div>
+                        <div class="form-group">
+                          <label class="bmd-label-floating">รูปภาพโซน<span class="s">*</span></label>
+                          <!-- <input type="file" name="mapimageURL" class="form-control" required> -->
                         </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label class="bmd-label-floating">สภาพปัจจุบัน</label><span>
-                                <input type="text" name="origin" class="form-control" >
-                            </div>
+                      </div>
+                    </div>
+                    <!-- row4 -->
+                    <div class=row>
+                      <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="bmd-label-floating">รายละเอียด</label><span>
+                            <textarea class="form-control" rows="5" name="detail"></textarea>
                         </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label class="bmd-label-floating">จุดแสดงในแผนที่</label><span>
-                                <select class="form-select form-control "name="propagation" >
-                              <option value="">-เลือกการแสดงในแผนที่-</option>
-                                <option value="1">แสดง</option>
-                                <option value="0">ไม่แสดง</option>
-                            </select>
-                            </div>
-                        </div>
-
+                      </div>
                     </div>
                     
                     

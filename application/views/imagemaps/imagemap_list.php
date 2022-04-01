@@ -1,19 +1,3 @@
-<?php 
-if ($this->session->userdata('message_error')) {
-    $message = $_SESSION['message_error'];
-    $this->session->unset_userdata('message_error');
-
-?>
-    <div class="alert alert-success">
-      <strong><?php echo $message;?>!</strong>
-    </div>
-    <script>
-        $(".alert").fadeTo(2000, 500).slideUp(500, function(){
-        $(".alert").slideUp(500);
-        });
-    </script>
-<?php } ?>
-
 <style>
   tr:nth-child(even){background-color: #f2f2f2}
 th {
@@ -36,32 +20,29 @@ button.btn.btn-info:host {
                 </div>
                 <div class="card-body">
                 <div class="text-right">
-                  <a  href="<?php echo site_url("Zones/new_zone"); ?>" ><button type="submit" class="btn btn-success"><i class="material-icons">add</i>เพิ่มโซน</button>
+                  <a  href="<?php echo site_url("Maintenances/new_maintenance"); ?>" ><button type="submit" class="btn btn-success"><i class="material-icons">add</i>เพิ่มแผนที่รูปภาพ</button>
                   </div>
                   <div class="table-responsive">
                   <table id="example1" class="table table-striped table-bordered" style="width:100%">
                     <thead>
                         <tr>
                             <th class="text-center">รหัส</th>
-                            <th class="text-center">ชื่อ</th>
-                            <th class="text-center">สถานะ</th>
-                            <th class="text-center">สถานที่</th>
+                            <th class="text-center">ชื่อพันธุ์ไม้</th>
+                            <th class="text-center">ชื่อผู้ดูแล</th>
+                            <th class="text-center">วันที่</th>
                             <th class="text-center"></th>
                         </tr>
                     </thead>
                     <tbody> 	
-                    <?php foreach($zoneList as $row){?>
+                    <?php foreach($imagemapList as $row){?>
                         <tr>
-                            <td><?php echo $row->headzoneID ."-".$row->zoneID; ?></td>
-                            <td><?php echo $row->nameTH; ?></td>
-                            <td><?php if ($row->status == 1) {
-                              echo "แสดง";
-                            }else{
-                              echo "ไม่แสดง";
-                            } ?></td>
-                            <td><?php echo $row->location; ?></td>
+                            <td><?php echo $row->maintenanceID ."-".$row->maintenancetypeID; ?></td>
+                            <td><?php echo $row->n_common_TH; ?></td>
+                            <td><?php echo $row->n_prefix ."".$row->f_name ."".$row->l_name; ?></td>
+                            <td><?php echo $row->date; ?></td>
                             <td class="text-center">
                                   <button type="button" title="View" class="btn btn-info"><i class="material-icons">info</i></button>
+                                  <button type="button" title="Edit" class="btn btn-warning"><i class="material-icons">edit</i></button>  
                                   <button type="button" title="Delete" class="btn btn-danger"><i class="material-icons">delete</i></button>      
                             </td>
                         </tr>
