@@ -51,7 +51,7 @@
                       </div>
                     </div>
                     <div class="row">
-                      <div class="col-md-4">
+                      <div class="col-md-4" style="margin: 30px 0 0 0">
                         <div class="form-group">
                           <label class="bmd-label-floating">ชื่อวงศ์<span class="s">*</span></label>
                           <input type="text" name="famname" class="form-control" required>
@@ -86,15 +86,15 @@
                             </select>
                         </div>
                       </div>
-                      <div class="col-md-4">
+                      <div class="col-md-4" style="margin: 30px 0px 0 0px;">
                         <div class="form-group">
                         <label class="bmd-label-floating">ชื่อพื้นเมือง<span class="s">*</span></label>
                         <input type="text" id="loname_name" class="form-control" required>
                         </div>
                       </div>
-                      <div class="col-md-4">
+                      <div class="col-md-4" style="margin: 28px 0 0 0;">
                         <div class="form-group">
-                          <button type="button" class="btn-add btn-success">Add Row</button>
+                          <button type="button" class="btn btn-success" id="btn-add">เพิ่ม</button>
                         </div>
                       </div>
                     </div>
@@ -104,7 +104,7 @@
                         <table class="table table-bordered">
                           <thead>
                               <tr>
-                                  <th>Select</th>
+                                  <th>ตัวเลือก</th>
                                   <th>ชื่อพื้นเมือง</th>
                                   <th>ภูมิภาค</th>
                               </tr>
@@ -119,14 +119,14 @@
                       </table>
                       <script>
                       $(document).ready(function(){
-                          $(".btn-add").click(function(){
+                          $("#btn-add").click(function(){
                               var loname_name = $("#loname_name").val();
                               var loname_region = $("#loname_region").val();
                               var markup = "<tr><td><input type='checkbox' name='record'> <input type='hidden' name='loname_name[]' value='"+loname_name+"'><input type='hidden' name='loname_region[]' value='"+loname_region+"'></td><td>" + loname_name + "</td><td>" + loname_region + "</td></tr>";
                               $("table tbody").append(markup);
                           });
                           // Find and remove selected table rows
-                          $(".btn-delete").click(function(){
+                          $("#btn-delete").click(function(){
                               $("table tbody").find('input[name="record"]').each(function(){
                                 if($(this).is(":checked")){
                                       $(this).parents("tr").remove();
@@ -139,7 +139,7 @@
                       </div>
                       <div class="col-md-4">
                         <div class="form-group">
-                        <button type="button" class="btn-delete btn-warning">Delete Row</button>
+                        <button type="button" class="btn btn-warning" id="btn-delete">ลบ</button>
                         </div>
                       </div>
                     </div>
@@ -199,7 +199,7 @@
                     <div class="row">
                       <div class="col-md-4">
                         <div class="form-group">
-                            <select class="form-select form-control "name="propagation" >
+                            <select class="form-select form-control "name="propagationID" >
                               <option value="">-เลือกวิธีการขยายพันธุ์-</option>
                                 <option value="1">การปักชำ</option>
                                 <option value="2">การตอนกิ่ง</option>

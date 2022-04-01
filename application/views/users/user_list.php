@@ -31,11 +31,11 @@ if ($this->session->userdata('message_error')) {
                     <?php foreach ($userList as $row){?>
                         <tr>
                             <td class="text-center"><?php echo $row->employeeID; ?></td>
-                            <td><?php if($row->n_prefix == 1){
+                            <td><?php if($row->PrefixID == 1){
                                         echo "นาย"."".$row->f_name ." ".$row->l_name; 
-                                      }elseif($row->n_prefix == 2){
+                                      }elseif($row->PrefixID == 2){
                                         echo "นาง"."".$row->f_name ." ".$row->l_name ;
-                                      }elseif($row->n_prefix == 3){
+                                      }elseif($row->PrefixID == 3){
                                         echo "นางสาว"."".$row->f_name ." ".$row->l_name ;
                                       } ?></td>
                             <td class="text-center">
@@ -79,14 +79,14 @@ if ($this->session->userdata('message_error')) {
         
                     //$('#image-profile').val($user['imageURL']);
                     $("#image_profile").attr('src',user['imageURL']);
-                    $('#prefix').val(user['n_prefix']);
+                    $('#prefix').val(user['prefix_name']);
                     $('#fname').val(user['f_name']);
                     $('#lname').val(user['l_name']);
                     $('#telno').val(user['telno']);
                     $('#email').val(user['email']);
                     $('#username').val(user['username']);
                     $('#password').val(user['password']);
-                    $('#authority_authorityID').val(user['authority_authorityID']);
+                    $('#authority').val(user['n_authority']);
                     $('#activeflag').val(user['activeflag']);
 
                     $('#info_modal').modal('toggle');
@@ -152,9 +152,9 @@ if ($this->session->userdata('message_error')) {
                 </div>
                 <!-- row 4 -->
                 <div class="form-group row">
-                  <label for="authority_authorityID" class="col-form-label">สิทธิการใช้งาน:</label>
+                  <label for="authority" class="col-form-label">สิทธิการใช้งาน:</label>
                     <div class="col-sm-10" style="margin: -13px 0 0px 80px;">
-                      <input type="text" class="form-control" id="authority_authorityID" style="width:80px;">
+                      <input type="text" class="form-control" id="authority" style="width:80px;">
                     </div>
                   <label for="activeflag" class="col-form-label" style="margin: 0 0 0 195px;">สถานะ:</label>
                     <div class="col-sm-10" style="margin: -35px 0 0px 235px;">

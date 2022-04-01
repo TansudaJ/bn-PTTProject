@@ -16,11 +16,7 @@ table {
                 </div>
                 <div class="card-body">
                 <div class="text-right"  <?php if($_SESSION['authority_authorityID'] == '3') {echo " style='display: none'"; } ?>>
-                
-      
-                <a  href="<?php echo site_url("Plants/new_plant"); ?>" ><button  type="button" class="btn btn-success"><i class="material-icons" >add</i>เพิ่มพันธุ์ไม้</button>
-
-                      
+                <a  href="<?php echo site_url("Plants/new_plant"); ?>" ><button  type="button" class="btn btn-success"><i class="material-icons" >add</i>เพิ่มพันธุ์ไม้</button>  
                   </div>
                   <div class="table-responsive">
                   <table id="example1" class="table table-striped table-bordered" style="width:100%">
@@ -36,7 +32,7 @@ table {
                         </tr>
                     </thead>
                     <tbody> 	
-                    <?php foreach($plantList as $row){?>
+                    <?php foreach ($plantList as $row){?>
                         <tr>
                             <td><?php echo $row->vegetationID; ?></td>
                             <td><?php echo $row->n_common_TH ." (".$row->n_common_ENG.")"; ?></td>
@@ -52,7 +48,6 @@ table {
                                         echo "ภาคตะวันออกเฉียงเหนือ";
                                       }
                             ?>  (<?php echo $row->localname; ?>)</td>
-                           
                             <td><?php if ($row->type == "1") {
                                         echo "ไม้ดอก";
                                       }elseif($row->type == "2"){

@@ -74,7 +74,7 @@ class Plants extends CI_Controller {
 		$data["flowering_period"] 	= $_POST["fperiod"];
 		$data["reference"] = $_POST["reference"];
 		$data["co2_storage"] = $_POST["co2_storage"];
-		$data["propagation"] = $_POST["propagation"];
+		$data["propagationID"] = $_POST["propagationID"];
 		$data["reference_data"] = $_POST["reference_data"];
 		
 		$this->load->model('PlantModel');

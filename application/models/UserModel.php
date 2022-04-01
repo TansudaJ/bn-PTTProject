@@ -10,7 +10,8 @@ class UserModel extends CI_Model {
 
     public function get_user_byID($id)
     {
-            $query = $this->db->query("SELECT * FROM employee e JOIN authority a on e.authority_authorityID = a.authorityID WHERE employeeID = '".$id."'" );
+            $query = $this->db->query("SELECT * FROM employee e JOIN authority a on e.authority_authorityID = a.authorityID 
+            JOIN prefix p ON p.PrefixID=e.PrefixID WHERE employeeID = '".$id."'" );
             return $query->result();
     }
 
@@ -28,7 +29,7 @@ class UserModel extends CI_Model {
                 if($user->password == $password){
                         $user_data["employeeID"] = $user->employeeID;
                         $user_data["username"] = $user->username;
-                        $user_data["n_prefix"] = $user->n_prefix;
+                        $user_data["PrefixID"] = $user->PrefixID;
                         $user_data["f_name"] = $user->f_name;
                         $user_data["l_name"] = $user->l_name;
                         $user_data["email"] = $user->email;
@@ -52,8 +53,8 @@ class UserModel extends CI_Model {
     {
         if($this->getuser_by_username($user["username"])==TRUE){
              
-                $sql = "INSERT INTO `employee`(`employeeID`, `n_prefix`, `f_name`, `l_name`, `telno`, `email`, `username`, `password`, `authority_authorityID`, `imageURL`,  `activeflag`)
-                VALUES ('".$user["employeeID"]."','".$user["n_prefix"]."','".$user["f_name"]."','".$user["l_name"]."','".$user["telno"]."','".$user["email"]."','".$user["username"]."','".$user["password"]."','".$user["authority_authorityID"]."','','".$user["activeflag"]."')";
+                $sql = "INSERT INTO `employee`(`employeeID`, `PrefixID`, `f_name`, `l_name`, `telno`, `email`, `username`, `password`, `authority_authorityID`, `imageURL`,  `activeflag`)
+                VALUES ('".$user["employeeID"]."','".$user["PrefixID"]."','".$user["f_name"]."','".$user["l_name"]."','".$user["telno"]."','".$user["email"]."','".$user["username"]."','".$user["password"]."','".$user["authority_authorityID"]."','','".$user["activeflag"]."')";
                 $query = $this->db->query($sql);
                 return (TRUE);
             }else{

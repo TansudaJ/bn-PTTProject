@@ -60,6 +60,7 @@ class Users extends CI_Controller {
 		$employeeID 	= $_POST["employeeID"];
 		$username 	= $_POST["username"];
 		$email 		= $_POST["email"];
+		$PrefixID= $_POST["PrefixID"];
 		$f_name 		= $_POST["f_name"];
 		$l_name 		= $_POST["l_name"];
 		$telno 		= $_POST["telno"];
@@ -71,6 +72,7 @@ class Users extends CI_Controller {
 			"employeeID"=>$employeeID, 
 			"username"=>$username, 
 			"email"=>$email,
+			"PrefixID"=>$PrefixID,
 			"f_name"=>$f_name,
 			"l_name"=>$l_name,
 			"telno"=>$telno,

@@ -14,6 +14,11 @@
                 });
             });
         </script>
+<style>
+  .s{
+    color: red;
+   }
+</style>
 <form method="post" action="<?php echo site_url("users/new_user_add");?>"> 
       <div class="row">
             <div class="col-md-12">
@@ -27,19 +32,19 @@
                     <div class="row justify-content-md-center">
                       <div class="col-md-2">
                         <div class="form-group">
-                          <label class="bmd-label-floating">รหัสพนักงาน</label>
+                          <label class="bmd-label-floating">รหัสพนักงาน<span class="s">*</span></label>
                           <input type="text" name="employeeID" class="form-control" required>
                         </div>
                       </div>
                       <div class="col-md-4">
                         <div class="form-group">
-                          <label class="bmd-label-floating">Username</label>
+                          <label class="bmd-label-floating">Username<span class="s">*</span></label>
                           <input type="text" name="username" class="form-control" required>
                         </div>
                       </div>
                       <div class="col-md-4">
                         <div class="form-group input-group">
-                          <label class="bmd-label-floating">Password</label>
+                          <label class="bmd-label-floating">Password<span class="s">*</span></label>
                             <input type="text" class="form-control" id="password" name="password" readonly>
                             <div class="input-group-append">
                               <button class="btn btn-primary btn-sm" type="button" onclick="genPassword()">สุ่มรหัสผ่าน</button>
@@ -51,8 +56,8 @@
                     <div class="row justify-content-md-center">
                     <div class="col-md-2">
                         <div class="form-group">
-                          <label class="bmd-label-floating">คำนำหน้า</label>
-                            <select class="form-select form-control" name="n_prefix" required>
+                          <label class="bmd-label-floating">คำนำหน้า<span class="s">*</span></label>
+                            <select class="form-select form-control" name="PrefixID" required>
                               <option value="">ตัวเลือก</option>
                               <option value="1">นาย</option>
                               <option value="2">นาง</option>
@@ -62,13 +67,13 @@
                       </div>
                       <div class="col-md-4">
                         <div class="form-group">
-                          <label class="bmd-label-floating">ชื่อ</label>
+                          <label class="bmd-label-floating">ชื่อ<span class="s">*</span></label>
                           <input type="text" name="f_name" class="form-control" required>
                         </div>
                       </div>
                       <div class="col-md-4">
                         <div class="form-group">
-                          <label class="bmd-label-floating">นามสกุล</label>
+                          <label class="bmd-label-floating">นามสกุล<span class="s">*</span></label>
                           <input type="text" name="l_name" class="form-control" required>
                         </div>
                       </div>
@@ -112,13 +117,13 @@
                     <div class="row justify-content-md-center">
                       <div class="col-md-5">
                         <div class="form-group">
-                          <label class="bmd-label-floating">Email Address</label>
+                          <label class="bmd-label-floating">Email Address<span class="s">*</span></label>
                           <input type="text" name="email" class="form-control" required>
                         </div>
                       </div>
                       <div class="col-md-5">
                           <div class="form-group">
-                            <label class="bmd-label-floating">เบอร์ติดต่อ</label>
+                            <label class="bmd-label-floating">เบอร์ติดต่อ<span class="s">*</span></label>
                             <input type="text" name="telno" class="form-control" required>
                           </div>
                         </div>
@@ -131,7 +136,7 @@
                     <div class="row justify-content-md-center">
                       <div class="col-md-5">
                         <div class="form-group">
-                          <label class="bmd-label-floating">สิทธิการใช้งาน</label>
+                          <label class="bmd-label-floating">สิทธิการใช้งาน<span class="s">*</span></label>
                           <select class="form-select form-control " name="authority_authorityID" required>
                             <option value="">ตัวเลือก</option>
                             <option value="1">Admin</option>
@@ -142,7 +147,7 @@
                       </div>
                       <div class="col-md-5">
                         <div class="form-group">
-                        <label class="bmd-label-floating">สถานะ</label>
+                        <label class="bmd-label-floating">สถานะ<span class="s">*</span></label>
                         <select class="form-select form-control " name="activeflag" required>
                           <option value="">ตัวเลือก</option>
                           <option value="0">Inactive</option>
