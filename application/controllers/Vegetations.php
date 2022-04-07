@@ -5,12 +5,12 @@ class Vegetations extends CI_Controller {
 	public function vegetation()
 	{
 		$this->load->model('VegetationModel');
-		$tmp = $this->VegetationModel->get_all_vegetation();
+		$tmp = $this->VegetationModel->get_all_vegetations();
 		//$tmp2 = $this->UserModel->check_username_password('111','222');
 		
 //		var_dump($tmp);
 
-		$data = array('navbar_name'=>'จัดการข้อมูลต้นไม้');
+		$data = array('navbar_name'=>'จัดการข้อมูลพันธุ์ไม้');
 		$data_top = array('activebar'=>'vegetation');
 		$this->load->view('dashboard/top',$data_top);
 		$this->load->view('dashboard/navbar',$data);
@@ -31,12 +31,12 @@ class Vegetations extends CI_Controller {
 		//$this->checklogin();
 		//$this->load->view('welcome_message');
 		$this->load->model('VegetationModel');
-		$tmp = $this->VegetationModel->get_all_vegetation();
+		$tmp = $this->VegetationModel->get_all_vegetations();
 		//$tmp2 = $this->UserModel->check_username_password('111','222');
 		
 		//var_dump($tmp);die();
 
-		$data = array('navbar_name'=>'จัดการข้อมูลต้นไม้');
+		$data = array('navbar_name'=>'จัดการข้อมูลพันธุ์ไม้');
 		$data_top = array('activebar'=>'vegetation');
 		$this->load->view('dashboard/top',$data_top);
 		$this->load->view('dashboard/navbar',$data);
@@ -77,15 +77,15 @@ class Vegetations extends CI_Controller {
 		$data["propagation"] = $_POST["propagation"];
 		$data["reference_data"] = $_POST["reference_data"];
 		
-		$this->load->model('PlantModel');
-		$tmp = $this->PlantModel->insert_plant($data,$localname);
+		$this->load->model('VegetationModel');
+		$tmp = $this->VegetationModel->insert_vegetation($data,$localname);
 		if($tmp){
 			$this->session->set_flashdata('message_error', 'เพิ่มพันธุ์ไม้สำเร็จ');
-			redirect('Plants/plant');
+			redirect('Vegetations/vegetation');
 
 		}else{
 			$this->session->set_flashdata('message_error', 'เพิ่มพันธุ์ไม้ไม่สำเร็จ');
-			redirect('Plants/plant');
+			redirect('Vegetations/vegetation');
 		}
 
 	}

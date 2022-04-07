@@ -1,19 +1,3 @@
-<?php 
-if ($this->session->userdata('message_error')) {
-    $message = $_SESSION['message_error'];
-    $this->session->unset_userdata('message_error');
-
-?>
-    <div class="alert alert-success">
-      <strong><?php echo $message;?>!</strong>
-    </div>
-    <script>
-        $(".alert").fadeTo(2000, 500).slideUp(500, function(){
-        $(".alert").slideUp(500);
-        });
-    </script>
-<?php } ?>
-
 <style>
   tr:nth-child(even){background-color: #f2f2f2}
 th {
@@ -23,6 +7,10 @@ th {
 table {
   margin: 0;
 }
+button.btn.btn-info:host {
+    width: 20px;
+    height: 34px;
+}
 </style>
 <div class="row">
             <div class="col-md-12">
@@ -31,8 +19,8 @@ table {
                   <h4 class="card-title "><?php echo $navbar_name?></h4>
                 </div>
                 <div class="card-body">
-                <div class="text-right"  <?php if($_SESSION['authority_authorityID'] == '3') {echo " style='display: none'"; } ?>>
-                <a  href="<?php echo site_url("Plants/new_plant"); ?>" ><button  type="button" class="btn btn-success"><i class="material-icons" >add</i>เพิ่มพันธุ์ไม้</button>  
+                <div class="text-right">
+                  <a  href="<?php echo site_url("Plants/new_plant"); ?>" ><button type="submit" class="btn btn-success"><i class="material-icons">add</i>เพิ่มต้นไม้</button>
                   </div>
                   <div class="table-responsive">
                   <table id="example1" class="table table-striped table-bordered" style="width:100%">
@@ -40,46 +28,26 @@ table {
                         <tr>
                             <th class="text-center">รหัส</th>
                             <th class="text-center">ชื่อ</th>
-                            <th class="text-center">ชื่อวิทยาศาสตร์</th>
-                            <th class="text-center">ชื่อวงศ์</th>
-                            <th class="text-center">ภูมิภาค</th>
-                            <th class="text-center">ประเภท</th>
+                            <th class="text-center">ชื่อพื้นเมือง</th>
+                            <th class="text-center">สถานที่</th>
+                            <th class="text-center">QR code</th>
                             <th class="text-center"></th>
                         </tr>
                     </thead>
                     <tbody> 	
-                    <?php foreach ($plantList as $row){?>
+                    <?php foreach($plantList as $row){?>
                         <tr>
-                            <td><?php echo $row->vegetationID; ?></td>
-                            <td><?php echo $row->n_common_TH ." (".$row->n_common_ENG.")"; ?></td>
-                            <td><?php echo $row->n_scientific; ?></td>
-                            <td><?php echo $row->n_family; ?></td>
-                            <td><?php if ($row->region == "1") {
-                                        echo "ภาคเหนือ";
-                                      }elseif($row->region == "2"){
-                                        echo "ภาคกลาง";
-                                      }elseif($row->region == "3"){
-                                        echo "ภาคใต้";
-                                      }elseif($row->region == "4"){
-                                        echo "ภาคตะวันออกเฉียงเหนือ";
-                                      }
-                            ?>  (<?php echo $row->localname; ?>)</td>
-                            <td><?php if ($row->type == "1") {
-                                        echo "ไม้ดอก";
-                                      }elseif($row->type == "2"){
-                                        echo "ไม้ประดับ";
-                                      }elseif($row->type == "3"){
-                                        echo "ไม้ยืนต้น";
-                                      }elseif($row->type == "4"){
-                                        echo "ไม้เลื้อย";
-                                      }elseif($row->type == "5"){
-                                        echo "ไม้อิงอาศัย";
-                                      }elseif($row->type == "6"){
-                                        echo "พืชสมุนไพร";
-                                      }
-                            ?></td>
+                            <td><?php echo $row->zoneID ."-".$row->vegetationID; ?></td>
+                            <td><?php echo $row->n_common_TH; ?></td>
+                            <td><?php echo $row->localname; ?></td>
+                            <td><?php echo $row->nameTH; ?></td>
+                            <td>
+                              
+                            </td>
                             <td class="text-center">
-                                  <button type="button" title="View" class="btn btn-info"><i class="material-icons">info</i></button>     
+                                  <button type="button" title="View" class="btn btn-info"><i class="material-icons">info</i></button>
+                                  <button type="button" title="Edit" class="btn btn-warning"><i class="material-icons">edit</i></button>  
+                                  <button type="button" title="Delete" class="btn btn-danger"><i class="material-icons">delete</i></button>      
                             </td>
                         </tr>
                     <?php }?>

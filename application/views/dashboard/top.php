@@ -64,14 +64,14 @@ The above copyright notice and this permission notice shall be included in all c
           <a class="dropdown-item <?php if ($activebar == "simple"){echo "active";} ?>" href="<?php echo site_url("Simples/simple"); ?>">จัดการข้อมูลตำแหน่งงาน</a>
         </div>
       </li>
-          <li class="nav-item <?php if ($activebar == "plant"){echo "active";} ?>">
-            <a class="nav-link" href="<?php echo site_url("Plants/plant"); ?>">
+          <li class="nav-item <?php if ($activebar == "vegetation"){echo "active";} ?>">
+            <a class="nav-link" href="<?php echo site_url("Vegetations/vegetation"); ?>">
             <i class="material-icons">park</i>
               <p>จัดการข้อมูลพรรณไม้</p>
             </a>
           </li>
-          <li class="nav-item <?php if ($activebar == "vegetation"){echo "active";} ?>">
-              <a class="nav-link" href="<?php echo site_url("Vegetations/vegetation"); ?>">
+          <li class="nav-item <?php if ($activebar == "plant"){echo "active";} ?>">
+            <a class="nav-link" href="<?php echo site_url("Plants/plant"); ?>">
               <i class="material-icons">forest</i>
               <p>จัดการข้อมูลต้นไม้</p>
             </a>
