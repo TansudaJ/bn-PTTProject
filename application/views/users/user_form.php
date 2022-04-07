@@ -127,12 +127,17 @@
                             <input type="text" name="telno" class="form-control" required>
                           </div>
                         </div>
-                    </div>
-                    <!-- row uploadsFile -->
-                    <div class="row">
-                        
-                    </div>
-                    <hr>
+                    </div><br>
+                    <!-- row4 uploadsFile ภาพประจำตัว -->
+                    <div class="row justify-content-md-center">
+                      <div class="col-md-10">
+                        <!-- <div class="form-group"> -->
+                          <label class="bmd-label-floating">ภาพประจำตัว<span class="s">*</span></label>
+                          <input type="file" name="imageURL" id="imageURL" class="form-control">
+                        <!-- </div> -->
+                      </div>
+                    </div><br>
+                    <!-- row5 -->
                     <div class="row justify-content-md-center">
                       <div class="col-md-5">
                         <div class="form-group">

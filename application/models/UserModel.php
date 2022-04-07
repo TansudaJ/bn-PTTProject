@@ -4,7 +4,8 @@ class UserModel extends CI_Model {
     {
             //$query = $this->db->get('users'); // SELECT * FROM users
             
-            $query = $this->db->query("SELECT * FROM employee e JOIN authority a on e.authority_authorityID = a.authorityID");
+            $query = $this->db->query("SELECT * FROM employee e JOIN authority a on e.authority_authorityID = a.authorityID 
+            JOIN prefix p ON p.PrefixID=e.PrefixID");
             return $query->result();
     }
 

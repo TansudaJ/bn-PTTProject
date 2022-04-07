@@ -10,7 +10,7 @@ class Plants extends CI_Controller {
 		
 //		var_dump($tmp);
 
-		$data = array('navbar_name'=>'ข้อมูลพันธุ์ไม้');
+		$data = array('navbar_name'=>'จัดการข้อมูลต้นไม้');
 		$data_top = array('activebar'=>'plant');
 		$this->load->view('dashboard/top',$data_top);
 		$this->load->view('dashboard/navbar',$data);
@@ -36,7 +36,7 @@ class Plants extends CI_Controller {
 		
 		//var_dump($tmp);die();
 
-		$data = array('navbar_name'=>'จัดการข้อมูลพันธุ์ไม้');
+		$data = array('navbar_name'=>'จัดการข้อมูลต้นไม้');
 		$data_top = array('activebar'=>'plant');
 		$this->load->view('dashboard/top',$data_top);
 		$this->load->view('dashboard/navbar',$data);
@@ -80,11 +80,11 @@ class Plants extends CI_Controller {
 		$this->load->model('PlantModel');
 		$tmp = $this->PlantModel->insert_plant($data,$localname);
 		if($tmp){
-			$this->session->set_flashdata('message_error', 'เพิ่มพันธุ์ไม้สำเร็จ');
+			$this->session->set_flashdata('message_error', 'เพิ่มต้นไม้สำเร็จ');
 			redirect('Plants/plant');
 
 		}else{
-			$this->session->set_flashdata('message_error', 'เพิ่มพันธุ์ไม้ไม่สำเร็จ');
+			$this->session->set_flashdata('message_error', 'เพิ่มต้นไม้ไม่สำเร็จ');
 			redirect('Plants/plant');
 		}
 

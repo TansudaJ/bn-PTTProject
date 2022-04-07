@@ -10,7 +10,7 @@ class Maintenances extends CI_Controller {
 		
 //		var_dump($tmp);
 
-		$data = array('navbar_name'=>'ข้อมูลวิธีดูแลรักษา');
+		$data = array('navbar_name'=>'จัดการข้อมูลวิธีดูแลรักษา');
 		$data_top = array('activebar'=>'maintenance');
 		$this->load->view('dashboard/top',$data_top);
 		$this->load->view('dashboard/navbar',$data);

@@ -15,6 +15,18 @@ class API001 extends CI_Controller {
 		//var_dump($tmp);
 	}
 
+	public function vegetationbyID($id)
+	{
+		// $this->checklogin();
+		$this->load->model('VegetationModel');
+		$tmp = $this->VegetationModel->get_vegetation_byID($id);
+		$data['ststus'] = '200';
+		$data['data'] = $tmp;
+		echo header('Content-Type: text/html; charset=UTF-8');
+		echo json_encode($data);
+		//var_dump($tmp);
+	}
+
 
 
     private function checklogin(){

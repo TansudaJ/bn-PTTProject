@@ -7,6 +7,13 @@ class VegetationModel extends CI_Model {
             return $query->result();
     }
 
+    public function get_vegetation_byID($id)
+    {
+            $query = $this->db->query("SELECT * FROM vegetation v INNER JOIN localname l ON v.vegetationID=l.vegetationID
+             WHERE localnameID = '".$id."'" );
+            return $query->result();
+    }
+
     public function insert_vegetation($data,$localname)
     {
         //$sql = $this->db->set($data)->get_compiled_insert('vegetation');

@@ -100,8 +100,6 @@ if ($this->session->userdata('message_error')) {
                     $('#info_modal').modal('toggle');
                   }
                 });
-
-
               }
           </script>         
 

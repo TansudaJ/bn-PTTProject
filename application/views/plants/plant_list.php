@@ -28,8 +28,10 @@ button.btn.btn-info:host {
                         <tr>
                             <th class="text-center">รหัส</th>
                             <th class="text-center">ชื่อ</th>
-                            <th class="text-center">ชื่อพื้นเมือง</th>
-                            <th class="text-center">สถานที่</th>
+                            <th class="text-center">บริเวณที่ปลูก</th>
+                            <th class="text-center">สภาพปัจจุบัน</th>
+                            <th class="text-center">จุดแสดงในแผนที่</th>
+                            <th class="text-center">ความพิเศษ</th>
                             <th class="text-center">QR code</th>
                             <th class="text-center"></th>
                         </tr>
@@ -39,11 +41,11 @@ button.btn.btn-info:host {
                         <tr>
                             <td><?php echo $row->zoneID ."-".$row->vegetationID; ?></td>
                             <td><?php echo $row->n_common_TH; ?></td>
-                            <td><?php echo $row->localname; ?></td>
                             <td><?php echo $row->nameTH; ?></td>
-                            <td>
-                              
-                            </td>
+                            <td><?php echo $row->actual; ?></td>
+                            <td><?php echo $row->show; ?></td>
+                            <td><?php echo $row->exclusivity; ?></td>
+                            <td>Code</td>
                             <td class="text-center">
                                   <button type="button" title="View" class="btn btn-info"><i class="material-icons">info</i></button>
                                   <button type="button" title="Edit" class="btn btn-warning"><i class="material-icons">edit</i></button>  
