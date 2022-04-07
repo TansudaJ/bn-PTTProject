@@ -32,7 +32,7 @@ table {
                 </div>
                 <div class="card-body">
                 <div class="text-right"  <?php if($_SESSION['authority_authorityID'] == '3') {echo " style='display: none'"; } ?>>
-                <a  href="<?php echo site_url("Vegetations/new_vegetation"); ?>" ><button  type="button" class="btn btn-success"><i class="material-icons" >add</i>เพิ่มพันธุ์ไม้</button>  
+                <a  href="<?php echo site_url("Vegetations/new_vegetation"); ?>" ><button  type="button" class="btn btn-success"><i class="material-icons" >add</i>เพิ่มพันธุ์ไม้</button></a>
                   </div>
                   <div class="table-responsive">
                   <table id="example1" class="table table-striped table-bordered" style="width:100%">
@@ -96,7 +96,7 @@ table {
                 $('#example2').DataTable();
               }
               function infoClick(vegetationID){
-  
+                
                 $.ajax({
                   type: "GET",
                   url: "http://localhost/bn-PTTProject/index.php/API001/vegetationbyID/"+vegetationID,
@@ -105,16 +105,17 @@ table {
                   success: function(data){
                     vegetation = data['data'][0];
 
-                    $("#image_profile").attr('src',user['imageURL']);
-                    $('#prefix').val(user['prefix_name']);
-                    $('#fname').val(user['f_name']);
-                    $('#lname').val(user['l_name']);
-                    $('#telno').val(user['telno']);
-                    $('#email').val(user['email']);
-                    $('#username').val(user['username']);
-                    $('#password').val(user['password']);
-                    $('#authority').val(user['n_authority']);
-                    $('#activeflag').val(user['activeflag']);
+                    // $("#image_profile").attr('src',user['imageURL']); ภาพ
+
+                    $('#commonTH').val(vegetation['n_common_TH']);
+                    $('#commonEN').val(vegetation['n_common_ENG']);
+                    $('#n_scientific').val(vegetation['n_scientific']);
+                    $('#n_family').val(vegetation['n_family']);
+                    $('#localname').val(vegetation['localname']);
+                    $('#region').val(vegetation['region']);
+                    $('#type').val(vegetation['type']);
+                    $('#commonTH').val(vegetation['n_common_TH']);
+
 
                     $('#info_modal').modal('toggle');
                   }
@@ -142,40 +143,44 @@ table {
                 </div>
                 <!-- row1 -->
                 <div class="form-group row">
-                  <label for="prefix" class="col-form-label">คำนำหน้าชื่อ:</label>
+                  <label  class="col-form-label">ชื่อภาษาไทย:</label>
                     <div class="col-sm-10" style="margin: -13px 0 0px 70px;">
-                      <input type="text" class="form-control" id="prefix" style="width:66px;">
+                      <input type="text" class="form-control" id="commonTH" style="width:100px;">
                     </div>
-                  <label for="fname" class="col-form-label" style="margin: 0 0 0 165px;">ชื่อ:</label>
-                    <div class="col-sm-10" style="margin: -35px 0 0px 180px;">
-                      <input type="text" class="form-control" id="fname" style="width:115px;">
-                    </div>
-                  <label for="lname" class="col-form-label" style="margin: 0 0 0 325px;">นามสกุล:</label>
-                    <div class="col-sm-10" style="margin: -35px 0 0px 375px;">
-                      <input type="text" class="form-control" id="lname" style="width:120px;">
+                  <label class="col-form-label" style="margin: 0 0 0 200px;">ชื่อภาษาอังกฤษ:</label>
+                    <div class="col-sm-10" style="margin: -35px 0 0px 290px;">
+                      <input type="text" class="form-control" id="commonEN" style="width:200px;">
                     </div>
                 </div>
                 <!-- row2 -->
                 <div class="form-group row">
-                    <label for="telno" class="col-form-label">เบอร์ติดต่อ:</label>
-                      <div class="col-sm-10" style="margin: -13px 0 0px 59px;">
-                        <input type="text" class="form-control" id="telno" style="width:80px;">
-                      </div>
-                    <label for="email" class="col-form-label" style="margin: 0 0 0 185px;">Email:</label>
-                      <div class="col-sm-10" style="margin: -35px 0 0px 217px;">
-                        <input type="text" class="form-control" id="email" style="width:250px;">
+                  <label class="col-form-label">ชื่อทางวิทยาศาสตร์:</label>
+                    <div class="col-sm-10" style="margin: -10px 0 0 106px;">
+                      <input type="text" class="form-control" id="n_scientific" style="width:200px;">
+                    </div>
+                    <label class="col-form-label" style="margin: 0 0 0 330px;">ชื่อวงศ์:</label>
+                      <div class="col-sm-10" style="margin: -36px 0 0px 366px;">
+                        <input type="text" class="form-control" id="n_family" style="width:200px;">
                       </div>
                 </div>
                 <!-- row 3 -->
                 <div class="form-group row">
-                  <label for="username" class="col-form-label">USERNAME:</label>
-                    <div class="col-sm-10" style="margin: -13px 0 0px 70px;">
-                      <input type="text" class="form-control" id="username" style="width:66px;">
+                  <label class="col-form-label">ชื่อพื้นเมือง:</label>
+                    <div class="col-sm-10" style="margin: -13px 0 0px 60px;">
+                      <input type="text" class="form-control" id="localname" style="width:200px;">
                     </div>
-                  <label for="password" class="col-form-label" style="margin: 0 0 0 165px;">PASSWORD:</label>
+                  <label class="col-form-label" style="margin: 0 0 0 288px;">ภูมิภาค:</label>
+                    <div class="col-sm-10" style="margin: -36px 0 0px 326px;">
+                      <input type="text" class="form-control" id="region" style="width:90px;">
+                    </div>
+                    <label class="col-form-label" style="margin: 0 0 0 446px;">ประเภท:</label>
+                    <div class="col-sm-10" style="margin: -36px 0 0px 488px;">
+                      <input type="text" class="form-control" id="type" style="width:90px;">
+                    </div>
+                  <!-- <label for="password" class="col-form-label" style="margin: 0 0 0 165px;">PASSWORD:</label>
                     <div class="col-sm-10" style="margin: -35px 0 0px 235px;">
                       <input type="text" class="form-control" id="password" style="width:80px;">
-                    </div>
+                    </div> -->
                 </div>
                 <!-- row 4 -->
                 <div class="form-group row">

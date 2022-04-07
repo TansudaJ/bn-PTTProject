@@ -19,7 +19,7 @@
     color: red;
    }
 </style>
-<form method="post" action="<?php echo site_url("users/new_user_add");?>"> 
+<form method="post" action="<?php echo site_url("users/new_user_add");?>" enctype="multipart/form-data"> 
       <div class="row">
             <div class="col-md-12">
               <div class="card">
