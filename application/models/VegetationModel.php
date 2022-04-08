@@ -9,8 +9,9 @@ class VegetationModel extends CI_Model {
 
     public function get_vegetation_byID($id)
     {
-            $query = $this->db->query("SELECT * FROM vegetation v INNER JOIN localname l ON v.vegetationID=l.vegetationID
-             WHERE v.vegetationID = '".$id."'" );
+            $query = $this->db->query("SELECT * FROM ((vegetation v INNER JOIN localname l ON v.vegetationID=l.vegetationID)
+            INNER JOIN propagation p ON v.propagationID = p.propagationID )
+            WHERE v.vegetationID = '".$id."'" );
             return $query->result();
     }
 

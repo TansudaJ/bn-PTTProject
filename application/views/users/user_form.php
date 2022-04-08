@@ -133,7 +133,8 @@
                       <div class="col-md-10">
                         <!-- <div class="form-group"> -->
                           <label class="bmd-label-floating">ภาพประจำตัว<span class="s">*</span></label>
-                          <input type="file" name="imageURL" id="imageURL" class="form-control">
+                          <?php echo form_open_multipart('upload/new_user_add');?>
+                            <input type="file" name="imageURL" size="20" class="form-control">
                         <!-- </div> -->
                       </div>
                     </div><br>

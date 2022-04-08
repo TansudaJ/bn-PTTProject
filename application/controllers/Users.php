@@ -56,6 +56,16 @@ class Users extends CI_Controller {
 
 	public function new_user_add()
 	{
+		// uploadimage
+		// $config['upload_path']          = './image/employee/';
+        // $config['allowed_types']        = 'gif|jpg|png';
+        // $config['max_size']             = 100;
+        // $config['max_width']            = 1024;
+        // $config['max_height']           = 768;
+
+        // $this->load->library('upload', $config);
+		// $this->upload->new_user_add('imageURL');
+		
 		$this->checklogin();
 		$employeeID 	= $_POST["employeeID"];
 		$username 	= $_POST["username"];
@@ -67,6 +77,7 @@ class Users extends CI_Controller {
 		$password 	= $_POST["password"];
 		$authority_authorityID		= $_POST["authority_authorityID"];
 		$activeflag 		= $_POST["activeflag"];
+		$imageURL 		= $_POST["imageURL"];
 		
 		$data = array(
 			"employeeID"=>$employeeID, 
@@ -78,7 +89,9 @@ class Users extends CI_Controller {
 			"telno"=>$telno,
 			"password"=>$password,
 			"authority_authorityID"=>$authority_authorityID,
-			"activeflag"=>$activeflag
+			"activeflag"=>$activeflag,
+			"imageURL"=>$imageURL
+			
 		);
 		
 		$this->load->model('UserModel');
@@ -121,5 +134,6 @@ class Users extends CI_Controller {
 			redirect('/Dashboards/dashboard');
 		}
 	}
+	
 	
 }

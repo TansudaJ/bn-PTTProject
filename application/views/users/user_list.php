@@ -85,7 +85,6 @@ if ($this->session->userdata('message_error')) {
                   success: function(data){
                     user = data['data'][0];
         
-                    //$('#image-profile').val($user['imageURL']);
                     $("#image_profile").attr('src',user['imageURL']);
                     $('#prefix').val(user['prefix_name']);
                     $('#fname').val(user['f_name']);
@@ -126,11 +125,11 @@ if ($this->session->userdata('message_error')) {
                       <input type="text" class="form-control" id="prefix" style="width:66px;">
                     </div>
                   <label for="fname" class="col-form-label" style="margin: 0 0 0 165px;">ชื่อ:</label>
-                    <div class="col-sm-10" style="margin: -35px 0 0px 180px;">
+                    <div class="col-sm-10" style="margin: -36px 0 0px 180px;">
                       <input type="text" class="form-control" id="fname" style="width:115px;">
                     </div>
                   <label for="lname" class="col-form-label" style="margin: 0 0 0 325px;">นามสกุล:</label>
-                    <div class="col-sm-10" style="margin: -35px 0 0px 375px;">
+                    <div class="col-sm-10" style="margin: -36px 0 0px 375px;">
                       <input type="text" class="form-control" id="lname" style="width:120px;">
                     </div>
                 </div>
@@ -141,7 +140,7 @@ if ($this->session->userdata('message_error')) {
                         <input type="text" class="form-control" id="telno" style="width:80px;">
                       </div>
                     <label for="email" class="col-form-label" style="margin: 0 0 0 185px;">Email:</label>
-                      <div class="col-sm-10" style="margin: -35px 0 0px 217px;">
+                      <div class="col-sm-10" style="margin: -36px 0 0px 217px;">
                         <input type="text" class="form-control" id="email" style="width:250px;">
                       </div>
                 </div>
@@ -152,7 +151,7 @@ if ($this->session->userdata('message_error')) {
                       <input type="text" class="form-control" id="username" style="width:66px;">
                     </div>
                   <label for="password" class="col-form-label" style="margin: 0 0 0 165px;">PASSWORD:</label>
-                    <div class="col-sm-10" style="margin: -35px 0 0px 235px;">
+                    <div class="col-sm-10" style="margin: -36px 0 0px 235px;">
                       <input type="text" class="form-control" id="password" style="width:80px;">
                     </div>
                 </div>
@@ -163,7 +162,7 @@ if ($this->session->userdata('message_error')) {
                       <input type="text" class="form-control" id="authority" style="width:80px;">
                     </div>
                   <label for="activeflag" class="col-form-label" style="margin: 0 0 0 195px;">สถานะ:</label>
-                    <div class="col-sm-10" style="margin: -35px 0 0px 235px;">
+                    <div class="col-sm-10" style="margin: -36px 0 0px 235px;">
                       <input type="text" class="form-control" id="activeflag" style="width:80px;">
                     </div>
                 </div>
@@ -177,3 +176,4 @@ if ($this->session->userdata('message_error')) {
         </div>
 </div>
 <!-- close modal info--> 
+
