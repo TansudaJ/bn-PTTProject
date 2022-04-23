@@ -24,20 +24,35 @@
                 </div><br>
                 <div class="card-body">
                   <form>
+                    <!-- row1 -->
                     <div class=row>
                       <div class="col-md-12">
                         <h4>ข้อมูลทั่วไป</h4>
                       </div>
                     </div><br>
+                    <!-- row2 -->
                     <div class="row">
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">โซน<span class="s">*</span></label>
+                          <select class="form-select form-control "name="n_common_TH" required>
+                              <option value="">เลือกโซน</option>
+                              <?php foreach($plantList as $result){?>
+                                <option value="<?php echo $result["n_common_TH"];?>">
+                                <?php echo $result["n_common_TH"];?>
+                            </option>
+                            <?php } ?>
+                          </select>
+                        </div>
+                      </div>
                       <div class="col-md-4">
                         <div class="form-group">
                           <label class="bmd-label-floating">ชื่อพันธุ์ไม้<span class="s">*</span></label>
                           <select class="form-select form-control "name="n_common_TH" required>
-                              <option value="">เลือกชื่อ</option>
-                              <?php foreach($result as $row){?>
-                                <option value="<?php echo $row["vegetationID"];?>">
-                                <?php echo $row["n_common_TH"];?>
+                              <option value="">เลือกพันธุ์ไม้</option>
+                              <?php foreach($plantList as $result){?>
+                                <option value="<?php echo $result["n_common_TH"];?>">
+                                <?php echo $result["n_common_TH"];?>
                             </option>
                             <?php } ?>
                           </select>
@@ -45,52 +60,53 @@
                       </div>
                       <div class="col-md-4" style="margin: 30px 0 0 0;">
                         <div class="form-group">
-                          <label class="bmd-label-floating">พิกัด<span class="s">*</span></label>
+                          <label class="bmd-label-floating">พิกัดต้นไม้<span class="s">*</span></label>
                           <input type="text" name="coordinates" class="form-control" required>
                         </div>
                       </div>
+                    </div>
+                    <!-- row3 -->
+                    <div class="row">
                       <div class="col-md-3" style="margin: 30px 0 0 0;">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">เส้นผ่านศูนย์กลาง<span class="s">*</span></label>
-                          <input type="text" name="diameter" class="form-control" required>
+                          <div class="form-group">
+                            <label class="bmd-label-floating">เส้นผ่านศูนย์กลาง<span class="s">*</span></label>
+                            <input type="text" name="diameter" class="form-control" required>
+                          </div>
                         </div>
-                      </div>
-                      <div class="col-md-1" style="margin: 55px 0 0 -20px;">
-                        เซนติเมตร
-                      </div>
+                        <div class="col-md-1" style="margin: 55px 0 0 -20px;">
+                          เซนติเมตร
+                        </div>
+                        <div class="col-md-3" style="margin: 30px 0 0 0">
+                          <div class="form-group">
+                            <label class="bmd-label-floating">ความสูง<span class="s">*</span></label>
+                            <input type="text" name="height" class="form-control" required>
+                          </div>
+                        </div>
+                        <div class="col-md-1" style="margin: 56px 0 0 -20px;">
+                          เมตร
+                        </div>
+                        <div class="col-md-4">
+                          <div class="form-group">
+                            <label class="bmd-label-floating">บริเวณที่ปลูก<span class="s">*</span></label>
+                            <select class="form-select form-control "name="planting_area" required>
+                                <option value="">-เลือกบริเวณที่ปลูกต้นไม้-</option>
+                                  <option value="1">ป่าเสม็ด</option>
+                                  <option value="2">ป่าพลุ</option>
+                                  <option value="3">ป่าดงดึบ</option>
+                                  <option value="4">ป่าเบญจพรรณ</option>
+                                  <option value="5">ป่าชายเลน</option>
+                                  <option value="6">ป่าหาดทราย</option>
+                              </select>
+                          </div>
+                        </div>
                     </div>
                     <div class="row">
-                      <div class="col-md-3" style="margin: 30px 0 0 0">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">ความสูง<span class="s">*</span></label>
-                          <input type="text" name="height" class="form-control" required>
-                        </div>
-                      </div>
-                      <div class="col-md-1" style="margin: 56px 0 0 -20px;">
-                        เมตร
-                      </div>
-                      <div class="col-md-4">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">บริเวณที่ปลูก<span class="s">*</span></label>
-                          <select class="form-select form-control "name="planting_area" required>
-                              <option value="">-เลือกบริเวณที่ปลูกต้นไม้-</option>
-                                <option value="1">ป่าเสม็ด</option>
-                                <option value="2">ป่าพลุ</option>
-                                <option value="3">ป่าดงดึบ</option>
-                                <option value="4">ป่าเบญจพรรณ</option>
-                                <option value="5">ป่าชายเลน</option>
-                                <option value="6">ป่าหาดทราย</option>
-                            </select>
-                        </div>
-                      </div>
                       <div class="col-md-4" style="margin: 30px 0 0 0">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">สภาพปัจจุบัน<span class="s">*</span></label>
-                            <input type="text" name="actual" class="form-control" required>
-                        </div>
+                            <div class="form-group">
+                              <label class="bmd-label-floating">สภาพปัจจุบัน<span class="s">*</span></label>
+                                <input type="text" name="actual" class="form-control" required>
+                            </div>
                       </div>
-                    </div>
-                    <div class="row">
                       <div class="col-md-4">
                           <div class="form-group">
                             <label class="bmd-label-floating">การจัดแสดงในแผนที่<span class="s">*</span></label>

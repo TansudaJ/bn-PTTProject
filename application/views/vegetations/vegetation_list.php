@@ -104,7 +104,7 @@ table {
                   dataType: 'json',
                   success: function(data){
                     vegetation = data['data'][0];
-                    console.log(vegetationID);
+                    // console.log(vegetationID);
 
                     // $("#image_profile").attr('src',user['imageURL']); ภาพ
 
