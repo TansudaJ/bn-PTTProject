@@ -114,9 +114,6 @@ table {
                     $('#n_family').val(vegetation['n_family']);
                     $('#localname').val(vegetation['localname']);
                     $('#region').val(vegetation['region']);
-                    if ($('#region') == 2) {
-                         "ภาคอีสาน";
-                    }
                     $('#type').val(vegetation['type']);
                     $('#appearance').val(vegetation['appearance']);
                     $('#origin').val(vegetation['plant_origin']);
@@ -255,7 +252,28 @@ table {
                 <div class="form-group row">
                   <label for="propagationname" class="col-form-label">วิธีการขยายพันธุ์:</label>
                     <div class="col-sm-10" style="margin: -13px 0 0 90px;">
-                    <input type="text" class="form-control" id="propagationname" style="width: 180px;">
+                    <input type="text" class="form-control" id="propagationname" style="width: 250px;">
+                    </div>
+                </div>
+                <!-- row13 -->
+                <div class="form-group row">
+                  <label for="co2_storage" class="col-form-label">การกักเก็บคาร์บอนไดร์ออกไซด์(ตัน):</label>
+                    <div class="col-sm-10" style="margin: -13px 0 0 203px;">
+                    <input type="text" class="form-control" id="co2_storage" style="width: 387px;">
+                    </div>
+                </div>
+                <!-- row14 -->
+                <div class="form-group row">
+                  <label for="reference" class="col-form-label">แหล่งที่มาของพันธุ์ไม้:</label>
+                    <div class="col-sm-10" style="margin: -13px 0 0 90px;">
+                    <textarea class="form-control" id="reference" rows="2" style="width: 475px; margin: 0 0 0 25px;"></textarea>
+                    </div>
+                </div>
+                <!-- row15 -->
+                <div class="form-group row">
+                  <label for="reference_data" class="col-form-label">แหล่งที่มาของข้อมูล:</label>
+                    <div class="col-sm-10" style="margin: -13px 0 0 90px;">
+                    <textarea class="form-control" id="reference_data" rows="2" style="width: 475px; margin: 0 0 0 25px;"></textarea>
                     </div>
                 </div>
               </form>
