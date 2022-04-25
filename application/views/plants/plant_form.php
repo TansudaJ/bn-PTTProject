@@ -30,16 +30,18 @@
                         <h4>ข้อมูลทั่วไป</h4>
                       </div>
                     </div><br>
+                    <?php var_dump($zoneList);?>
+                    <?php var_dump($vegetationList);?>
                     <!-- row2 -->
                     <div class="row">
                       <div class="col-md-4">
                         <div class="form-group">
                           <label class="bmd-label-floating">โซน<span class="s">*</span></label>
-                          <select class="form-select form-control "name="n_common_TH" required>
+                          <select class="form-select form-control "name="zoneID" required>
                               <option value="">เลือกโซน</option>
-                              <?php foreach($plantList as $result){?>
-                                <option value="<?php echo $result["n_common_TH"];?>">
-                                <?php echo $result["n_common_TH"];?>
+                              <?php foreach($zoneList as $result){?>
+                                <option value="<?php echo $result->zoneID;?>">
+                                <?php echo $result->nameTH;?>
                             </option>
                             <?php } ?>
                           </select>
@@ -48,11 +50,11 @@
                       <div class="col-md-4">
                         <div class="form-group">
                           <label class="bmd-label-floating">ชื่อพันธุ์ไม้<span class="s">*</span></label>
-                          <select class="form-select form-control "name="n_common_TH" required>
+                          <select class="form-select form-control "name="vegetationID" required>
                               <option value="">เลือกพันธุ์ไม้</option>
-                              <?php foreach($plantList as $result){?>
-                                <option value="<?php echo $result["n_common_TH"];?>">
-                                <?php echo $result["n_common_TH"];?>
+                              <?php foreach($vegetationList as $result){?>
+                                <option value="<?php echo $result->vegetationID;?>">
+                                <?php echo $result->n_common_TH;?>
                             </option>
                             <?php } ?>
                           </select>

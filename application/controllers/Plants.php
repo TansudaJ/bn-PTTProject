@@ -32,6 +32,8 @@ class Plants extends CI_Controller {
 		//$this->load->view('welcome_message');
 		$this->load->model('PlantModel');
 		$tmp = $this->PlantModel->get_all_plants();
+		$tmpv = $this->PlantModel->get_all_vegetation();
+		$tmpz = $this->PlantModel->get_all_zone();
 		//$tmp2 = $this->UserModel->check_username_password('111','222');
 		
 		//var_dump($tmp);die();
@@ -42,6 +44,8 @@ class Plants extends CI_Controller {
 		$this->load->view('dashboard/navbar',$data);
 		$this->load->view('dashboard/topcontent');
 		$page_data['plantForm'] = $tmp;
+		$page_data['vegetationList'] = $tmpv;
+		$page_data['zoneList'] = $tmpz;
 
 		$this->load->view('plants/plant_form',$page_data);
 
@@ -51,15 +55,9 @@ class Plants extends CI_Controller {
 
 	public function new_plant_add()
 	{
-		//var_dump($_POST);
-		$loname_region = $_POST["loname_region"];
-		$loname_name = $_POST["loname_name"];
-		$localname = array();
-		foreach($loname_region as $id=>$regionID){
-			$localname[$id] = array("regionID"=>$regionID,"name"=>$loname_name[ $id]);
-		}
 		
-		$data["vegetationID"] = NULL;
+		$data["vegetationID"] = $_POST["vegetationID"];
+
 		$data["n_common_TH"] = $_POST["THname"];
 		$data["n_common_ENG"] 	= $_POST["ENname"];
 		$data["n_scientific"] 	= $_POST["Sciname"];
@@ -78,7 +76,7 @@ class Plants extends CI_Controller {
 		$data["reference_data"] = $_POST["reference_data"];
 		
 		$this->load->model('PlantModel');
-		$tmp = $this->PlantModel->insert_plant($data,$localname);
+		$tmp = $this->PlantModel->insert_plant($data);
 		if($tmp){
 			$this->session->set_flashdata('message_error', 'เพิ่มต้นไม้สำเร็จ');
 			redirect('Plants/plant');

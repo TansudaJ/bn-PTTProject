@@ -56,8 +56,31 @@ class Users extends CI_Controller {
 
 	public function new_user_add()
 	{
-
 		$this->checklogin();
+// upload
+		$config['upload_path']          = './image/employee/';
+        $config['allowed_types']        = 'gif|jpg|png';
+
+		
+        $this->load->library('upload', $config);
+		var_dump($_POST);
+
+        if ( ! $this->upload->do_upload('imageURL'))
+        {
+                $error = array('error' => $this->upload->display_errors());
+				var_dump($error);
+                // $this->load->view('upload_form', $error);
+        }
+        else
+        {
+
+                $data_upload = array('upload_data' => $this->upload->data());
+                var_dump($data_upload);
+
+                // $this->load->view('upload_success', $data);
+        }
+		die();
+		
 		$employeeID 	= $_POST["employeeID"];
 		$username 	= $_POST["username"];
 		$email 		= $_POST["email"];
@@ -97,32 +120,6 @@ class Users extends CI_Controller {
 		}
 
 	}
-
-	// public function index()
-	// {
-    //     $this->load->view('user_form');
-	// }
-	//upload
-    public function do_upload(){
-        
-        $config['upload_path']          = './image/';
-        $config['allowed_types']        = 'gif|jpg|png';
-        //$config['max_size']             = 100;
-        //$config['max_width']            = 1024;
-        //$config['max_height']           = 768;
-        $config['file_name']           = "a";
-        
-
-        $this->load->library('upload', $config);
-
-        $this->upload->do_upload('imageURL');
-        $data = array('upload_data' => $this->upload->data());
-		$this->load->view('upload_success', $data);
-        
-
-        
-
-    }
 
 	public function edit_user()
 	{

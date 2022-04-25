@@ -19,7 +19,8 @@
     color: red;
    }
 </style>
-<form method="post" action="<?php echo site_url("users/new_user_add");?>" enctype="multipart/form-data"> 
+<?php echo form_open_multipart('users/new_user_add');?>
+<!-- <form method="post" action="<?php echo site_url("users/new_user_add");?>">  -->
       <div class="row">
             <div class="col-md-12">
               <div class="card">
@@ -133,8 +134,8 @@
                       <div class="col-md-10">
                         <!-- <div class="form-group"> -->
                           <label class="bmd-label-floating">ภาพประจำตัว<span class="s">*</span></label>
-                          <?php echo form_open_multipart('users/do_upload');?>
                             <input type="file" name="imageURL" size="20" class="form-control">
+                            <input type="text" name="test" class="form-control" >
                         <!-- </div> -->
                       </div>
                     </div><br>
