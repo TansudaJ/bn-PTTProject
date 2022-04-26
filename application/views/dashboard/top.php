@@ -55,15 +55,21 @@ The above copyright notice and this permission notice shall be included in all c
               <p>Dashboard</p>
             </a>
           </li>
-          <li class="nav-item dropdown <?php if ($activebar == "simple"){echo "active";} ?>">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" style="font-size: 14px;" aria-haspopup="true" aria-expanded="false">
-        <i class="material-icons">people</i>จัดการข้อมูลพื้นฐาน
-        </a>
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item <?php if ($activebar == "user"){echo "active";} ?>" href="<?php echo site_url("Users/user"); ?>">จัดการข้อมูลผู้ใช้งาน</a>
-          <a class="dropdown-item <?php if ($activebar == "simple"){echo "active";} ?>" href="<?php echo site_url("Simples/simple"); ?>">จัดการข้อมูลตำแหน่งงาน</a>
-        </div>
-      </li>
+          <li class="nav-item <?php if ($activebar == "user"){echo "active";} ?>">
+            <a class="nav-link" href="<?php echo site_url("Users/user"); ?>">
+            <i class="material-icons">people</i>
+              <p>จัดการข้อมูลพื้นฐาน</p>
+            </a>
+          </li>
+          <!-- <li class="nav-item dropdown <?php if ($activebar == "simple"){echo "active";} ?>">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" style="font-size: 14px;" aria-haspopup="true" aria-expanded="false">
+            <i class="material-icons">people</i>จัดการข้อมูลพื้นฐาน
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item <?php if ($activebar == "user"){echo "active";} ?>" href="<?php echo site_url("Users/user"); ?>">จัดการข้อมูลผู้ใช้งาน</a>
+              <a class="dropdown-item <?php if ($activebar == "simple"){echo "active";} ?>" href="<?php echo site_url("Simples/simple"); ?>">จัดการข้อมูลตำแหน่งงาน</a>
+            </div>
+          </li> -->
           <li class="nav-item <?php if ($activebar == "vegetation"){echo "active";} ?>">
             <a class="nav-link" href="<?php echo site_url("Vegetations/vegetation"); ?>">
             <i class="material-icons">park</i>
@@ -82,12 +88,12 @@ The above copyright notice and this permission notice shall be included in all c
               <p>จัดการโซน</p>
             </a>
           </li>
-          <li class="nav-item <?php if ($activebar == "imagemap"){echo "active";} ?> ">
+          <!-- <li class="nav-item <?php if ($activebar == "imagemap"){echo "active";} ?> ">
             <a class="nav-link" href="<?php echo site_url("Imagemaps/imagemap"); ?>">
               <i class="material-icons">library_books</i>
               <p>จัดการแผนที่รูปภาพ</p>
             </a>
-          </li>
+          </li> -->
           <li class="nav-item <?php if ($activebar == "maintenance"){echo "active";} ?>">
             <a class="nav-link" href="<?php echo site_url("Maintenances/maintenance"); ?>">
               <i class="material-icons">content_paste</i>

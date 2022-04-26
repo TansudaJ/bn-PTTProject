@@ -14,9 +14,13 @@
   .s{
     color: red;
    }
+  h4{
+    color: #9900cc;
+    font-size: 1.75rem;
+  }
 </style>
 
-<form method="post" action="<?php echo site_url("vegetation/new_vegetation_add");?>"> 
+<form method="post" action="<?php echo site_url("vegetations/new_vegetation_add");?>"> 
 <div class="row">
             <div class="col-md-12">
               <div class="card">
@@ -234,6 +238,18 @@
                           </div>
                         </div> 
                     </div><br>
+                    <div class=row>
+                      <div class="col-md-12">
+                        <h4>ส่วนประกอบต้นไม้</h4>
+                      </div>
+                    </div><br>
+
+
+
+
+
+
+
                     
                     <a href="<?php echo site_url("Vegetations/vegetation"); ?>" class="btn btn-warning pull-left">ย้อนกลับ</a>
                     <button type="submit" class="btn btn-success pull-right">บันทึก</button>

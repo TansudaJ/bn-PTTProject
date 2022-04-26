@@ -1,3 +1,19 @@
+<?php 
+if ($this->session->userdata('message_error')) {
+    $message = $_SESSION['message_error'];
+    $this->session->unset_userdata('message_error');
+
+?>
+    <div class="alert alert-success">
+      <strong><?php echo $message;?>!</strong>
+    </div>
+    <script>
+        $(".alert").fadeTo(2000, 500).slideUp(500, function(){
+        $(".alert").slideUp(500);
+        });
+    </script>
+<?php } ?>
+
 <style>
   tr:nth-child(even){background-color: #f2f2f2}
 th {

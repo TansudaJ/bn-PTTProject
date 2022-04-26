@@ -28,4 +28,19 @@ class PlantModel extends CI_Model {
             return $query->result();
     }
 
+    public function insert_plant($data)
+    {
+        $sql = "INSERT INTO `plants`(`plantID`, `coordinates`, `diameter`, `height`, `actual`, `show`, `exclusivity`, `zone_zoneID`, `vegetation_vegetationID`) 
+        VALUES (Null,'".$data["coordinates"]."','".$data["diameter"]."','".$data["height"]."','".$data["actual"]."','".$data["show"]."','".$data["exclusivity"]."',
+        '".$data["zoneID"]."','".$data["vegetationID"]."')";
+        $query = $this->db->query($sql);
+        
+       if( $query>0){
+           return (TRUE) ;
+        }else {
+            return (FALSE) ;
+        }
+
+     }
+
 }

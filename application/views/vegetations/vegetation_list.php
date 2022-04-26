@@ -62,6 +62,10 @@ table {
                                         echo "ภาคใต้";
                                       }elseif($row->region == "4"){
                                         echo "ภาคตะวันออกเฉียงเหนือ";
+                                      }elseif($row->region == "5"){
+                                        echo "ภาคตะวันออก";
+                                      }elseif($row->region == "6"){
+                                        echo "ภาคใต้";
                                       }
                             ?>  (<?php echo $row->localname; ?>)</td>
                             <td><?php if ($row->type == "1") {

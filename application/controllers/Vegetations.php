@@ -51,7 +51,8 @@ class Vegetations extends CI_Controller {
 
 	public function new_vegetation_add()
 	{
-		//var_dump($_POST);
+		// var_dump($_POST);
+		// die();
 		$loname_region = $_POST["loname_region"];
 		$loname_name = $_POST["loname_name"];
 		$localname = array();
@@ -74,7 +75,7 @@ class Vegetations extends CI_Controller {
 		$data["flowering_period"] 	= $_POST["fperiod"];
 		$data["reference"] = $_POST["reference"];
 		$data["co2_storage"] = $_POST["co2_storage"];
-		$data["propagation"] = $_POST["propagation"];
+		$data["propagationID"] = $_POST["propagationID"];
 		$data["reference_data"] = $_POST["reference_data"];
 		
 		$this->load->model('VegetationModel');

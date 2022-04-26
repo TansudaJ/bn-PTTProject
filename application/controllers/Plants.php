@@ -55,25 +55,15 @@ class Plants extends CI_Controller {
 
 	public function new_plant_add()
 	{
-		
+		$data["plantID"] = NULL;
 		$data["vegetationID"] = $_POST["vegetationID"];
-
-		$data["n_common_TH"] = $_POST["THname"];
-		$data["n_common_ENG"] 	= $_POST["ENname"];
-		$data["n_scientific"] 	= $_POST["Sciname"];
-		$data["n_family"] 	= $_POST["famname"];
-		$data["appearance"] 	= $_POST["appearance"];
-		$data["plant_origin"] = $_POST["origin"];
-		$data["distribution"] = $_POST["distribution"];
-		$data["type"] = $_POST["type"];
-		$data["growth"] = $_POST["growth"];
-		$data["shape"] 	= $_POST["shape"];
-		$data["defoliation"] 	= $_POST["defoliation"];
-		$data["flowering_period"] 	= $_POST["fperiod"];
-		$data["reference"] = $_POST["reference"];
-		$data["co2_storage"] = $_POST["co2_storage"];
-		$data["propagationID"] = $_POST["propagationID"];
-		$data["reference_data"] = $_POST["reference_data"];
+		$data["zoneID"] = $_POST["zoneID"];
+		$data["coordinates"] = $_POST["coordinates"];
+		$data["diameter"] 	= $_POST["diameter"];
+		$data["height"] 	= $_POST["height"];
+		$data["actual"] 	= $_POST["actual"];
+		$data["show"] 	= $_POST["show"];
+		$data["exclusivity"] = $_POST["exclusivity"];
 		
 		$this->load->model('PlantModel');
 		$tmp = $this->PlantModel->insert_plant($data);

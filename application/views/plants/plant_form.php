@@ -30,8 +30,8 @@
                         <h4>ข้อมูลทั่วไป</h4>
                       </div>
                     </div><br>
-                    <?php var_dump($zoneList);?>
-                    <?php var_dump($vegetationList);?>
+                    <!-- <?php var_dump($zoneList);?>
+                    <?php var_dump($vegetationList);?> -->
                     <!-- row2 -->
                     <div class="row">
                       <div class="col-md-4">
@@ -86,20 +86,6 @@
                         </div>
                         <div class="col-md-1" style="margin: 56px 0 0 -20px;">
                           เมตร
-                        </div>
-                        <div class="col-md-4">
-                          <div class="form-group">
-                            <label class="bmd-label-floating">บริเวณที่ปลูก<span class="s">*</span></label>
-                            <select class="form-select form-control "name="planting_area" required>
-                                <option value="">-เลือกบริเวณที่ปลูกต้นไม้-</option>
-                                  <option value="1">ป่าเสม็ด</option>
-                                  <option value="2">ป่าพลุ</option>
-                                  <option value="3">ป่าดงดึบ</option>
-                                  <option value="4">ป่าเบญจพรรณ</option>
-                                  <option value="5">ป่าชายเลน</option>
-                                  <option value="6">ป่าหาดทราย</option>
-                              </select>
-                          </div>
                         </div>
                     </div>
                     <div class="row">
