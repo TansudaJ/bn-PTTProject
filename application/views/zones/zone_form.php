@@ -44,10 +44,17 @@
                           <input type="text" name="nameEN" class="form-control" required>
                         </div>
                       </div>
-                      <div class="col-md-4">
+                      <div class="col-md-4" style="margin: -32px 0px 0px 0px;">
                         <div class="form-group">
-                          <label class="bmd-label-floating">โซนที่<span class="s">*</span></label>
-                          <input type="text" name="headzoneID" class="form-control" required>
+                          <label class="bmd-label-floating">เลือกโซนหลัก<span class="s">*</span></label>
+                          <select class="form-select form-control "name="headzoneID" required>
+                              <option value="">เลือกโซน</option>
+                              <?php foreach($zoneList as $result){?>
+                                <option value="<?php echo $result->zoneID;?>">
+                                <?php echo $result->nameTH;?>
+                            </option>
+                            <?php } ?>
+                          </select>
                         </div>
                       </div>
                     </div>

@@ -33,6 +33,7 @@ class Zones extends CI_Controller {
 		//$this->load->view('welcome_message');
 		$this->load->model('ZoneModel');
 		$tmp = $this->ZoneModel->get_all_zone();
+		$tmpz = $this->ZoneModel->getzoneList();
 		//$tmp2 = $this->UserModel->check_username_password('111','222');
 		
 		//var_dump($tmp);die();
@@ -45,6 +46,7 @@ class Zones extends CI_Controller {
 		//$this->load->view('users/user_form');
 		//$page_data = array('userList'=>$tmp,'datatml2'=>$tmp2);
 		$page_data['zoneForm'] = $tmp;
+		$page_data['zoneList'] = $tmpz;
 		//$page_data['datatmp2'] = $tmp2;
 
 		$this->load->view('zones/zone_form',$page_data);
@@ -59,10 +61,10 @@ class Zones extends CI_Controller {
 
 		$data["zoneID"] = NULL;
 		$data["nameEN"] = $_POST["nameEN"];
-		$data["nameTH"] 	= $_POST["nameTH"];
-		$data["detail"] 	= $_POST["detail"];
-		$data["status"] 	= $_POST["status"];
-		$data["mapimageURL"] 	= $_POST["mapimageURL"];
+		$data["nameTH"] = $_POST["nameTH"];
+		$data["detail"] = $_POST["detail"];
+		$data["status"] = $_POST["status"];
+		// $data["mapimageURL"] = $_POST["mapimageURL"];
 		$data["location"] = $_POST["location"];
 		$data["headzoneID"] = $_POST["headzoneID"];
 		

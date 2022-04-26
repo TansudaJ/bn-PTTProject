@@ -88,12 +88,13 @@ button.btn.btn-info:host {
                     $('#update_modal').modal('toggle');
                   }
                 });
+                
                 $('#updateForm').on('submit',function(){
                     var pathID = $('#pathID').val();
                     var plantpathname = $('#plantpathname').val();		
                     $.ajax({
                       type : "POST",
-                      url  : "Plantpaths/update_plantpath",
+                      url  : "plantpaths/update_plantpath",
                       dataType : "JSON",
                       data : {pathID:pathID, plantpathname:plantpathname},
                       success: function(data){
@@ -147,3 +148,5 @@ button.btn.btn-info:host {
   </div>
 </form>
 <!-- close modal info--> 
+
+

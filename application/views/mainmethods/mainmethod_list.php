@@ -36,32 +36,29 @@ button.btn.btn-info:host {
                 </div>
                 <div class="card-body">
                 <div class="text-right">
-                  <a  href="<?php echo site_url("Zones/new_zone"); ?>" ><button type="submit" class="btn btn-success"><i class="material-icons">add</i>เพิ่มโซน</button></a>
+                  <a  href="<?php echo site_url("Mainmethods/new_mainmethod"); ?>" ><button type="submit" class="btn btn-success"><i class="material-icons">add</i>เพิ่มวิธีการดูแลรักษา</button></a>
                   </div>
                   <div class="table-responsive">
                   <table id="example1" class="table table-striped table-bordered" style="width:100%">
                     <thead>
                         <tr>
                             <th class="text-center">รหัส</th>
-                            <th class="text-center">ชื่อ</th>
-                            <th class="text-center">สถานะ</th>
-                            <th class="text-center">สถานที่</th>
+                            <th class="text-center">ชื่อวิธีการดูแลรักษา</th>
+                            <!-- <th class="text-center">รายละเอียด</th>
+                            <th class="text-center">ข้อแนะนำ</th> -->
                             <th class="text-center"></th>
                         </tr>
                     </thead>
                     <tbody> 	
-                    <?php foreach($zoneList as $row){?>
+                    <?php foreach($mainmethodList as $row){?>
                         <tr>
-                            <td><?php echo $row->headzoneID ."-".$row->zoneID; ?></td>
-                            <td><?php echo $row->nameTH; ?></td>
-                            <td><?php if ($row->status == 1) {
-                              echo "แสดง";
-                            }else{
-                              echo "ไม่แสดง";
-                            } ?></td>
-                            <td><?php echo $row->location; ?></td>
+                            <td><?php echo $row->maintenancetypeID; ?></td>
+                            <td><?php echo $row->n_maintenancetype; ?></td>
+                            <!-- <td><?php echo $row->detail; ?></td>
+                            <td><?php echo $row->recommend; ?></td> -->
                             <td class="text-center">
                                   <button type="button" title="View" class="btn btn-info"><i class="material-icons">info</i></button>
+                                  <button type="button" title="Edit" class="btn btn-warning"><i class="material-icons">edit</i></button>  
                                   <button type="button" title="Delete" class="btn btn-danger"><i class="material-icons">delete</i></button>      
                             </td>
                         </tr>
