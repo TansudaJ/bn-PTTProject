@@ -49,4 +49,29 @@ class Plantpaths extends CI_Controller {
 		$this->load->view('dashboard/footer');
 	}
 
+	public function new_plantpath_add()
+	{
+		$data["pathID"] = NULL;
+		$data["plantpathname"] = $_POST["plantpathname"];
+		// var_dump($data);
+		// die();
+
+		$this->load->model('PlantpathModel');
+		$tmp = $this->PlantpathModel->insert_plantpath($data);
+		if($tmp){
+			$this->session->set_flashdata('message_error', 'เพิ่มส่วนประกอบต้นไม้สำเร็จ');
+			redirect('Plantpaths/plantpath');
+
+		}else{
+			$this->session->set_flashdata('message_error', 'เพิ่มส่วนประกอบต้นไม้ไม่สำเร็จ');
+			redirect('Plantpaths/plantpath');
+		}
+
+	}
+
+	public function update_plantpath(){
+		$data=$this->PlantpathModel->update_plantpaths();
+		echo json_encode($data);
+	}
+
 }

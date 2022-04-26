@@ -35,6 +35,17 @@ class API001 extends CI_Controller {
 		echo json_encode($data);
 	}
 
+	public function plantpathbyID($id)
+	{
+		$this->load->model('PlantpathModel');
+		$tmp = $this->PlantpathModel->get_path_byID($id);
+		$data['ststus'] = '200';
+		$data['data'] = $tmp;
+		echo header('Content-Type: text/html; charset=UTF-8');
+		echo json_encode($data);
+	}
+
+
 
 
 
