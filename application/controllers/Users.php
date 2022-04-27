@@ -57,13 +57,16 @@ class Users extends CI_Controller {
 	public function new_user_add()
 	{
 		$this->checklogin();
-// upload
-		$config['upload_path']          = './image/employee/';
+		// upload
+		$config['upload_path']          = 'image/employee';
         $config['allowed_types']        = 'gif|jpg|png';
 
 		
         $this->load->library('upload', $config);
-		var_dump($_POST);
+		// var_dump($_POST);
+		$this->upload->initialize($config); 
+
+		$img_url = "";
 
         if ( ! $this->upload->do_upload('imageURL'))
         {
@@ -74,12 +77,13 @@ class Users extends CI_Controller {
         else
         {
 
-                $data_upload = array('upload_data' => $this->upload->data());
-                var_dump($data_upload);
+                $data = array('upload_data' => $this->upload->data());
+                $img_url = "image/employee/".$data["upload_data"]["file_name"];
+				// echo $img_url;
 
                 // $this->load->view('upload_success', $data);
         }
-		die();
+		// die();
 		
 		$employeeID 	= $_POST["employeeID"];
 		$username 	= $_POST["username"];
@@ -91,7 +95,7 @@ class Users extends CI_Controller {
 		$password 	= $_POST["password"];
 		$authority_authorityID		= $_POST["authority_authorityID"];
 		$activeflag 		= $_POST["activeflag"];
-		$imageURL 		= $_POST["imageURL"];
+		// $imageURL 		= $_POST["imageURL"];
 		
 		$data = array(
 			"employeeID"=>$employeeID, 
@@ -104,7 +108,7 @@ class Users extends CI_Controller {
 			"password"=>$password,
 			"authority_authorityID"=>$authority_authorityID,
 			"activeflag"=>$activeflag,
-			"imageURL"=>$imageURL
+			"imageURL"=>$img_url
 			
 		);
 		
