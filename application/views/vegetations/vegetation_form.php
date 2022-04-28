@@ -148,6 +148,16 @@
                         </div>
                       </div>
                     </div>
+                    <!-- ภาพพันธุ์ไม้ -->
+                    <div class="row">
+                      <div class="col-md-12">
+                        <!-- <div class="form-group"> -->
+                          <label class="bmd-label-floating">ภาพพันธุ์ไม้</label>
+                            <input type="file" name="imageURL" size="20" class="form-control">
+                        <!-- </div> -->
+                      </div>
+                    </div><br>
+                    <!-- รายละเอียด -->
                     <div class=row>
                       <div class="col-md-12">
                         <h4>รายละเอียด</h4>
@@ -243,14 +253,62 @@
                         <h4>ส่วนประกอบต้นไม้</h4>
                       </div>
                     </div><br>
-
-
-
-
-
-
-
-                    
+                    <div class=row>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">ส่วนประกอบต้นไม้<span class="s">*</span></label>
+                                <select class="form-select form-control "name="pathID" required>
+                                    <option value="">เลือกส่วนประกอบต้นไม้</option>
+                                    <?php foreach($plantpathList as $result){?>
+                                      <option value="<?php echo $result->pathID;?>">
+                                      <?php echo $result->plantpathname;?>
+                                  </option>
+                                  <?php } ?>
+                                </select>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- ภาพส่วนประกอบ -->
+                    <div class="row">
+                      <div class="col-md-12">
+                        <!-- <div class="form-group"> -->
+                          <label class="bmd-label-floating">ภาพส่วนปะรกอบต้นไม้</label>
+                            <input type="file" name="imageURL" size="20" class="form-control">
+                        <!-- </div> -->
+                      </div>
+                    </div><br>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">คุณสมบัติ</label><span>
+                            <textarea class="form-control" name="properties" id="properties" cols="30" rows="2"></textarea>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">คำแนะนำ</label><span>
+                            <textarea class="form-control" name="instruction" id="instruction" cols="30" rows="2"></textarea>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">คำเตือน/ข้อควรระวัง</label><span>
+                            <textarea class="form-control" name="caution" id="caution" cols="30" rows="2"></textarea>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">แหล่งที่มาของข้อมูล</label><span>
+                            <textarea class="form-control" name="reference" id="reference" cols="30" rows="2"></textarea>
+                        </div>
+                      </div>
+                    </div><br>
                     <a href="<?php echo site_url("Vegetations/vegetation"); ?>" class="btn btn-warning pull-left">ย้อนกลับ</a>
                     <button type="submit" class="btn btn-success pull-right">บันทึก</button>
                     <div class="clearfix"></div>

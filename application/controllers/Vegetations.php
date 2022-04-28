@@ -32,6 +32,7 @@ class Vegetations extends CI_Controller {
 		//$this->load->view('welcome_message');
 		$this->load->model('VegetationModel');
 		$tmp = $this->VegetationModel->get_all_vegetations();
+		$tmpp = $this->VegetationModel->get_all_plantpaths();
 		//$tmp2 = $this->UserModel->check_username_password('111','222');
 		
 		//var_dump($tmp);die();
@@ -42,7 +43,7 @@ class Vegetations extends CI_Controller {
 		$this->load->view('dashboard/navbar',$data);
 		$this->load->view('dashboard/topcontent');
 		$page_data['vegetationForm'] = $tmp;
-
+		$page_data['plantpathList'] = $tmpp;
 		$this->load->view('vegetations/vegetation_form',$page_data);
 
 		$this->load->view('dashboard/footcontent');

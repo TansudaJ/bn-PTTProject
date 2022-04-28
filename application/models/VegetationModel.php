@@ -15,6 +15,13 @@ class VegetationModel extends CI_Model {
             return $query->result();
     }
 
+    //pList
+    public function get_all_plantpaths()
+    {
+            $query = $this->db->query("SELECT * FROM plantpath");
+            return $query->result();
+    }
+
     public function insert_vegetation($data,$localname)
     {
         $check = $this->db->insert('vegetation', $data);

@@ -5,13 +5,7 @@ class PlantpathModel extends CI_Model {
             $query = $this->db->query("SELECT * FROM plantpath");
             return $query->result();
     }
-
-    public function get_path_byID($id)
-    {
-            $query = $this->db->query("SELECT * FROM plantpath WHERE pathID = '".$id."'" );
-            return $query->result();
-    }
-
+    //เพิ่ม
     public function insert_plantpath($data)
     {
         $sql = "INSERT INTO `plantpath`(`pathID`, `plantpathname`) 
@@ -24,15 +18,27 @@ class PlantpathModel extends CI_Model {
             return (FALSE) ;
         }
     }
+    //getid
+    public function getplantpathbyID($id){
+          
+        $query = $this->db->get_where("plantpath",array("pathID"=>$id));
+        
+        $data = $query->result(); 
+        
+        return $data;
+     }
+    //แก้ไข
+     public function update($data,$id) { 
+        $this->db->set($data); 
+        $this->db->where("pathID", $id); 
+        $this->db->update("plantpath", $data); 
+     }
 
-    public function update_plantpaths()
-	{
-		$pathID=$this->input->post('pathID');
-		$plantpathname=$this->input->post('plantpathname');
-		$this->db->set('plantpathname', $plantpathname);
-		$this->db->where('pathID', $pathID);
-		$result=$this->db->update('plantpath');
-		return $result;	
-	}
+    //ลบ
+    public function delete($id) { 
+        if ($this->db->delete("plantpath", "pathID = ".$id)) { 
+           return true; 
+        } 
+     }
     
 }
