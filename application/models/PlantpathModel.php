@@ -1,5 +1,6 @@
 <?php
 class PlantpathModel extends CI_Model {
+    //แสดง
     public function get_all_plantpaths()
     {
             $query = $this->db->query("SELECT * FROM plantpath");

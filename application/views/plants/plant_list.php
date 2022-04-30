@@ -61,7 +61,7 @@ button.btn.btn-info:host {
                             <td><?php echo $row->actual; ?></td>
                             <td><?php echo $row->show; ?></td>
                             <td><?php echo $row->exclusivity; ?></td>
-                            <td>Code</td>
+                            <td><?php echo $row->QRCode; ?></td>
                             <td class="text-center">
                                   <button type="button" title="View" class="btn btn-info" onclick="infoClick('<?php echo $row->plantID; ?>')"><i class="material-icons">info</i></button>      
                             </td>

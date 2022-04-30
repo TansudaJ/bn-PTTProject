@@ -248,7 +248,7 @@
                           </div>
                         </div> 
                     </div><br>
-                    <div class=row>
+                    <!-- <div class=row>
                       <div class="col-md-12">
                         <h4>ส่วนประกอบต้นไม้</h4>
                       </div>
@@ -267,17 +267,17 @@
                                 </select>
                         </div>
                       </div>
-                    </div>
+                    </div> -->
                     <!-- ภาพส่วนประกอบ -->
-                    <div class="row">
+                    <!-- <div class="row">
                       <div class="col-md-12">
-                        <!-- <div class="form-group"> -->
+                        <div class="form-group">
                           <label class="bmd-label-floating">ภาพส่วนปะรกอบต้นไม้</label>
                             <input type="file" name="imageURL" size="20" class="form-control">
-                        <!-- </div> -->
+                        </div>
                       </div>
-                    </div><br>
-                    <div class="row">
+                    </div><br> -->
+                    <!-- <div class="row">
                       <div class="col-md-12">
                         <div class="form-group">
                           <label class="bmd-label-floating">คุณสมบัติ</label><span>
@@ -308,7 +308,7 @@
                             <textarea class="form-control" name="reference" id="reference" cols="30" rows="2"></textarea>
                         </div>
                       </div>
-                    </div><br>
+                    </div><br> -->
                     <a href="<?php echo site_url("Vegetations/vegetation"); ?>" class="btn btn-warning pull-left">ย้อนกลับ</a>
                     <button type="submit" class="btn btn-success pull-right">บันทึก</button>
                     <div class="clearfix"></div>

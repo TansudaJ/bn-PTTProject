@@ -46,7 +46,7 @@
                       <div class="col-md-4">
                         <div class="form-group input-group">
                           <label class="bmd-label-floating">Password<span class="s">*</span></label>
-                            <input type="text" class="form-control" id="password" name="password" readonly>
+                            <input type="text" class="form-control" id="password" name="password" required readonly>
                             <div class="input-group-append">
                               <button class="btn btn-primary btn-sm" type="button" onclick="genPassword()">สุ่มรหัสผ่าน</button>
                             </div>
@@ -133,7 +133,7 @@
                     <div class="row justify-content-md-center">
                       <div class="col-md-10">
                         <!-- <div class="form-group"> -->
-                          <label class="bmd-label-floating">ภาพประจำตัว<span class="s">*</span></label>
+                          <label class="bmd-label-floating">ภาพประจำตัว</label>
                             <input type="file" name="imageURL" size="20" class="form-control">
                             <input type="text" name="test" class="form-control" >
                         <!-- </div> -->

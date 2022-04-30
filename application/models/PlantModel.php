@@ -30,9 +30,9 @@ class PlantModel extends CI_Model {
 
     public function insert_plant($data)
     {
-        $sql = "INSERT INTO `plants`(`plantID`, `coordinates`, `diameter`, `height`, `actual`, `show`, `exclusivity`, `zone_zoneID`, `vegetation_vegetationID`) 
+        $sql = "INSERT INTO `plants`(`plantID`, `coordinates`, `diameter`, `height`, `actual`, `show`, `exclusivity`, `QRCode` , `zone_zoneID`, `vegetation_vegetationID`) 
         VALUES (Null,'".$data["coordinates"]."','".$data["diameter"]."','".$data["height"]."','".$data["actual"]."','".$data["show"]."','".$data["exclusivity"]."',
-        '".$data["zoneID"]."','".$data["vegetationID"]."')";
+        '".$data["QRCode"]."','".$data["zoneID"]."','".$data["vegetationID"]."')";
         $query = $this->db->query($sql);
         
        if( $query>0){

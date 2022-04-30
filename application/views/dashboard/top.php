@@ -70,11 +70,20 @@ The above copyright notice and this permission notice shall be included in all c
               <a class="dropdown-item <?php if ($activebar == "simple"){echo "active";} ?>" href="<?php echo site_url("Simples/simple"); ?>">จัดการข้อมูลตำแหน่งงาน</a>
             </div>
           </li> -->
-          <li class="nav-item <?php if ($activebar == "vegetation"){echo "active";} ?>">
+          <!-- <li class="nav-item <?php if ($activebar == "vegetation"){echo "active";} ?>">
             <a class="nav-link" href="<?php echo site_url("Vegetations/vegetation"); ?>">
             <i class="material-icons">park</i>
               <p>จัดการข้อมูลพรรณไม้</p>
             </a>
+          </li> -->
+          <li class="nav-item dropdown <?php if ($activebar == "vegetation"){echo "active";} ?>">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" style="font-size: 14px;" aria-haspopup="true" aria-expanded="false">
+            <i class="material-icons">park</i>จัดการข้อมูลพันธุ์ไม้
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item <?php if ($activebar == "vegetation"){echo "active";} ?>" href="<?php echo site_url("Vegetations/vegetation"); ?>">ข้อมูลพันธุ์ไม้</a>
+              <a class="dropdown-item <?php if ($activebar == "pathmain"){echo "active";} ?>" href="<?php echo site_url("Pathmains/pathmain"); ?>">ข้อมูลส่วนประกอบ</a>
+            </div>
           </li>
           <li class="nav-item <?php if ($activebar == "plant"){echo "active";} ?>">
             <a class="nav-link" href="<?php echo site_url("Plants/plant"); ?>">

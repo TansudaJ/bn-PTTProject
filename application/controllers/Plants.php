@@ -55,6 +55,34 @@ class Plants extends CI_Controller {
 
 	public function new_plant_add()
 	{
+		// upload
+		$config['upload_path']          = 'image/QRCode';
+        $config['allowed_types']        = 'gif|jpg|png';
+
+		
+        $this->load->library('upload', $config);
+		// var_dump($_POST);
+		$this->upload->initialize($config); 
+
+		$imgQRCode = "";
+
+        if ( ! $this->upload->do_upload('imageURL'))
+        {
+                $error = array('error' => $this->upload->display_errors());
+				var_dump($error);
+                // $this->load->view('upload_form', $error);
+        }
+        else
+        {
+
+                $data = array('upload_data' => $this->upload->data());
+                $imgQRCode = "image/QRCode/".$data["upload_data"]["file_name"];
+				// echo $img_url;
+
+                // $this->load->view('upload_success', $data);
+        }
+
+		
 		$data["plantID"] = NULL;
 		$data["vegetationID"] = $_POST["vegetationID"];
 		$data["zoneID"] = $_POST["zoneID"];
@@ -64,6 +92,8 @@ class Plants extends CI_Controller {
 		$data["actual"] 	= $_POST["actual"];
 		$data["show"] 	= $_POST["show"];
 		$data["exclusivity"] = $_POST["exclusivity"];
+		$data["QRCode"] = $imgQRCode;
+
 		
 		$this->load->model('PlantModel');
 		$tmp = $this->PlantModel->insert_plant($data);
