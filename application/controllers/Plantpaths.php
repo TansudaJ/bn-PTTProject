@@ -116,6 +116,6 @@ class Plantpaths extends CI_Controller {
 			$this->session->set_flashdata('message_error', 'ลบส่วนประกอบต้นไม้ไม่สำเร็จ');
 			redirect('Plantpaths/plantpath');
 		}
-}
+	}
 
 }

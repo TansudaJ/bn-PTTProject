@@ -57,7 +57,7 @@ if ($this->session->userdata('message_error')) {
                             <td class="text-center"><?php echo $row->n_authority; ?></td>
                             <td class="text-center">
                                   <button type="button" title="View" class="btn btn-info btn-sm"  onclick="infoClick('<?php echo $row->employeeID; ?>')"><i class="material-icons">info</i></button>
-                                  <!-- <button type="button" title="Edit" class="btn btn-warning btn-sm" ><i class="material-icons">edit</i></button>     -->
+                                  <a href="<?php echo site_url("Users/edit_user_form/$row->employeeID"); ?>"><button type="button" title="Edit" class="btn btn-warning btn-sm" ><i class="material-icons">edit</i></button></a>  
                             </td>
                         </tr>
                     <?php }?>

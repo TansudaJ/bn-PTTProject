@@ -20,12 +20,10 @@ class PlantpathModel extends CI_Model {
         }
     }
     //getid
-    public function getplantpathbyID($id){
-          
+    public function getplantpathbyID($id)
+    {
         $query = $this->db->get_where("plantpath",array("pathID"=>$id));
-        
         $data = $query->result(); 
-        
         return $data;
      }
     //แก้ไข

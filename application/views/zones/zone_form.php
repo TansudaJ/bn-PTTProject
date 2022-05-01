@@ -71,8 +71,8 @@
                           <label class="bmd-label-floating">สถานะ<span class="s">*</span></label>
                           <select class="form-select form-control "name="status" required>
                               <option value=""></option>
-                                <option value="0">แสดง</option>
-                                <option value="1">ไม่แสดง</option>
+                                <option value="0">ไม่แสดง</option>
+                                <option value="1">แสดง</option>
                             </select>
                         </div>
                       </div>

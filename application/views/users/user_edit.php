@@ -19,7 +19,7 @@
     color: red;
    }
 </style>
-<?php echo form_open_multipart('users/new_user_add');?>
+<?php echo form_open_multipart('users/save_edit_user');?>
 <!-- <form method="post" action="<?php echo site_url("users/new_user_add");?>">  -->
       <div class="row">
             <div class="col-md-12">
@@ -33,20 +33,20 @@
                     <div class="row justify-content-md-center">
                       <div class="col-md-2">
                         <div class="form-group">
-                          <label class="bmd-label-floating">รหัสพนักงาน<span class="s">*</span></label>
-                          <input type="text" name="employeeID" class="form-control" required>
+                          <label class="bmd-label-floating">รหัสพนักงาน</label>
+                          <input type="text" name="employeeID" class="form-control" value="<?php echo $result[0]->employeeID ;?>">
                         </div>
                       </div>
                       <div class="col-md-4">
                         <div class="form-group">
-                          <label class="bmd-label-floating">Username<span class="s">*</span></label>
-                          <input type="text" name="username" class="form-control" required>
+                          <label class="bmd-label-floating">Username</label>
+                          <input type="text" name="username" class="form-control" value="<?php echo $result[0]->username ;?>">
                         </div>
                       </div>
                       <div class="col-md-4">
                         <div class="form-group input-group">
-                          <label class="bmd-label-floating">Password<span class="s">*</span></label>
-                            <input type="text" class="form-control" id="password" name="password" required readonly>
+                          <label class="bmd-label-floating">Password</label>
+                            <input type="text" class="form-control" id="password" name="password" value="<?php echo $result[0]->password ;?>">
                             <div class="input-group-append">
                               <button class="btn btn-primary btn-sm" type="button" onclick="genPassword()">สุ่มรหัสผ่าน</button>
                             </div>
@@ -57,8 +57,8 @@
                     <div class="row justify-content-md-center">
                     <div class="col-md-2">
                         <div class="form-group">
-                          <label class="bmd-label-floating">คำนำหน้า<span class="s">*</span></label>
-                            <select class="form-select form-control" name="PrefixID" required>
+                          <label class="bmd-label-floating">คำนำหน้า</label>
+                            <select class="form-select form-control" name="PrefixID" value="<?php echo $result[0]->PrefixID ;?>">
                               <option value="">ตัวเลือก</option>
                               <option value="1">นาย</option>
                               <option value="2">นาง</option>
@@ -68,14 +68,14 @@
                       </div>
                       <div class="col-md-4">
                         <div class="form-group">
-                          <label class="bmd-label-floating">ชื่อ<span class="s">*</span></label>
-                          <input type="text" name="f_name" class="form-control" required>
+                          <label class="bmd-label-floating">ชื่อ</label>
+                          <input type="text" name="f_name" class="form-control" value="<?php echo $result[0]->f_name ;?>">
                         </div>
                       </div>
                       <div class="col-md-4">
                         <div class="form-group">
-                          <label class="bmd-label-floating">นามสกุล<span class="s">*</span></label>
-                          <input type="text" name="l_name" class="form-control" required>
+                          <label class="bmd-label-floating">นามสกุล</label>
+                          <input type="text" name="l_name" class="form-control" value="<?php echo $result[0]->l_name ;?>">
                         </div>
                       </div>
                     </div>
@@ -118,14 +118,14 @@
                     <div class="row justify-content-md-center">
                       <div class="col-md-5">
                         <div class="form-group">
-                          <label class="bmd-label-floating">Email Address<span class="s">*</span></label>
-                          <input type="text" name="email" class="form-control" required>
+                          <label class="bmd-label-floating">Email Address</label>
+                          <input type="text" name="email" class="form-control" value="<?php echo $result[0]->email ;?>">
                         </div>
                       </div>
                       <div class="col-md-5">
                           <div class="form-group">
-                            <label class="bmd-label-floating">เบอร์ติดต่อ<span class="s">*</span></label>
-                            <input type="text" name="telno" class="form-control" required>
+                            <label class="bmd-label-floating">เบอร์ติดต่อ</label>
+                            <input type="text" name="telno" class="form-control" value="<?php echo $result[0]->telno ;?>">
                           </div>
                         </div>
                     </div><br>
@@ -134,8 +134,7 @@
                       <div class="col-md-10">
                         <!-- <div class="form-group"> -->
                           <label class="bmd-label-floating">ภาพประจำตัว</label>
-                            <input type="file" name="imageURL" size="20" class="form-control">
-                            <input type="text" name="test" class="form-control" >
+                            <input type="file" name="imageURL" size="20" class="form-control" value="<?php echo $result[0]->imageURL ;?>">
                         <!-- </div> -->
                       </div>
                     </div><br>
@@ -143,8 +142,8 @@
                     <div class="row justify-content-md-center">
                       <div class="col-md-5">
                         <div class="form-group">
-                          <label class="bmd-label-floating">สิทธิการใช้งาน<span class="s">*</span></label>
-                          <select class="form-select form-control " name="authority_authorityID" required>
+                          <label class="bmd-label-floating">สิทธิการใช้งาน</label>
+                          <select class="form-select form-control " name="authority_authorityID" value="<?php echo $result[0]->authority_authorityID ;?>">
                             <option value="">ตัวเลือก</option>
                             <option value="1">Admin</option>
                             <option value="2">Editor</option>
@@ -154,8 +153,8 @@
                       </div>
                       <div class="col-md-5">
                         <div class="form-group">
-                        <label class="bmd-label-floating">สถานะ<span class="s">*</span></label>
-                        <select class="form-select form-control" name="activeflag" required>
+                        <label class="bmd-label-floating">สถานะ</label>
+                        <select class="form-select form-control" name="activeflag" value="<?php echo $result[0]->activeflag ;?>">
                           <option value="">ตัวเลือก</option>
                           <option value="0">Inactive</option>
                           <option value="1">Active</option>

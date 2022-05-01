@@ -124,22 +124,53 @@ class Users extends CI_Controller {
 		}
 
 	}
-
-	public function edit_user()
+	//loadหน้าแก้ไข
+	public function edit_user_form()
 	{
 		$this->checklogin();
 
 		$this->load->model('UserModel');
-		$tmp = $this->UserModel->get_all_users();
-		$data = array('navbar_name'=>'Users');
-		$this->load->view('dashboard/top');
+		$data = array('navbar_name'=>'จัดการข้อมูลผู้ใช้งาน');
+		$data_top = array('activebar'=>'user');
+		$this->load->view('dashboard/top',$data_top);
 		$this->load->view('dashboard/navbar',$data);
 		$this->load->view('dashboard/topcontent');
-
-		$this->load->view('users/user_edit_form');
+		$id = $this->uri->segment('3'); 
+		$data['result'] = $this->UserModel->getuserbyID($id);
+		$this->load->view('users/user_edit',$data);
 		$this->load->view('dashboard/footcontent');
 		$this->load->view('dashboard/footer');
-	}
+
+   }
+   //ฟังก์ชันแก้ไข
+   public function save_edit_user()
+   {
+		$this->checklogin();
+
+		$this->load->model('UserModel');
+		$data = array( 
+		   'employeeID' => $this->input->post('employeeID'),
+		   'username' => $this->input->post('username'),
+		   'password' => $this->input->post('password'),
+		   'email' => $this->input->post('email'),
+		   'PrefixID' => $this->input->post('PrefixID'),
+		   'f_name' => $this->input->post('f_name'),
+		   'l_name' => $this->input->post('l_name'),
+		   'telno' => $this->input->post('telno'),
+		   'authority_authorityID' => $this->input->post('authority_authorityID'),
+		   'activeflag' => $this->input->post('activeflag'),
+		   'imageURL' => $this->input->post('imageURL')
+		); 
+		$id = $this->input->post('employeeID');
+		$this->UserModel->update($data,$id);
+		if($data && $id){
+			$this->session->set_flashdata('message_error', 'แก้ไขข้อมุลผู้ใช้งานสำเร็จ');
+			redirect('Users/user');
+		}else{
+			$this->session->set_flashdata('message_error', 'แก้ไขข้อมูลผู้ใช้งานไม่สำเร็จ');
+			redirect('Users/user');
+		}
+   }
 
 	private function checklogin(){
 		if(!isset($_SESSION['logged_in'])){

@@ -50,4 +50,5 @@ class Maintenances extends CI_Controller {
 		$this->load->view('dashboard/footcontent');
 		$this->load->view('dashboard/footer');
 	}
+	
 }

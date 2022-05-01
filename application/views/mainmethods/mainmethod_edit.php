@@ -11,16 +11,13 @@
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <style>
-  .s{
-    color: red;
-   }
   h4{
     color: #9900cc;
     font-size: 1.75rem;
   }
 </style>
 
-<form method="post" action="<?php echo site_url("Mainmethods/new_mainmethod_add");?>"> 
+<form method="post" action="<?php echo site_url("Mainmethods/save_edit_mainmethod");?>"> 
 <div class="row">
             <div class="col-md-12">
               <div class="card">
@@ -37,16 +34,16 @@
                     <div class="row">
                       <div class="col-md-12">
                         <div class="form-group">
-                          <label class="bmd-label-floating">ชื่อวิธีการดูแลรักษา<span class="s">*</span></label>
-                          <input type="text" name="n_maintenancetype" class="form-control" required>
+                          <label class="bmd-label-floating">ชื่อวิธีการดูแลรักษา</label>
+                          <input type="text" name="n_maintenancetype" class="form-control" value="<?php echo $result[0]->n_maintenancetype ;?>">
                         </div>
                       </div>
                     </div>
                     <div class="row">
                       <div class="col-md-12">
                           <div class="form-group">
-                            <label class="bmd-label-floating">รายละเอียด<span class="s">*</span></label>
-                            <textarea class="form-control" rows="5" id="detail" name="detail" required></textarea>
+                            <label class="bmd-label-floating">รายละเอียด</label>
+                            <textarea class="form-control" rows="5" name="detail"><?php echo $result[0]->detail ;?></textarea>
                           </div>
                       </div>
                     </div>
@@ -54,11 +51,11 @@
                       <div class="col-md-12">
                           <div class="form-group">
                             <label class="bmd-label-floating">ข้อแนะนำ</label>
-                            <textarea class="form-control" rows="5" id="recommend" name="recommend"></textarea>
+                            <textarea class="form-control" rows="5" name="recommend"><?php echo $result[0]->recommend ;?></textarea>
                           </div>
                       </div>
                     </div>
-                      
+                    <input type="hidden" name="maintenancetypeID" class="form-control" value="<?php echo $result[0]->maintenancetypeID ;?>">
                     <a href="<?php echo site_url("Mainmethods/mainmethod"); ?>" class="btn btn-warning pull-left">ย้อนกลับ</a>
                     <button type="submit" class="btn btn-success pull-right">บันทึก</button>
                     <div class="clearfix"></div>

@@ -8,7 +8,7 @@ class UserModel extends CI_Model {
             JOIN prefix p ON p.PrefixID=e.PrefixID");
             return $query->result();
     }
-
+    //getidinfo
     public function get_user_byID($id)
     {
             $query = $this->db->query("SELECT * FROM employee e JOIN authority a on e.authority_authorityID = a.authorityID 
@@ -50,7 +50,6 @@ class UserModel extends CI_Model {
     }
 
     public function insert_users($user)
-    
     {
         if($this->getuser_by_username($user["username"])==TRUE){
              
@@ -68,15 +67,26 @@ class UserModel extends CI_Model {
     {
         $sql = "SELECT * FROM employee WHERE username = '".$username."' ";
         if( $this->db->query($sql)){
-            
             return (TRUE);
         }else{
-            
             return (FALSE);
         }
 
     }
-   
+
+    //getidedit
+    public function getuserbyID($id)
+    {
+        $query = $this->db->get_where("employee",array("employeeID"=>$id));
+        $data = $query->result(); 
+        return $data;
+     }
+    //แก้ไข
+     public function update($data,$id) { 
+        $this->db->set($data); 
+        $this->db->where("employeeID", $id); 
+        $this->db->update("employee", $data); 
+     }
 }
 
 
