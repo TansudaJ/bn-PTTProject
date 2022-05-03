@@ -112,6 +112,9 @@ class Users extends CI_Controller {
 			
 		);
 		
+		var_dump($data);
+		// die();
+
 		$this->load->model('UserModel');
 		$tmp = $this->UserModel->insert_users($data);
 		if($tmp){
@@ -146,7 +149,32 @@ class Users extends CI_Controller {
    public function save_edit_user()
    {
 		$this->checklogin();
+		// upload
+		$config['upload_path']          = 'image/employee';
+        $config['allowed_types']        = 'gif|jpg|png';
 
+		
+        $this->load->library('upload', $config);
+		// var_dump($_POST);
+		$this->upload->initialize($config); 
+
+		$img_url = "";
+
+        if ( ! $this->upload->do_upload('imageURL'))
+        {
+                $error = array('error' => $this->upload->display_errors());
+				var_dump($error);
+                // $this->load->view('upload_form', $error);
+        }
+        else
+        {
+
+                $data = array('upload_data' => $this->upload->data());
+                $img_url = "image/employee/".$data["upload_data"]["file_name"];
+				// echo $img_url;
+
+                // $this->load->view('upload_success', $data);
+        }
 		$this->load->model('UserModel');
 		$data = array( 
 		   'employeeID' => $this->input->post('employeeID'),
@@ -158,9 +186,13 @@ class Users extends CI_Controller {
 		   'l_name' => $this->input->post('l_name'),
 		   'telno' => $this->input->post('telno'),
 		   'authority_authorityID' => $this->input->post('authority_authorityID'),
-		   'activeflag' => $this->input->post('activeflag'),
-		   'imageURL' => $this->input->post('imageURL')
+		   'activeflag' => $this->input->post('activeflag')
 		); 
+		if ($img_url != "") {
+			$data['imageURL'] = $img_url;
+			// $data['status'] = 1; upพันไม้&ต้นไม้
+		}
+
 		$id = $this->input->post('employeeID');
 		$this->UserModel->update($data,$id);
 		if($data && $id){

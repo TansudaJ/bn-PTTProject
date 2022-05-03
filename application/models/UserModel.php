@@ -54,7 +54,8 @@ class UserModel extends CI_Model {
         if($this->getuser_by_username($user["username"])==TRUE){
              
                 $sql = "INSERT INTO `employee`(`employeeID`, `PrefixID`, `f_name`, `l_name`, `telno`, `email`, `username`, `password`, `authority_authorityID`, `imageURL`,  `activeflag`)
-                VALUES ('".$user["employeeID"]."','".$user["PrefixID"]."','".$user["f_name"]."','".$user["l_name"]."','".$user["telno"]."','".$user["email"]."','".$user["username"]."','".$user["password"]."','".$user["authority_authorityID"]."','','".$user["activeflag"]."')";
+                VALUES ('".$user["employeeID"]."','".$user["PrefixID"]."','".$user["f_name"]."','".$user["l_name"]."','".$user["telno"]."','".$user["email"]."','".$user["username"]."','".$user["password"]."',
+                '".$user["authority_authorityID"]."','".$user["imageURL"]."','".$user["activeflag"]."')";
                 $query = $this->db->query($sql);
                 return (TRUE);
             }else{

@@ -85,7 +85,7 @@ if ($this->session->userdata('message_error')) {
                   success: function(data){
                     user = data['data'][0];
         
-                    $("#image_profile").attr('src',user['imageURL']);
+                    $("#image_profile").attr('src',"<?php echo base_url()?>"+user['imageURL']);
                     $('#prefix').val(user['prefix_name']);
                     $('#fname').val(user['f_name']);
                     $('#lname').val(user['l_name']);
@@ -94,7 +94,7 @@ if ($this->session->userdata('message_error')) {
                     $('#username').val(user['username']);
                     $('#password').val(user['password']);
                     $('#authority').val(user['n_authority']);
-                    $('#activeflag').val(user['activeflag']);
+                    $('#activeflag').val((user['activeflag'] == 0 ) ? 'Inactive':'Active');
 
                     $('#info_modal').modal('toggle');
                   }

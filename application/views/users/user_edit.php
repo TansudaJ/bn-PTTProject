@@ -58,11 +58,11 @@
                     <div class="col-md-2">
                         <div class="form-group">
                           <label class="bmd-label-floating">คำนำหน้า</label>
-                            <select class="form-select form-control" name="PrefixID" value="<?php echo $result[0]->PrefixID ;?>">
+                            <select class="form-select form-control" name="PrefixID">
                               <option value="">ตัวเลือก</option>
-                              <option value="1">นาย</option>
-                              <option value="2">นาง</option>
-                              <option value="3">นางสาว</option>
+                              <option value="1" <?php echo ($result[0]->PrefixID == 1 ) ? "selected":""; ?>>นาย</option>
+                              <option value="2" <?php echo ($result[0]->PrefixID == 2 ) ? "selected":""; ?>>นาง</option>
+                              <option value="3" <?php echo ($result[0]->PrefixID == 3 ) ? "selected":""; ?>>นางสาว</option>
                             </select>
                         </div>
                       </div>
