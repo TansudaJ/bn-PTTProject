@@ -134,7 +134,8 @@
                       <div class="col-md-10">
                         <!-- <div class="form-group"> -->
                           <label class="bmd-label-floating">ภาพประจำตัว</label>
-                            <input type="file" name="imageURL" size="20" class="form-control" value="<?php echo $result[0]->imageURL ;?>">
+                            <input type="file" name="imageURL" size="20" class="form-control">
+                            <label class="bmd-label-floating s" >*อัพไฟล์ที่มีนามสกุล gif หรือ .jpg หรือ .png</label>
                         <!-- </div> -->
                       </div>
                     </div><br>
@@ -143,21 +144,21 @@
                       <div class="col-md-5">
                         <div class="form-group">
                           <label class="bmd-label-floating">สิทธิการใช้งาน</label>
-                          <select class="form-select form-control " name="authority_authorityID" value="<?php echo $result[0]->authority_authorityID ;?>">
+                          <select class="form-select form-control " name="authority_authorityID">
                             <option value="">ตัวเลือก</option>
-                            <option value="1">Admin</option>
-                            <option value="2">Editor</option>
-                            <option value="3">Employee</option>
+                            <option value="1" <?php echo ($result[0]->authority_authorityID == 1 ) ? "selected":""; ?>>Admin</option>
+                            <option value="2" <?php echo ($result[0]->authority_authorityID == 2 ) ? "selected":""; ?>>Editor</option>
+                            <option value="3" <?php echo ($result[0]->authority_authorityID == 3 ) ? "selected":""; ?>>Employee</option>
                           </select>
                         </div>
                       </div>
                       <div class="col-md-5">
                         <div class="form-group">
                         <label class="bmd-label-floating">สถานะ</label>
-                        <select class="form-select form-control" name="activeflag" value="<?php echo $result[0]->activeflag ;?>">
+                        <select class="form-select form-control" name="activeflag">
                           <option value="">ตัวเลือก</option>
-                          <option value="0">Inactive</option>
-                          <option value="1">Active</option>
+                          <option value="0" <?php echo ($result[0]->activeflag == 0 ) ? "selected":""; ?>>Inactive</option>
+                          <option value="1" <?php echo ($result[0]->activeflag == 1 ) ? "selected":""; ?>>Active</option>
                         </select>
                         </div>
                       </div>

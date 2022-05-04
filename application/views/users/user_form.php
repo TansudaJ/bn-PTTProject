@@ -135,7 +135,7 @@
                         <!-- <div class="form-group"> -->
                           <label class="bmd-label-floating">ภาพประจำตัว</label>
                             <input type="file" name="imageURL" size="20" class="form-control">
-                            <input type="text" name="test" class="form-control" >
+                            <label class="bmd-label-floating s" >*อัพไฟล์ที่มีนามสกุล gif หรือ .jpg หรือ .png</label>
                         <!-- </div> -->
                       </div>
                     </div><br>

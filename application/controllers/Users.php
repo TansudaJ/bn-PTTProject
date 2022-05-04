@@ -80,8 +80,6 @@ class Users extends CI_Controller {
                 $data = array('upload_data' => $this->upload->data());
                 $img_url = "image/employee/".$data["upload_data"]["file_name"];
 				// echo $img_url;
-
-                // $this->load->view('upload_success', $data);
         }
 		// die();
 		
@@ -95,7 +93,6 @@ class Users extends CI_Controller {
 		$password 	= $_POST["password"];
 		$authority_authorityID		= $_POST["authority_authorityID"];
 		$activeflag 		= $_POST["activeflag"];
-		// $imageURL 		= $_POST["imageURL"];
 		
 		$data = array(
 			"employeeID"=>$employeeID, 
@@ -153,28 +150,22 @@ class Users extends CI_Controller {
 		$config['upload_path']          = 'image/employee';
         $config['allowed_types']        = 'gif|jpg|png';
 
-		
         $this->load->library('upload', $config);
-		// var_dump($_POST);
 		$this->upload->initialize($config); 
 
 		$img_url = "";
-
         if ( ! $this->upload->do_upload('imageURL'))
         {
                 $error = array('error' => $this->upload->display_errors());
 				var_dump($error);
-                // $this->load->view('upload_form', $error);
         }
         else
         {
 
                 $data = array('upload_data' => $this->upload->data());
                 $img_url = "image/employee/".$data["upload_data"]["file_name"];
-				// echo $img_url;
-
-                // $this->load->view('upload_success', $data);
         }
+
 		$this->load->model('UserModel');
 		$data = array( 
 		   'employeeID' => $this->input->post('employeeID'),
@@ -187,7 +178,8 @@ class Users extends CI_Controller {
 		   'telno' => $this->input->post('telno'),
 		   'authority_authorityID' => $this->input->post('authority_authorityID'),
 		   'activeflag' => $this->input->post('activeflag')
-		); 
+		);
+		
 		if ($img_url != "") {
 			$data['imageURL'] = $img_url;
 			// $data['status'] = 1; upพันไม้&ต้นไม้

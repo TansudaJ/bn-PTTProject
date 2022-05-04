@@ -169,8 +169,7 @@ if ($this->session->userdata('message_error')) {
               </form>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">ปิด</button>
-              <button type="button" class="btn btn-primary">บันทึกข้อมูล</button>
+              <button type="button" class="btn btn-primary" data-dismiss="modal">ปิด</button>
             </div>
           </div>
         </div>
