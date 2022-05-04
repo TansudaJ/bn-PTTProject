@@ -37,24 +37,36 @@
                     <div class="row">
                       <div class="col-md-4">
                         <div class="form-group">
-                          <label class="bmd-label-floating">ชื่อประเภทการดูแลรักษา<span class="s">*</span></label>
-                          <input type="text" name="n_maintenancetype" class="form-control" required>
+                          <label class="bmd-label-floating">พันธุ์ไม้<span class="s">*</span></label>
+                          <select class="form-select form-control "name="vegetationID" required>
+                              <option value="">เลือกพันธุ์ไม้</option>
+                              <?php foreach($vegetationList as $result){?>
+                                <option value="<?php echo $result->vegetationID;?>">
+                                <?php echo $result->n_common_TH;?>
+                            </option>
+                            <?php } ?>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">ประเภทการดูแลรักษา<span class="s">*</span></label>
+                          <select class="form-select form-control "name="	maintenancetype_maintenancetypeID" required>
+                              <option value="">เลือกประเภทการดูแลรักษา</option>
+                              <?php foreach($maintenancetypeList as $result){?>
+                                <option value="<?php echo $result->maintenancetypeID;?>">
+                                <?php echo $result->n_maintenancetype;?>
+                            </option>
+                            <?php } ?>
+                          </select>
                         </div>
                       </div>
                     </div>
                     <div class="row">
-                      <div class="col-md-4">
+                      <div class="col-md-12">
                           <div class="form-group">
                             <label class="bmd-label-floating">รายละเอียด<span class="s">*</span></label>
-                            <textarea class="form-control" rows="5" id="comment" name="detail" required></textarea>
-                          </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-4">
-                          <div class="form-group">
-                            <label class="bmd-label-floating">ข้อแนะนำ</label>
-                            <input type="text" name="recommend" class="form-control">
+                            <textarea class="form-control" rows="5" name="details" required></textarea>
                           </div>
                       </div>
                     </div>

@@ -38,7 +38,7 @@ button.btn.btn-info:host {
                         <tr>
                             <td><?php echo $row->maintenanceID ."-".$row->maintenancetypeID; ?></td>
                             <td><?php echo $row->n_common_TH; ?></td>
-                            <td><?php echo $row->prefix_name."".$row->f_name ."".$row->l_name; ?></td>
+                            <td><?php echo $row->prefix_name."".$row->f_name ." ".$row->l_name; ?></td>
                             <td><?php echo $row->date; ?></td>
                             <td class="text-center">
                                   <button type="button" title="View" class="btn btn-info"><i class="material-icons">info</i></button>

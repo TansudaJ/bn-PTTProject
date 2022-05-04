@@ -10,7 +10,7 @@ class Maintenances extends CI_Controller {
 		
 //		var_dump($tmp);
 
-		$data = array('navbar_name'=>'จัดการข้อมูลวิธีดูแลรักษา');
+		$data = array('navbar_name'=>'ข้อมูลการดูแลรักษา');
 		$data_top = array('activebar'=>'maintenance');
 		$this->load->view('dashboard/top',$data_top);
 		$this->load->view('dashboard/navbar',$data);
@@ -31,11 +31,13 @@ class Maintenances extends CI_Controller {
 	{
 		$this->load->model('MaintenanceModel');
 		$tmp = $this->MaintenanceModel->get_all_maintenance();
+		$tmpm = $this->MaintenanceModel->get_all_maintenancetype();
+		$tmpv = $this->MaintenanceModel->get_all_vegetation();
 		//$tmp2 = $this->UserModel->check_username_password('111','222');
 		
 //		var_dump($tmp);
 
-		$data = array('navbar_name'=>'จัดการข้อมูลวิธีดูแลรักษา');
+		$data = array('navbar_name'=>'ข้อมูลการดูแลรักษา');
 		$data_top = array('activebar'=>'maintenance');
 		$this->load->view('dashboard/top',$data_top);
 		$this->load->view('dashboard/navbar',$data);
@@ -43,7 +45,8 @@ class Maintenances extends CI_Controller {
 		//$this->load->view('users/user_form');
 		//$page_data = array('userList'=>$tmp,'datatml2'=>$tmp2);
 		$page_data['maintenanceForm'] = $tmp;
-		//$page_data['datatmp2'] = $tmp2;
+		$page_data['maintenancetypeList'] = $tmpm;
+		$page_data['vegetationList'] = $tmpv;
 
 		$this->load->view('maintenances/maintenance_form',$page_data);
 

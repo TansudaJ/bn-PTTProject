@@ -25,17 +25,13 @@ class Vegetations extends CI_Controller {
 		$this->load->view('dashboard/footcontent');
 		$this->load->view('dashboard/footer');
 	}
-
+	//loadหน้าเพิ่ม
 	public function new_vegetation()
 	{
 		//$this->checklogin();
-		//$this->load->view('welcome_message');
 		$this->load->model('VegetationModel');
 		$tmp = $this->VegetationModel->get_all_vegetations();
-		$tmpp = $this->VegetationModel->get_all_plantpaths();
-		//$tmp2 = $this->UserModel->check_username_password('111','222');
-		
-		//var_dump($tmp);die();
+		$tmpt = $this->VegetationModel->get_all_types();
 
 		$data = array('navbar_name'=>'จัดการข้อมูลพันธุ์ไม้');
 		$data_top = array('activebar'=>'vegetation');
@@ -43,17 +39,42 @@ class Vegetations extends CI_Controller {
 		$this->load->view('dashboard/navbar',$data);
 		$this->load->view('dashboard/topcontent');
 		$page_data['vegetationForm'] = $tmp;
-		$page_data['plantpathList'] = $tmpp;
+		$page_data['typeList'] = $tmpt;
 		$this->load->view('vegetations/vegetation_form',$page_data);
 
 		$this->load->view('dashboard/footcontent');
 		$this->load->view('dashboard/footer');
 	}
-
+	//ฟังก์ชันเพิ่ม
 	public function new_vegetation_add()
 	{
 		// var_dump($_POST);
 		// die();
+		// upload
+		$config['upload_path']          = 'image/vegetation';
+        $config['allowed_types']        = 'gif|jpg|png';
+
+		
+        $this->load->library('upload', $config);
+		// var_dump($_POST);
+		$this->upload->initialize($config); 
+
+		$img_url = "";
+
+        if ( ! $this->upload->do_upload('URL'))
+        {
+                $error = array('error' => $this->upload->display_errors());
+				var_dump($error);
+                // $this->load->view('upload_form', $error);
+        }
+        else
+        {
+
+                $data = array('upload_data' => $this->upload->data());
+                $img_url = "image/vegetation/".$data["upload_data"]["file_name"];
+				// echo $img_url;
+        }
+
 		$loname_region = $_POST["loname_region"];
 		$loname_name = $_POST["loname_name"];
 		$localname = array();
@@ -78,6 +99,15 @@ class Vegetations extends CI_Controller {
 		$data["co2_storage"] = $_POST["co2_storage"];
 		$data["propagationID"] = $_POST["propagationID"];
 		$data["reference_data"] = $_POST["reference_data"];
+
+		$data["imagevegetationID "] = null;
+		$data["URL"] = $img_url;
+		$data["status"] = null;
+		$data["vegetation_vegetationID"] = $_POST["vegetation_vegetationID"];
+
+		if ($img_url != "") {
+			$data['status'] = 1; 
+		}
 		
 		$this->load->model('VegetationModel');
 		$tmp = $this->VegetationModel->insert_vegetation($data,$localname);

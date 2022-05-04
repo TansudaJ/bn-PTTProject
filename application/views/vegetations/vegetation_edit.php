@@ -20,8 +20,7 @@
   }
 </style>
 
-<?php echo form_open_multipart('vegetations/new_vegetation_add');?>
-<!-- <form method="post" action="<?php echo site_url("vegetations/new_vegetation_add");?>">  -->
+<form method="post" action="<?php echo site_url("vegetations/new_vegetation_add");?>"> 
 <div class="row">
             <div class="col-md-12">
               <div class="card">
@@ -65,14 +64,15 @@
                       <div class="col-md-4">
                         <div class="form-group">
                         <label class="bmd-label-floating">เลือกประเภทพันธุ์ไม้<span class="s">*</span></label>
-                        <select class="form-select form-control "name="typeID" required>
-                              <option value="">เลือกประเภทพันธุ์ไม้</option>
-                              <?php foreach($typeList as $result){?>
-                                <option value="<?php echo $result->typeID;?>">
-                                <?php echo $result->typename;?>
-                            </option>
-                            <?php } ?>
-                          </select>
+                          <select class="form-select form-control "name="type" required>
+                              <option value="">-เลือกประเภทพันธุ์ไม้-</option>
+                                <option value="1">ไม้ดอก</option>
+                                <option value="2">ไม้ประดับ</option>
+                                <option value="3">ไม้ยืนต้น</option>
+                                <option value="4">ไม้เลื้อย</option>
+                                <option value="5">ไม้อิงอาศัย</option>
+                                <option value="6">พืชสมุนไพร</option>
+                              </select>
                         </div>
                       </div>
                     </div>

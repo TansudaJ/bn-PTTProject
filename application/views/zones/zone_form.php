@@ -16,8 +16,8 @@
     color: red;
    }
 </style>
-
-<form method="post" action="<?php echo site_url("Zones/new_zone_add");?>" enctype="multipart/form-data"> 
+<?php echo form_open_multipart('Zones/new_zone_add');?>
+<!-- <form method="post" action="<?php echo site_url("Zones/new_zone_add");?>" enctype="multipart/form-data">  -->
 <div class="row">
             <div class="col-md-12">
               <div class="card">
@@ -79,11 +79,10 @@
                     </div>
                     <!-- row3 -->
                     <div class="row">
-                      <div class="col-md-4">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">รูปภาพโซน<span class="s">*</span></label>
-                          <!-- <input type="file" name="mapimageURL" class="form-control" required> -->
-                        </div>
+                      <div class="col-md-12">
+                        <label class="bmd-label-floating">รูปภาพโซน</label>
+                            <input type="file" name="imageURL" size="20" class="form-control">
+                            <label class="bmd-label-floating s" >*อัพไฟล์ที่มีนามสกุล gif หรือ .jpg หรือ .png</label>
                       </div>
                     </div>
                     <!-- row4 -->

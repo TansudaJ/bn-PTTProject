@@ -127,7 +127,7 @@ button.btn.btn-info:host {
               </form>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">ปิด</button>
+              <button type="button" class="btn btn-primary" data-dismiss="modal">ปิด</button>
             </div>
           </div>
         </div>

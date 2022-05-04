@@ -58,15 +58,59 @@ class Zones extends CI_Controller {
 
 	public function new_zone_add()
 	{
+		// upload
+		$config['upload_path']          = 'imagemap';
+        $config['allowed_types']        = 'gif|jpg|png';
 
-		$data["zoneID"] = NULL;
-		$data["nameEN"] = $_POST["nameEN"];
-		$data["nameTH"] = $_POST["nameTH"];
-		$data["detail"] = $_POST["detail"];
-		$data["status"] = $_POST["status"];
-		// $data["mapimageURL"] = $_POST["mapimageURL"];
-		$data["location"] = $_POST["location"];
-		$data["headzoneID"] = $_POST["headzoneID"];
+		
+        $this->load->library('upload', $config);
+		// var_dump($_POST);
+		$this->upload->initialize($config); 
+
+		$img_url = "";
+
+        if ( ! $this->upload->do_upload('imageURL'))
+        {
+                $error = array('error' => $this->upload->display_errors());
+				var_dump($error);
+                // $this->load->view('upload_form', $error);
+        }
+        else
+        {
+
+                $data = array('upload_data' => $this->upload->data());
+                $img_url = "imagemap".$data["upload_data"]["file_name"];
+				// echo $img_url;
+        }
+		// die();
+		$zoneID = null;
+		$nameEN = $_POST["nameEN"];
+		$nameTH = $_POST["nameTH"];
+		$detail = $_POST["detail"];
+		$status = $_POST["status"];
+
+		$imagezoneID = null;
+		$imageTitle 	= $_POST["imageTitle"];
+		$imagedetail = $_POST["imagedetail"];
+		$activeflag	= $_POST["activeflag"];
+		
+		$data = array(
+			"zoneID"=>$zoneID, 
+			"nameEN"=>$nameEN, 
+			"nameTH"=>$nameTH,
+			"detail"=>$detail,
+			"status"=>$status,
+
+			"imagezoneID"=>$imagezoneID,
+			"imageTitle"=>$imageTitle,
+			"imagedetail"=>$imagedetail,
+			"activeflag"=>$activeflag,
+			"imageURL"=>$img_url
+			
+		);
+		
+		var_dump($data);
+		die();
 		
 		$this->load->model('ZoneModel');
 		$tmp = $this->ZoneModel->insert_zone($data);

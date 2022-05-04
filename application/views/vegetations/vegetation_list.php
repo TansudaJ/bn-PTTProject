@@ -67,23 +67,12 @@ table {
                                       }elseif($row->region == "6"){
                                         echo "ภาคใต้";
                                       }
-                            ?>  (<?php echo $row->localname; ?>)</td>
-                            <td><?php if ($row->type == "1") {
-                                        echo "ไม้ดอก";
-                                      }elseif($row->type == "2"){
-                                        echo "ไม้ประดับ";
-                                      }elseif($row->type == "3"){
-                                        echo "ไม้ยืนต้น";
-                                      }elseif($row->type == "4"){
-                                        echo "ไม้เลื้อย";
-                                      }elseif($row->type == "5"){
-                                        echo "ไม้อิงอาศัย";
-                                      }elseif($row->type == "6"){
-                                        echo "พืชสมุนไพร";
-                                      }
-                            ?></td>
+                            ?> (<?php echo $row->localname; ?>)</td>
+                            <td><?php echo $row->typename?></td>
                             <td class="text-center">
-                                  <button type="button" title="View" class="btn btn-info" onclick="infoClick('<?php echo $row->vegetationID; ?>')"><i class="material-icons">info</i></button>     
+                                  <button type="button" title="View" class="btn btn-info" onclick="infoClick('<?php echo $row->vegetationID; ?>')"><i class="material-icons">info</i></button>
+                                  <a  href="<?php echo site_url("Plantpaths/edit_plantpath_form/$row->vegetationID"); ?>"><button type="button" title="Edit" class="btn btn-warning"><i class="material-icons">edit</i></button></a>
+                                  <a onclick="return confirm('คุณต้องการลบส่วนประกอบต้นไม้ออกหรือไม่?')" href="<?php echo site_url("Plantpaths/delete_plantpath/$row->vegetationID"); ?>"><button type="button" title="Delete" class="btn btn-danger"><i class="material-icons">delete</i></button></a>    
                             </td>
                         </tr>
                     <?php }?>
