@@ -55,6 +55,7 @@ The above copyright notice and this permission notice shall be included in all c
               <p>Dashboard</p>
             </a>
           </li>
+
           <?php if($_SESSION['authority_authorityID'] == '1'){?>
           <li class="nav-item <?php if ($activebar == "user"){echo "active";} ?>">
             <a class="nav-link" href="<?php echo site_url("Users/user"); ?>">
@@ -63,21 +64,7 @@ The above copyright notice and this permission notice shall be included in all c
             </a>
           </li>
           <?php } ?>
-          <!-- <li class="nav-item dropdown <?php if ($activebar == "simple"){echo "active";} ?>">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" style="font-size: 14px;" aria-haspopup="true" aria-expanded="false">
-            <i class="material-icons">people</i>จัดการข้อมูลพื้นฐาน
-            </a>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item <?php if ($activebar == "user"){echo "active";} ?>" href="<?php echo site_url("Users/user"); ?>">จัดการข้อมูลผู้ใช้งาน</a>
-              <a class="dropdown-item <?php if ($activebar == "simple"){echo "active";} ?>" href="<?php echo site_url("Simples/simple"); ?>">จัดการข้อมูลตำแหน่งงาน</a>
-            </div>
-          </li> -->
-          <!-- <li class="nav-item <?php if ($activebar == "vegetation"){echo "active";} ?>">
-            <a class="nav-link" href="<?php echo site_url("Vegetations/vegetation"); ?>">
-            <i class="material-icons">park</i>
-              <p>จัดการข้อมูลพรรณไม้</p>
-            </a>
-          </li> -->
+
           <?php if($_SESSION['authority_authorityID'] == '1' || $_SESSION['authority_authorityID'] == '2'){?>
           <li class="nav-item dropdown <?php if ($activebar == "vegetation"){echo "active";} ?>">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" style="font-size: 14px;" aria-haspopup="true" aria-expanded="false">
@@ -89,36 +76,50 @@ The above copyright notice and this permission notice shall be included in all c
             </div>
           </li>
           <?php } ?>
+
           <li class="nav-item <?php if ($activebar == "plant"){echo "active";} ?>">
             <a class="nav-link" href="<?php echo site_url("Plants/plant"); ?>">
               <i class="material-icons">forest</i>
               <p>จัดการข้อมูลต้นไม้</p>
             </a>
           </li>
+
+          <?php if($_SESSION['authority_authorityID'] == '1' || $_SESSION['authority_authorityID'] == '2'){?>
           <li class="nav-item <?php if ($activebar == "zone"){echo "active";} ?>">
             <a class="nav-link" href="<?php echo site_url("Zones/zone"); ?>">
               <i class="material-icons">bubble_chart</i>
               <p>จัดการโซน</p>
             </a>
           </li>
+          <?php } ?>
+
+          <?php if($_SESSION['authority_authorityID'] == '1' || $_SESSION['authority_authorityID'] == '2'){?>
           <li class="nav-item <?php if ($activebar == "vegetation"){echo "active";} ?>">
             <a class="nav-link" href="<?php echo site_url("Vegetations/vegetation"); ?>">
             <i class="material-icons">location_ons</i>
               <p>จัดการแผนที่รูปภาพ</p>
             </a>
           </li>
+          <?php } ?>
+          
+          <?php if($_SESSION['authority_authorityID'] == '1' || $_SESSION['authority_authorityID'] == '2'){?>
           <li class="nav-item <?php if ($activebar == "mainmethod"){echo "active";} ?>">
             <a class="nav-link" href="<?php echo site_url("Mainmethods/mainmethod"); ?>">
               <i class="material-icons">content_paste</i>
               <p>จัดการวิธีการดูแลรักษา</p>
             </a>
           </li>
+          <?php } ?>
+
+          <?php if($_SESSION['authority_authorityID'] == '1' || $_SESSION['authority_authorityID'] == '2'){?>
           <li class="nav-item <?php if ($activebar == "plantpath"){echo "active";} ?> ">
             <a class="nav-link" href="<?php echo site_url("Plantpaths/plantpath"); ?>">
               <i class="material-icons">local_florist</i>
               <p>จัดการส่วนประกอบต้นไม้</p>
             </a>
           </li>
+          <?php } ?>
+
           <!-- ของพนักงานทั่วไป -->
           <li class="nav-item <?php if ($activebar == "maintenance"){echo "active";} ?> ">
             <a class="nav-link" href="<?php echo site_url("Maintenances/maintenance"); ?>">
@@ -126,7 +127,6 @@ The above copyright notice and this permission notice shall be included in all c
               <p>การดูแลรักษา</p>
             </a>
           </li>
-          
         </ul>
       </div>
     </div>

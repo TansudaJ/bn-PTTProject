@@ -20,6 +20,14 @@ class PathmainModel extends CI_Model {
             $query = $this->db->query("SELECT * FROM vegetation");
             return $query->result();
     }
+    //getidinfo
+    public function get_pathmain_byID($id)
+    {
+            $query = $this->db->query("SELECT * FROM ((medicinalproperties m INNER JOIN vegetation v ON m.vegetation_vegetationID=v.vegetationID) 
+            INNER JOIN plantpath p ON m.plantspath_pathID=p.pathID)
+            WHERE m.medicinalpropertiesID = '".$id."'" );
+            return $query->result();
+    }
     //เพิ่ม
     public function insert_pathmain($data1,$data2)
     {
