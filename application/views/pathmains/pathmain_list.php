@@ -55,9 +55,9 @@ button.btn.btn-info:host {
                             <td><?php echo $row->n_common_TH; ?></td>
                             <td><?php echo $row->plantpathname; ?></td>
                             <td class="text-center">
-                              <button type="button" title="View" class="btn btn-info" onclick="infoClick('<?php echo $row->medicinalPropertiesID; ?>')"><i class="material-icons">info</i></button>  
-                              <a  href="<?php echo site_url("Plantpaths/edit_plantpath_form/$row->medicinalPropertiesID"); ?>"><button type="button" title="Edit" class="btn btn-warning"><i class="material-icons">edit</i></button></a>
-                              <a onclick="return confirm('คุณต้องการลบส่วนประกอบต้นไม้ออกหรือไม่?')" href="<?php echo site_url("Plantpaths/delete_plantpath/$row->pathID"); ?>"><button type="button" title="Delete" class="btn btn-danger"><i class="material-icons">delete</i></button>      
+                              <button type="button" title="View" class="btn btn-info btn-sm" onclick="infoClick('<?php echo $row->medicinalPropertiesID; ?>')"><i class="material-icons">info</i></button>  
+                              <a  href="<?php echo site_url("Plantpaths/edit_plantpath_form/$row->medicinalPropertiesID"); ?>"><button type="button" title="Edit" class="btn btn-warning btn-sm"><i class="material-icons">edit</i></button></a>
+                              <a onclick="return confirm('คุณต้องการลบส่วนประกอบต้นไม้ออกหรือไม่?')" href="<?php echo site_url("Plantpaths/delete_plantpath/$row->pathID"); ?>"><button type="button" title="Delete" class="btn btn-danger btn-sm"><i class="material-icons">delete</i></button>      
                             </td>
                         </tr>
                     <?php }?>

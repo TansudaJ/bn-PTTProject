@@ -54,7 +54,7 @@ class Pathmains extends CI_Controller {
     public function new_pathmain_add()
 	{
         // upload
-		$config['upload_path']          = 'image/plant';
+		$config['upload_path']          = 'image/vegetation';
         $config['allowed_types']        = 'gif|jpg|png';
 
 		
@@ -73,39 +73,28 @@ class Pathmains extends CI_Controller {
         else
         {
 
-                $data = array('upload_data' => $this->upload->data());
-                $url = "image/plant/".$data["upload_data"]["file_name"];
+                $data_upload = array('upload_data' => $this->upload->data());
+                $url = "image/plant/".$data_upload["upload_data"]["file_name"];
 				// echo $img_url;
 
                 // $this->load->view('upload_success', $data);
         }
-        $medicinalPropertiesID = null;
-		$properties = $_POST["properties"];
-		$instruction 	= $_POST["instruction"];
-		$caution = $_POST["caution"];
-		$reference = $_POST["reference"];
-		$vegetation_vegetationID = $_POST["vegetation_vegetationID"];
-		$plantspath_pathID = $_POST["plantspath_pathID"];
-		$imageplantID = null;
-		// $URL= $_POST["URL"];
+
+		$data["medicinalPropertiesID"] = NULL;
+		$data["properties"] = $_POST["properties"];
+		$data["instruction"] = $_POST["instruction"];
+		$data["caution"] = $_POST["caution"];
+		$data["reference"] = $_POST["reference"];
+		$data["vegetation_vegetationID"] = $_POST["vegetation_vegetationID"];
+		$data["plantspath_pathID"] = $_POST["plantspath_pathID"];
+
+		$data_img["imagevegetationID "] = null;
+		$data_img["URL"] = $url;
+		$data_img["status"] = null;
 		
-		$data = array(
-			"medicinalPropertiesID"=>$medicinalPropertiesID, 
-			"properties"=>$properties, 
-			"instruction"=>$instruction,
-			"caution"=>$caution,
-			"reference"=>$reference,
-			"vegetation_vegetationID"=>$vegetation_vegetationID,
-			"plantspath_pathID"=>$plantspath_pathID,
-			"imageplantID"=>$imageplantID,
-			"imageURL"=>$url
-			
-		);
-		// var_dump($data);
-		// die();
 
 		$this->load->model('PathmainModel');
-		$tmp = $this->PathmainModel->insert_pathmain($data);
+		$tmp = $this->PathmainModel->insert_pathmain($data,$data_img);
 		if($tmp){
 			$this->session->set_flashdata('message_error', 'เพิ่มส่วนประกอบต้นไม้สำเร็จ');
 			redirect('Plantpaths/plantpath');

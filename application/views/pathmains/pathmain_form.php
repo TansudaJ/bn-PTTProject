@@ -19,8 +19,8 @@
     font-size: 1.75rem;
   }
 </style>
-
-<form method="post" action="<?php echo site_url("pathmains/new_pathmain_add");?>"> 
+<?php echo form_open_multipart('pathmains/new_pathmain_add');?>
+<!-- <form method="post" action="<?php echo site_url("pathmains/new_pathmain_add");?>">  -->
 <div class="row">
             <div class="col-md-12">
               <div class="card">
@@ -68,6 +68,7 @@
                         <!-- <div class="form-group"> -->
                           <label class="bmd-label-floating">ภาพส่วนประกอบต้นไม้</label>
                             <input type="file" name="URL" size="20" class="form-control">
+                            <label class="bmd-label-floating s" >*อัพไฟล์ที่มีนามสกุล gif หรือ .jpg หรือ .png</label>
                         <!-- </div> -->
                       </div>
                     </div><br>
