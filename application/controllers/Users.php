@@ -109,7 +109,7 @@ class Users extends CI_Controller {
 			
 		);
 		
-		var_dump($data);
+		// var_dump($data);
 		// die();
 
 		$this->load->model('UserModel');

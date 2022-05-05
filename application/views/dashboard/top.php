@@ -94,8 +94,8 @@ The above copyright notice and this permission notice shall be included in all c
           <?php } ?>
 
           <?php if($_SESSION['authority_authorityID'] == '1' || $_SESSION['authority_authorityID'] == '2'){?>
-          <li class="nav-item <?php if ($activebar == "vegetation"){echo "active";} ?>">
-            <a class="nav-link" href="<?php echo site_url("Vegetations/vegetation"); ?>">
+          <li class="nav-item <?php if ($activebar == "imagemap"){echo "active";} ?>">
+            <a class="nav-link" href="<?php echo site_url("Imagemaps/imagemap"); ?>">
             <i class="material-icons">location_ons</i>
               <p>จัดการแผนที่รูปภาพ</p>
             </a>
