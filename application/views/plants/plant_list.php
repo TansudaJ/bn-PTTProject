@@ -59,9 +59,14 @@ button.btn.btn-info:host {
                             <td><?php echo $row->n_common_TH; ?></td>
                             <td><?php echo $row->nameTH; ?></td>
                             <td><?php echo $row->actual; ?></td>
-                            <td><?php echo $row->show; ?></td>
+                            <td><?php if($row->show == 0){
+                                        echo "ไม่แสดง";
+                                      }else{
+                                        echo "แสดง";
+                                      }
+                             ?></td>
                             <td><?php echo $row->exclusivity; ?></td>
-                            <td><?php echo $row->QRCode; ?></td>
+                            <td><img src="<?php echo base_url().$row->QRCode;?>" alt="" width="50px" height="50px"></td>
                             <td class="text-center">
                                   <button type="button" title="View" class="btn btn-info" onclick="infoClick('<?php echo $row->plantID; ?>')"><i class="material-icons">info</i></button>      
                             </td>

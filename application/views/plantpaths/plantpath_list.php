@@ -44,6 +44,7 @@ button.btn.btn-info:host {
                         <tr>
                             <th class="text-center">รหัส</th>
                             <th class="text-center">ชื่อ</th>
+                            <th class="text-center">สถานะการใช้งาน</th>
                             <th class="text-center"></th>
                         </tr>
                     </thead>
@@ -52,6 +53,7 @@ button.btn.btn-info:host {
                         <tr>
                             <td><?php echo $row->pathID; ?></td>
                             <td><?php echo $row->plantpathname; ?></td>
+                            <td><?php echo ($row->activeFlag == 1) ? "ใช้งาน": "ไม่ใช้งาน"; ?></td>
                             <td class="text-center">
                               <a  href="<?php echo site_url("Plantpaths/edit_plantpath_form/$row->pathID"); ?>"><button type="button" title="Edit" class="btn btn-warning"><i class="material-icons">edit</i></button></a>
                               <a onclick="return confirm('คุณต้องการลบส่วนประกอบต้นไม้ออกหรือไม่?')" href="<?php echo site_url("Plantpaths/delete_plantpath/$row->pathID"); ?>"><button type="button" title="Delete" class="btn btn-danger"><i class="material-icons">delete</i></button></a>      

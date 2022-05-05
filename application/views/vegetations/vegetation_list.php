@@ -44,7 +44,7 @@ table {
                             <th class="text-center">ชื่อวงศ์</th>
                             <th class="text-center">ชื่อพื้นเมือง(ภูมิภาค)</th>
                             <th class="text-center">ประเภท</th>
-                            <th class="text-center"></th>
+                            <th class="text-center"><div style="width: inherit;"></div></th>
                         </tr>
                     </thead>
                     <tbody> 	
@@ -69,10 +69,10 @@ table {
                                       }
                             ?> (<?php echo $row->localname; ?>)</td>
                             <td><?php echo $row->typename?></td>
-                            <td class="text-center">
-                                  <button type="button" title="View" class="btn btn-info" onclick="infoClick('<?php echo $row->vegetationID; ?>')"><i class="material-icons">info</i></button>
-                                  <a  href="<?php echo site_url("Plantpaths/edit_plantpath_form/$row->vegetationID"); ?>"><button type="button" title="Edit" class="btn btn-warning"><i class="material-icons">edit</i></button></a>
-                                  <a onclick="return confirm('คุณต้องการลบส่วนประกอบต้นไม้ออกหรือไม่?')" href="<?php echo site_url("Plantpaths/delete_plantpath/$row->vegetationID"); ?>"><button type="button" title="Delete" class="btn btn-danger"><i class="material-icons">delete</i></button></a>    
+                            <td class="text-center" style="width: fit-content;">
+                                  <button type="button" title="View" class="btn btn-info btn-sm" onclick="infoClick('<?php echo $row->vegetationID; ?>')"><i class="material-icons">info</i></button>
+                                  <a  href="<?php echo site_url("Plantpaths/edit_plantpath_form/$row->vegetationID"); ?>"><button type="button" title="Edit" class="btn btn-warning btn-sm"><i class="material-icons">edit</i></button></a>
+                                  <a onclick="return confirm('คุณต้องการลบส่วนประกอบต้นไม้ออกหรือไม่?')" href="<?php echo site_url("Plantpaths/delete_plantpath/$row->vegetationID"); ?>"><button type="button" title="Delete" class="btn btn-danger btn-sm"><i class="material-icons">delete</i></button></a>    
                             </td>
                         </tr>
                     <?php }?>
@@ -97,17 +97,15 @@ table {
                   dataType: 'json',
                   success: function(data){
                     vegetation = data['data'][0];
-                    // console.log(vegetationID);
-
-                    // $("#image_profile").attr('src',user['imageURL']); ภาพ
-
+                    
+                    $("#image_vegetation").attr('src',"<?php echo base_url()?>"+vegetation['URL']);
                     $('#commonTH').val(vegetation['n_common_TH']);
                     $('#commonEN').val(vegetation['n_common_ENG']);
                     $('#n_scientific').val(vegetation['n_scientific']);
                     $('#n_family').val(vegetation['n_family']);
                     $('#localname').val(vegetation['localname']);
                     $('#region').val(vegetation['region']);
-                    $('#type').val(vegetation['type']);
+                    $('#type').val(vegetation['typename']);
                     $('#appearance').val(vegetation['appearance']);
                     $('#origin').val(vegetation['plant_origin']);
                     $('#distribution').val(vegetation['distribution']);
@@ -115,7 +113,7 @@ table {
                     $('#shape').val(vegetation['shape']);
                     $('#defoliation').val(vegetation['defoliation']);
                     $('#fperiod').val(vegetation['flowering_period']);
-                    $('#propagationname').val(vegetation['propagation_name']);
+                    $('#propagation').val(vegetation['propagation']);
                     $('#co2_storage').val(vegetation['co2_storage']);
                     $('#reference').val(vegetation['reference']);
                     $('#reference_data').val(vegetation['reference_data']);
@@ -146,7 +144,7 @@ table {
                 </div>
                 <!-- image -->
                 <div class="form-group">
-                  <img class="img-fluid rounded mx-auto d-block" id="image_profile" src="" style="width:50%; ">
+                  <img class="img-fluid rounded mx-auto d-block" id="image_vegetation" src="" style="width:40%; ">
                 </div>
                 <!-- row1 -->
                 <div class="form-group row">
@@ -243,9 +241,9 @@ table {
                 </div>
                 <!-- row12 -->
                 <div class="form-group row">
-                  <label for="propagationname" class="col-form-label">วิธีการขยายพันธุ์:</label>
+                  <label for="propagation" class="col-form-label">วิธีการขยายพันธุ์:</label>
                     <div class="col-sm-10" style="margin: -13px 0 0 90px;">
-                    <input type="text" class="form-control" id="propagationname" style="width: 250px;">
+                    <input type="text" class="form-control" id="propagation" style="width: 500px;">
                     </div>
                 </div>
                 <!-- row13 -->
@@ -272,8 +270,7 @@ table {
               </form>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">ปิด</button>
-              <button type="button" class="btn btn-primary">บันทึกข้อมูล</button>
+              <button type="button" class="btn btn-primary" data-dismiss="modal">ปิด</button>
             </div>
           </div>
         </div>

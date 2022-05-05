@@ -48,8 +48,6 @@ class Vegetations extends CI_Controller {
 	//ฟังก์ชันเพิ่ม
 	public function new_vegetation_add()
 	{
-		// var_dump($_POST);
-		// die();
 		// upload
 		$config['upload_path']          = 'image/vegetation';
         $config['allowed_types']        = 'gif|jpg|png';
@@ -69,9 +67,8 @@ class Vegetations extends CI_Controller {
         }
         else
         {
-
-                $data = array('upload_data' => $this->upload->data());
-                $img_url = "image/vegetation/".$data["upload_data"]["file_name"];
+                $data_upload = array('upload_data' => $this->upload->data());
+                $img_url = "image/vegetation/".$data_upload["upload_data"]["file_name"];
 				// echo $img_url;
         }
 
@@ -90,27 +87,27 @@ class Vegetations extends CI_Controller {
 		$data["appearance"] 	= $_POST["appearance"];
 		$data["plant_origin"] = $_POST["origin"];
 		$data["distribution"] = $_POST["distribution"];
-		$data["type"] = $_POST["type"];
+		$data["typeID"] = $_POST["typeID"];
 		$data["growth"] = $_POST["growth"];
 		$data["shape"] 	= $_POST["shape"];
 		$data["defoliation"] 	= $_POST["defoliation"];
 		$data["flowering_period"] 	= $_POST["fperiod"];
 		$data["reference"] = $_POST["reference"];
 		$data["co2_storage"] = $_POST["co2_storage"];
-		$data["propagationID"] = $_POST["propagationID"];
+		$data["propagation"] = $_POST["propagation"];
 		$data["reference_data"] = $_POST["reference_data"];
 
-		$data["imagevegetationID "] = null;
-		$data["URL"] = $img_url;
-		$data["status"] = null;
-		$data["vegetation_vegetationID"] = $_POST["vegetation_vegetationID"];
+		$data_img["imagevegetationID "] = null;
+		$data_img["URL"] = $img_url;
+		$data_img["status"] = null;
+		
 
 		if ($img_url != "") {
-			$data['status'] = 1; 
+			$data_img['status'] = 1; 
 		}
 		
 		$this->load->model('VegetationModel');
-		$tmp = $this->VegetationModel->insert_vegetation($data,$localname);
+		$tmp = $this->VegetationModel->insert_vegetation($data,$localname,$data_img);
 		if($tmp){
 			$this->session->set_flashdata('message_error', 'เพิ่มพันธุ์ไม้สำเร็จ');
 			redirect('Vegetations/vegetation');

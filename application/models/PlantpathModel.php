@@ -3,7 +3,7 @@ class PlantpathModel extends CI_Model {
     //แสดง
     public function get_all_plantpaths()
     {
-            $query = $this->db->query("SELECT * FROM plantpath");
+            $query = $this->db->query("SELECT * FROM plantpath order by activeFlag DESC");
             return $query->result();
     }
     //เพิ่ม
@@ -30,14 +30,16 @@ class PlantpathModel extends CI_Model {
      public function update($data,$id) { 
         $this->db->set($data); 
         $this->db->where("pathID", $id); 
-        $this->db->update("plantpath", $data); 
+        $this->db->update("plantpath", $data);
      }
 
     //ลบ
-    public function delete($id) { 
-        if ($this->db->delete("plantpath", "pathID = ".$id)) { 
-           return true; 
-        } 
-     }
+    public function delete($id) 
+    { 
+        $query = $this->db->query("UPDATE plantpath SET activeFlag = 0 where pathID = ".$id);
+        if ($query>0) {
+            return true;
+        }
+    }
     
 }

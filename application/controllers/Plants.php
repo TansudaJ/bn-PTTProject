@@ -66,7 +66,7 @@ class Plants extends CI_Controller {
 
 		$imgQRCode = "";
 
-        if ( ! $this->upload->do_upload('imageURL'))
+        if ( ! $this->upload->do_upload('QRCode'))
         {
                 $error = array('error' => $this->upload->display_errors());
 				var_dump($error);
@@ -78,10 +78,7 @@ class Plants extends CI_Controller {
                 $data = array('upload_data' => $this->upload->data());
                 $imgQRCode = "image/QRCode/".$data["upload_data"]["file_name"];
 				// echo $img_url;
-
-                // $this->load->view('upload_success', $data);
         }
-
 		
 		$data["plantID"] = NULL;
 		$data["vegetationID"] = $_POST["vegetationID"];

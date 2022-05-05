@@ -151,11 +151,9 @@
                     <!-- ภาพพันธุ์ไม้ -->
                     <div class="row">
                       <div class="col-md-12">
-                        <!-- <div class="form-group"> -->
                           <label class="bmd-label-floating">ภาพพันธุ์ไม้</label>
                             <input type="file" name="URL" size="20" class="form-control">
                             <label class="bmd-label-floating s" >*อัพไฟล์ที่มีนามสกุล gif หรือ .jpg หรือ .png</label>
-                        <!-- </div> -->
                       </div>
                     </div><br>
                     <!-- รายละเอียด -->
@@ -168,7 +166,7 @@
                       <div class="col-md-12">
                           <div class="form-group">
                             <label class="bmd-label-floating">ลักษณะ<span class="s">*</span></label>
-                            <textarea class="form-control" rows="5" id="comment" name="appearance" required></textarea>
+                            <textarea class="form-control" rows="5" name="appearance" required></textarea>
                           </div>
                         </div> 
                     </div>
