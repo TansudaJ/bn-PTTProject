@@ -12,7 +12,7 @@ class VegetationModel extends CI_Model {
             $query = $this->db->query("SELECT * FROM (((vegetation v INNER JOIN localname l ON v.vegetationID = l.vegetationID) 
             INNER JOIN type t ON v.typeID = t.typeID) 
             INNER JOIN imagevegetation iv ON v.vegetationID=iv.vegetation_vegetationID) 
-            WHERE iv.status =1 && v.vegetationID = '".$id."';");
+            WHERE v.vegetationID = '".$id."';");
             return $query->result();
     }
 
@@ -41,11 +41,23 @@ class VegetationModel extends CI_Model {
            return (TRUE) ;
         }else {
             return (FALSE) ;
-        }
-
-                
+        }        
 
     }
+
+    //getidedit
+    public function getvegetationbyID($id)
+    {
+        $query = $this->db->get_where("vegetation",array("vegetationID"=>$id));
+        $data = $query->result(); 
+        return $data;
+     }
+    //แก้ไข
+     public function update($data,$id) { 
+        $this->db->set($data); 
+        $this->db->where("employeeID", $id); 
+        $this->db->update("employee", $data); 
+     }
     
 
 

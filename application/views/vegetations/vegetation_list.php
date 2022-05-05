@@ -71,7 +71,7 @@ table {
                             <td><?php echo $row->typename?></td>
                             <td class="text-center" style="width: fit-content;">
                                   <button type="button" title="View" class="btn btn-info btn-sm" onclick="infoClick('<?php echo $row->vegetationID; ?>')"><i class="material-icons">info</i></button>
-                                  <a  href="<?php echo site_url("Plantpaths/edit_plantpath_form/$row->vegetationID"); ?>"><button type="button" title="Edit" class="btn btn-warning btn-sm"><i class="material-icons">edit</i></button></a>
+                                  <a  href="<?php echo site_url("vegetations/edit_vegetation_form/$row->vegetationID"); ?>"><button type="button" title="Edit" class="btn btn-warning btn-sm"><i class="material-icons">edit</i></button></a>
                                   <a onclick="return confirm('คุณต้องการลบส่วนประกอบต้นไม้ออกหรือไม่?')" href="<?php echo site_url("Plantpaths/delete_plantpath/$row->vegetationID"); ?>"><button type="button" title="Delete" class="btn btn-danger btn-sm"><i class="material-icons">delete</i></button></a>    
                             </td>
                         </tr>
@@ -105,6 +105,7 @@ table {
                     $('#n_family').val(vegetation['n_family']);
                     $('#localname').val(vegetation['localname']);
                     $('#region').val(vegetation['region']);
+                    
                     $('#type').val(vegetation['typename']);
                     $('#appearance').val(vegetation['appearance']);
                     $('#origin').val(vegetation['plant_origin']);

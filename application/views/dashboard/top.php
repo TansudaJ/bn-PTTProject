@@ -55,12 +55,14 @@ The above copyright notice and this permission notice shall be included in all c
               <p>Dashboard</p>
             </a>
           </li>
+          <?php if($_SESSION['authority_authorityID'] == '1'){?>
           <li class="nav-item <?php if ($activebar == "user"){echo "active";} ?>">
             <a class="nav-link" href="<?php echo site_url("Users/user"); ?>">
             <i class="material-icons">people</i>
               <p>จัดการข้อมูลพื้นฐาน</p>
             </a>
           </li>
+          <?php } ?>
           <!-- <li class="nav-item dropdown <?php if ($activebar == "simple"){echo "active";} ?>">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" style="font-size: 14px;" aria-haspopup="true" aria-expanded="false">
             <i class="material-icons">people</i>จัดการข้อมูลพื้นฐาน
@@ -76,6 +78,7 @@ The above copyright notice and this permission notice shall be included in all c
               <p>จัดการข้อมูลพรรณไม้</p>
             </a>
           </li> -->
+          <?php if($_SESSION['authority_authorityID'] == '1' || $_SESSION['authority_authorityID'] == '2'){?>
           <li class="nav-item dropdown <?php if ($activebar == "vegetation"){echo "active";} ?>">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" style="font-size: 14px;" aria-haspopup="true" aria-expanded="false">
             <i class="material-icons">park</i>จัดการข้อมูลพันธุ์ไม้
@@ -85,6 +88,7 @@ The above copyright notice and this permission notice shall be included in all c
               <a class="dropdown-item <?php if ($activebar == "pathmain"){echo "active";} ?>" href="<?php echo site_url("Pathmains/pathmain"); ?>">ข้อมูลส่วนประกอบ</a>
             </div>
           </li>
+          <?php } ?>
           <li class="nav-item <?php if ($activebar == "plant"){echo "active";} ?>">
             <a class="nav-link" href="<?php echo site_url("Plants/plant"); ?>">
               <i class="material-icons">forest</i>
@@ -97,6 +101,12 @@ The above copyright notice and this permission notice shall be included in all c
               <p>จัดการโซน</p>
             </a>
           </li>
+          <li class="nav-item <?php if ($activebar == "vegetation"){echo "active";} ?>">
+            <a class="nav-link" href="<?php echo site_url("Vegetations/vegetation"); ?>">
+            <i class="material-icons">location_ons</i>
+              <p>จัดการแผนที่รูปภาพ</p>
+            </a>
+          </li>
           <li class="nav-item <?php if ($activebar == "mainmethod"){echo "active";} ?>">
             <a class="nav-link" href="<?php echo site_url("Mainmethods/mainmethod"); ?>">
               <i class="material-icons">content_paste</i>
@@ -105,7 +115,7 @@ The above copyright notice and this permission notice shall be included in all c
           </li>
           <li class="nav-item <?php if ($activebar == "plantpath"){echo "active";} ?> ">
             <a class="nav-link" href="<?php echo site_url("Plantpaths/plantpath"); ?>">
-              <i class="material-icons">location_ons</i>
+              <i class="material-icons">local_florist</i>
               <p>จัดการส่วนประกอบต้นไม้</p>
             </a>
           </li>

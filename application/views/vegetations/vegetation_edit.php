@@ -19,8 +19,8 @@
     font-size: 1.75rem;
   }
 </style>
-
-<form method="post" action="<?php echo site_url("vegetations/new_vegetation_add");?>"> 
+<?php echo form_open_multipart('vegetations/save_edit_vegetation');?>
+<!-- <form method="post" action="<?php echo site_url("vegetations/new_vegetation_add");?>">  -->
 <div class="row">
             <div class="col-md-12">
               <div class="card">
@@ -37,42 +37,41 @@
                     <div class="row">
                       <div class="col-md-4">
                         <div class="form-group">
-                          <label class="bmd-label-floating">ชื่อสามัญภาษาไทย<span class="s">*</span></label>
-                          <input type="text" name="THname" class="form-control" required>
+                          <label class="bmd-label-floating">ชื่อสามัญภาษาไทย</label>
+                          <input type="text" name="THname" class="form-control">
                         </div>
                       </div>
                       <div class="col-md-4">
                         <div class="form-group">
-                          <label class="bmd-label-floating">ชื่อสามัญภาษาอังกฤษ<span class="s">*</span></label>
-                          <input type="text" name="ENname" class="form-control" required>
+                          <label class="bmd-label-floating">ชื่อสามัญภาษาอังกฤษ</label>
+                          <input type="text" name="ENname" class="form-control">
                         </div>
                       </div>
                       <div class="col-md-4">
                         <div class="form-group">
-                          <label class="bmd-label-floating">ชื่อวิทยาศาสตร์<span class="s">*</span></label>
-                            <input type="text" name="Sciname" class="form-control" required>
+                          <label class="bmd-label-floating">ชื่อวิทยาศาสตร์</label>
+                            <input type="text" name="Sciname" class="form-control">
                         </div>
                       </div>
                     </div>
                     <div class="row">
                       <div class="col-md-4" style="margin: 30px 0 0 0">
                         <div class="form-group">
-                          <label class="bmd-label-floating">ชื่อวงศ์<span class="s">*</span></label>
-                          <input type="text" name="famname" class="form-control" required>
+                          <label class="bmd-label-floating">ชื่อวงศ์</label>
+                          <input type="text" name="famname" class="form-control">
                         </div>
                       </div>
                       <div class="col-md-4">
                         <div class="form-group">
-                        <label class="bmd-label-floating">เลือกประเภทพันธุ์ไม้<span class="s">*</span></label>
-                          <select class="form-select form-control "name="type" required>
-                              <option value="">-เลือกประเภทพันธุ์ไม้-</option>
-                                <option value="1">ไม้ดอก</option>
-                                <option value="2">ไม้ประดับ</option>
-                                <option value="3">ไม้ยืนต้น</option>
-                                <option value="4">ไม้เลื้อย</option>
-                                <option value="5">ไม้อิงอาศัย</option>
-                                <option value="6">พืชสมุนไพร</option>
-                              </select>
+                        <label class="bmd-label-floating">เลือกประเภทพันธุ์ไม้</label>
+                        <select class="form-select form-control "name="typeID">
+                              <option value="">เลือกประเภทพันธุ์ไม้</option>
+                              <?php foreach($typeList as $result){?>
+                                <option value="<?php echo $result->typeID;?>">
+                                <?php echo $result->typename;?>
+                            </option>
+                            <?php } ?>
+                          </select>
                         </div>
                       </div>
                     </div>

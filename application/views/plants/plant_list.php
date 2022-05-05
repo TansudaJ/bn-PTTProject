@@ -36,7 +36,9 @@ button.btn.btn-info:host {
                 </div>
                 <div class="card-body">
                 <div class="text-right">
-                  <a  href="<?php echo site_url("Plants/new_plant"); ?>" ><button type="submit" class="btn btn-success"><i class="material-icons">add</i>เพิ่มต้นไม้</button></a>
+                  <?php if($_SESSION['authority_authorityID'] != '3'){?>
+                    <a  href="<?php echo site_url("Plants/new_plant"); ?>" ><button type="submit" class="btn btn-success"><i class="material-icons">add</i>เพิ่มต้นไม้</button></a>
+                  <?php } ?>
                   </div>
                   <div class="table-responsive">
                   <table id="example1" class="table table-striped table-bordered" style="width:100%">
