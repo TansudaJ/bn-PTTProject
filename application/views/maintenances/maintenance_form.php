@@ -20,7 +20,7 @@
   }
 </style>
 
-<form method="post" action="<?php echo site_url("plantpath/new_plantpath_add");?>"> 
+<form method="post" action="<?php echo site_url("Maintenances/new_maintenance_add");?>"> 
 <div class="row">
             <div class="col-md-12">
               <div class="card">
@@ -51,7 +51,7 @@
                       <div class="col-md-4">
                         <div class="form-group">
                           <label class="bmd-label-floating">ประเภทการดูแลรักษา<span class="s">*</span></label>
-                          <select class="form-select form-control "name="	maintenancetype_maintenancetypeID" required>
+                          <select class="form-select form-control " name="maintenancetype_maintenancetypeID" required>
                               <option value="">เลือกประเภทการดูแลรักษา</option>
                               <?php foreach($maintenancetypeList as $result){?>
                                 <option value="<?php echo $result->maintenancetypeID;?>">

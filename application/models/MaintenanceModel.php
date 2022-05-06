@@ -7,7 +7,7 @@ class MaintenanceModel extends CI_Model {
             
             $query = $this->db->query("SELECT * FROM (((((maintenance m INNER JOIN maintenancetype mt ON m.maintenancetype_maintenancetypeID = mt.maintenancetypeID) 
             INNER JOIN employee e ON m.employee_employeeID = e.employeeID) 
-            INNER JOIN plants ON m.plantID = plants.plantID) 
+            INNER JOIN plants ON m.plants_plantID = plants.plantID) 
             INNER JOIN vegetation v ON plants.vegetation_vegetationID = v.vegetationID)
             INNER JOIN prefix  ON prefix.PrefixID = e.PrefixID);");
             return $query->result();
@@ -21,5 +21,16 @@ class MaintenanceModel extends CI_Model {
     public function get_all_vegetation(){
         $query = $this->db->query("SELECT * FROM vegetation");
         return $query->result();
+    }
+
+    public function insert_maintenance($data)
+    {
+        $sql = $this->db->insert('maintenance', $data);
+
+       if( $sql> 0){
+           return (TRUE) ;
+        }else {
+            return (FALSE) ;
+        }
     }
 }

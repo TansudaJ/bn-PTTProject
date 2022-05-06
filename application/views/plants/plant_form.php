@@ -117,6 +117,13 @@
                             <input type="file" name="QRCode" size="20" class="form-control">
                             <label class="bmd-label-floating s" >*อัพไฟล์ที่มีนามสกุล gif หรือ .jpg หรือ .png</label>
                       </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                          <label class="bmd-label-floating">ภาพต้นไม้</label>
+                            <input type="file" name="URL" size="20" class="form-control">
+                            <label class="bmd-label-floating s" >*อัพไฟล์ที่มีนามสกุล gif หรือ .jpg หรือ .png</label>
+                      </div>
                     </div><br>
                     
                     <a href="<?php echo site_url("Plants/plant"); ?>" class="btn btn-warning pull-left">ย้อนกลับ</a>

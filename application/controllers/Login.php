@@ -4,14 +4,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Login extends CI_Controller {
 	public function index()
 	{
-		/* $message = "";
-		if ($this->session->userdata('message_error')) {
-			$message = $_SESSION['message_error'];
-			$this->session->unset_userdata('message_error');
-		}
-		$data["message_error"] = $message;
-		$this->load->view('dashboard/login',$data);
-		*/
 		$this->load->view('dashboard/login');
     }
     

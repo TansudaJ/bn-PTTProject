@@ -6,20 +6,12 @@ class Maintenances extends CI_Controller {
 	{
 		$this->load->model('MaintenanceModel');
 		$tmp = $this->MaintenanceModel->get_all_maintenance();
-		//$tmp2 = $this->UserModel->check_username_password('111','222');
-		
-//		var_dump($tmp);
-
 		$data = array('navbar_name'=>'ข้อมูลการดูแลรักษา');
 		$data_top = array('activebar'=>'maintenance');
 		$this->load->view('dashboard/top',$data_top);
 		$this->load->view('dashboard/navbar',$data);
 		$this->load->view('dashboard/topcontent');
-		//$this->load->view('users/user_form');
-		//$page_data = array('userList'=>$tmp,'datatml2'=>$tmp2);
 		$page_data['maintenanceList'] = $tmp;
-		//$page_data['datatmp2'] = $tmp2;
-
 		$this->load->view('maintenances/maintenance_list',$page_data);
 
 		$this->load->view('dashboard/footcontent');
@@ -33,17 +25,11 @@ class Maintenances extends CI_Controller {
 		$tmp = $this->MaintenanceModel->get_all_maintenance();
 		$tmpm = $this->MaintenanceModel->get_all_maintenancetype();
 		$tmpv = $this->MaintenanceModel->get_all_vegetation();
-		//$tmp2 = $this->UserModel->check_username_password('111','222');
-		
-//		var_dump($tmp);
-
 		$data = array('navbar_name'=>'ข้อมูลการดูแลรักษา');
 		$data_top = array('activebar'=>'maintenance');
 		$this->load->view('dashboard/top',$data_top);
 		$this->load->view('dashboard/navbar',$data);
 		$this->load->view('dashboard/topcontent');
-		//$this->load->view('users/user_form');
-		//$page_data = array('userList'=>$tmp,'datatml2'=>$tmp2);
 		$page_data['maintenanceForm'] = $tmp;
 		$page_data['maintenancetypeList'] = $tmpm;
 		$page_data['vegetationList'] = $tmpv;
@@ -53,5 +39,27 @@ class Maintenances extends CI_Controller {
 		$this->load->view('dashboard/footcontent');
 		$this->load->view('dashboard/footer');
 	}
+
+	public function new_maintenance_add()
+	{
+		$data["maintenanceID"] = NULL;
+		$data["details"] = $_POST["details"];
+		$data["maintenancetype_maintenancetypeID"] = $_POST["maintenancetype_maintenancetypeID"];
+		$data["details"] = $_POST["details"];
+		
+
+		// var_dump($data);
+		// die();
+		$this->load->model('MaintenanceModel');
+		$tmp = $this->MaintenanceModel->insert_maintenance($data);
+		if($tmp){
+			$this->session->set_flashdata('message_error', 'เพิ่มการดูแลรักษาสำเร็จ');
+			redirect('Maintenances/maintenance');
+
+		}else{
+			$this->session->set_flashdata('message_error', 'เพิ่มการดูแลรักษาไม่สำเร็จ');
+			redirect('Maintenances/maintenance');
+		}
+    }
 	
 }
