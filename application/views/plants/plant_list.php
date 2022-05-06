@@ -57,7 +57,7 @@ button.btn.btn-info:host {
                     <tbody> 	
                     <?php foreach($plantList as $row){?>
                         <tr>
-                            <td><?php echo $row->zoneID ."-".$row->vegetationID; ?></td>
+                            <td><?php echo $row->zoneID ."-".$row->plantID; ?></td>
                             <td><?php echo $row->n_common_TH; ?></td>
                             <td><?php echo $row->nameTH; ?></td>
                             <td><?php echo $row->actual; ?></td>

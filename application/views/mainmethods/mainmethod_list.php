@@ -44,6 +44,7 @@ button.btn.btn-info:host {
                         <tr>
                             <th class="text-center">รหัส</th>
                             <th class="text-center">ชื่อวิธีการดูแลรักษา</th>
+                            <th class="text-center">สถานะการใช้งาน</th>
                             <th class="text-center"></th>
                         </tr>
                     </thead>
@@ -52,6 +53,7 @@ button.btn.btn-info:host {
                         <tr>
                             <td><?php echo $row->maintenancetypeID; ?></td>
                             <td><?php echo $row->n_maintenancetype; ?></td>
+                            <td><?php echo ($row->status == 1) ? "ใช้งาน": "ไม่ใช้งาน"; ?></td>
                             <td class="text-center">
                                   <button type="button" title="View" class="btn btn-info" onclick="infoClick('<?php echo $row->maintenancetypeID; ?>')"><i class="material-icons">info</i></button>
                                   <a  href="<?php echo site_url("Mainmethods/edit_mainmethod_form/$row->maintenancetypeID"); ?>"><button type="button" title="Edit" class="btn btn-warning"><i class="material-icons">edit</i></button></a> 

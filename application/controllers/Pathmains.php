@@ -88,10 +88,11 @@ class Pathmains extends CI_Controller {
 		$data["vegetation_vegetationID"] = $_POST["vegetation_vegetationID"];
 		$data["plantspath_pathID"] = $_POST["plantspath_pathID"];
 
-		$data_img["imagevegetationID "] = null;
+		$data_img["imagevegetationID"] = null;
 		$data_img["URL"] = $url;
 		$data_img["status"] = null;
-		
+		$data_img["vegetation_vegetationID"] = $_POST["vegetation_vegetationID"];
+		$data_img["plantpath_pathID"] = $_POST["plantspath_pathID"];
 
 		$this->load->model('PathmainModel');
 		$tmp = $this->PathmainModel->insert_pathmain($data,$data_img);

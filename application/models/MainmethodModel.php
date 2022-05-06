@@ -40,8 +40,10 @@ class MainmethodModel extends CI_Model {
 
     //ลบ
     public function delete($id) { 
-        if ($this->db->delete("maintenancetype", "maintenancetypeID = ".$id)) { 
-           return true; 
+
+        $query = $this->db->query("UPDATE maintenancetype SET status = 0 where maintenancetypeID = ".$id);
+        if ($query>0) {
+            return true;
         } 
      }
 }

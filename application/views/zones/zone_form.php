@@ -46,8 +46,8 @@
                       </div>
                       <div class="col-md-4" style="margin: -32px 0px 0px 0px;">
                         <div class="form-group">
-                          <label class="bmd-label-floating">เลือกโซนหลัก<span class="s">*</span></label>
-                          <select class="form-select form-control "name="headzoneID" required>
+                          <label class="bmd-label-floating">เลือกโซนหลัก</label>
+                          <select class="form-select form-control "name="headzoneID" >
                               <option value="">เลือกโซน</option>
                               <?php foreach($zoneList as $result){?>
                                 <option value="<?php echo $result->zoneID;?>">
@@ -75,14 +75,6 @@
                                 <option value="1">แสดง</option>
                             </select>
                         </div>
-                      </div>
-                    </div>
-                    <!-- row3 -->
-                    <div class="row">
-                      <div class="col-md-12">
-                        <label class="bmd-label-floating">รูปภาพโซน</label>
-                            <input type="file" name="imageURL" size="20" class="form-control">
-                            <label class="bmd-label-floating s" >*อัพไฟล์ที่มีนามสกุล gif หรือ .jpg หรือ .png</label>
                       </div>
                     </div>
                     <!-- row4 -->

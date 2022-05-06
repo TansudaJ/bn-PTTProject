@@ -186,23 +186,23 @@
                       <div class="col-md-4">
                         <div class="form-group">
                           <label class="bmd-label-floating">การเจริญเติบโต</label><span>
-                          <input type="text" name="growth" class="form-control" >
+                          <input type="text" name="ecological" class="form-control" >
                         </div>
                       </div>
                     </div>
                     <div class="row">
                       <div class="col-md-4">
                         <div class="form-group">
-                          <label class="bmd-label-floating">รูปทรง</label><span>
-                          <input type="text" name="shape" class="form-control" >
+                          <label class="bmd-label-floating">ช่วงติดผล</label><span>
+                          <input type="text" name="produce_period" class="form-control" >
                         </div>
                       </div>
-                      <div class="col-md-4">
+                      <!-- <div class="col-md-4">
                         <div class="form-group">
                           <label class="bmd-label-floating">การผลัดใบ</label><span>
                           <input type="text" name="defoliation" class="form-control" >
                         </div>
-                      </div>
+                      </div> -->
                       <div class="col-md-4">
                         <div class="form-group">
                           <label class="bmd-label-floating">ช่วงออกดอก</label><span>

@@ -38,19 +38,19 @@
                       <div class="col-md-4">
                         <div class="form-group">
                           <label class="bmd-label-floating">ชื่อสามัญภาษาไทย</label>
-                          <input type="text" name="THname" class="form-control">
+                          <input type="text" name="n_common_TH" class="form-control" value="<?php echo $result[0]->n_common_TH ;?>">
                         </div>
                       </div>
                       <div class="col-md-4">
                         <div class="form-group">
                           <label class="bmd-label-floating">ชื่อสามัญภาษาอังกฤษ</label>
-                          <input type="text" name="ENname" class="form-control">
+                          <input type="text" name="n_common_ENG" class="form-control" value="<?php echo $result[0]->n_common_ENG ;?>">
                         </div>
                       </div>
                       <div class="col-md-4">
                         <div class="form-group">
                           <label class="bmd-label-floating">ชื่อวิทยาศาสตร์</label>
-                            <input type="text" name="Sciname" class="form-control">
+                            <input type="text" name="	n_scientific" class="form-control" value="<?php echo $result[0]->	n_scientific ;?>">
                         </div>
                       </div>
                     </div>
@@ -58,7 +58,7 @@
                       <div class="col-md-4" style="margin: 30px 0 0 0">
                         <div class="form-group">
                           <label class="bmd-label-floating">ชื่อวงศ์</label>
-                          <input type="text" name="famname" class="form-control">
+                          <input type="text" name="n_family" class="form-control" value="<?php echo $result[0]->n_family ;?>">
                         </div>
                       </div>
                       <div class="col-md-4">
@@ -66,9 +66,9 @@
                         <label class="bmd-label-floating">เลือกประเภทพันธุ์ไม้</label>
                         <select class="form-select form-control "name="typeID">
                               <option value="">เลือกประเภทพันธุ์ไม้</option>
-                              <?php foreach($typeList as $result){?>
-                                <option value="<?php echo $result->typeID;?>">
-                                <?php echo $result->typename;?>
+                              <?php foreach($typeList as $tresult){?>
+                                <option value="<?php echo $tresult->typeID;?>"<?php echo ($result[0]->typeID == $tresult->typeID ) ? "selected":""; ?>>
+                                <?php echo $tresult->typename;?>
                             </option>
                             <?php } ?>
                           </select>
@@ -78,8 +78,8 @@
                     <div class="row">
                       <div class="col-md-4">
                         <div class="form-group">
-                        <label class="bmd-label-floating">เลือกภูมิภาค<span class="s">*</span></label>
-                          <select class="form-select form-control "name="loname_region" id="loname_region" required>
+                        <label class="bmd-label-floating">เลือกภูมิภาค</label>
+                          <select class="form-select form-control "name="loname_region" id="loname_region">
                                 <option value="">เลือกภูมิภาค</option>
                                   <option value="1">ภาคเหนือ</option>
                                   <option value="2">ภาคอีสาน</option>
@@ -92,8 +92,8 @@
                       </div>
                       <div class="col-md-4" style="margin: 30px 0px 0 0px;">
                         <div class="form-group">
-                        <label class="bmd-label-floating">ชื่อพื้นเมือง<span class="s">*</span></label>
-                        <input type="text" id="loname_name" class="form-control" required>
+                          <label class="bmd-label-floating">ชื่อพื้นเมือง</label>
+                          <input type="text" id="loname_name" class="form-control">
                         </div>
                       </div>
                       <div class="col-md-4" style="margin: 28px 0 0 0;">
@@ -102,7 +102,7 @@
                         </div>
                       </div>
                     </div>
-                      <div class="row">
+                    <div class="row">
                       <div class="col-md-6">
                         <div class="form-group">
                         <table class="table table-bordered">
@@ -114,11 +114,20 @@
                               </tr>
                           </thead>
                           <tbody>
+                            <?php $arr = array();
+                            $arr[1] = "ภาคเหนือ";
+                            $arr[2] = "ภาคอีสาน";
+                            $arr[3] = "ภาคตะวันตก";
+                            $arr[4] = "ภาคกลาง";
+                            $arr[5] = "ภาคตะวันออก";
+                            $arr[6] = "ภาคใต้";
+                            foreach($localList as $lresult){?>
                               <tr>
-                                  <td><input type="checkbox" name="record"></td>
-                                  <td></td>
-                                  <td></td>
+                                  <td><input type="checkbox" name="record" checked></td>
+                                  <td><?php echo $lresult->localname ?></td>
+                                  <td><?php echo $arr[$lresult->region] ?></td>
                               </tr>
+                            <?php } ?>
                           </tbody>
                       </table>
                       <script>
@@ -166,8 +175,8 @@
                     <div class="row">
                       <div class="col-md-12">
                           <div class="form-group">
-                            <label class="bmd-label-floating">ลักษณะ<span class="s">*</span></label>
-                            <textarea class="form-control" rows="5" id="comment" name="appearance" required></textarea>
+                            <label class="bmd-label-floating">ลักษณะ</label>
+                            <textarea class="form-control" rows="5" id="comment" name="appearance"><?php echo $result[0]->appearance ;?></textarea>
                           </div>
                         </div> 
                     </div>
@@ -175,19 +184,19 @@
                       <div class="col-md-4">
                         <div class="form-group">
                           <label class="bmd-label-floating">ถิ่นกำเนิด</label><span>
-                          <input type="text" name="origin" class="form-control" >
+                          <input type="text" name="origin" class="form-control" value="<?php echo $result[0]->n_family ;?>">
                         </div>
                       </div>
                       <div class="col-md-4">
                         <div class="form-group">
                           <label class="bmd-label-floating">การกระจายพันธุ์</label><span>
-                          <input type="text" name="distribution" class="form-control" >
+                          <input type="text" name="distribution" class="form-control" value="<?php echo $result[0]->n_family ;?>">
                         </div>
                       </div>
                       <div class="col-md-4">
                         <div class="form-group">
                           <label class="bmd-label-floating">การเจริญเติบโต</label><span>
-                          <input type="text" name="growth" class="form-control" >
+                          <input type="text" name="ecological" class="form-control" value="<?php echo $result[0]->n_family ;?>">
                         </div>
                       </div>
                     </div>
@@ -195,19 +204,19 @@
                       <div class="col-md-4">
                         <div class="form-group">
                           <label class="bmd-label-floating">รูปทรง</label><span>
-                          <input type="text" name="shape" class="form-control" >
+                          <input type="text" name="shape" class="form-control" value="<?php echo $result[0]->n_family ;?>">
                         </div>
                       </div>
                       <div class="col-md-4">
                         <div class="form-group">
                           <label class="bmd-label-floating">การผลัดใบ</label><span>
-                          <input type="text" name="defoliation" class="form-control" >
+                          <input type="text" name="defoliation" class="form-control" value="<?php echo $result[0]->n_family ;?>">
                         </div>
                       </div>
                       <div class="col-md-4">
                         <div class="form-group">
                           <label class="bmd-label-floating">ช่วงออกดอก</label><span>
-                          <input type="text" name="fperiod" class="form-control" >
+                          <input type="text" name="fperiod" class="form-control" value="<?php echo $result[0]->n_family ;?>">
                         </div>
                       </div>
                     </div>
@@ -215,12 +224,12 @@
                       <div class="col-md-4">
                         <div class="form-group">
                         <label class="bmd-label-floating">วิธีการขยายพันธุ์</label><span>
-                          <input type="text" name="propagation" class="form-control" >
+                          <input type="text" name="propagation" class="form-control" value="<?php echo $result[0]->n_family ;?>">
                         </div>
                       </div>
                       <div class="col-md-4">
                         <div class="form-group">
-                          <label class="bmd-label-floating">การกักเก็บคาร์บอนไดออกไซด์ (ตัน)</label><span>
+                          <label class="bmd-label-floating">การกักเก็บคาร์บอนไดออกไซด์ (ตัน)</label>
                           <input type="text" name="co2_storage" class="form-control" >
                         </div>
                       </div>

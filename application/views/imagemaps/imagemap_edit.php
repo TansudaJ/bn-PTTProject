@@ -65,7 +65,7 @@
                           </div>
                       </div>
                     </div>
-                    <input type="hidden" name="pathID" class="form-control" value="<?php echo $result[0]->pathID ;?>">
+                    <input type="hidden" name="imagezoneID" class="form-control" value="<?php echo $result[0]->imagezoneID ;?>">
                     <a href="<?php echo site_url("Imagemaps/imagemap"); ?>" class="btn btn-warning pull-left">ย้อนกลับ</a>
                     <button type="submit" class="btn btn-success pull-right">บันทึก</button>
                     <div class="clearfix"></div>

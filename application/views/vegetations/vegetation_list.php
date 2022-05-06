@@ -31,7 +31,7 @@ table {
                   <h4 class="card-title "><?php echo $navbar_name?></h4>
                 </div>
                 <div class="card-body">
-                <div class="text-right"  <?php if($_SESSION['authority_authorityID'] == '3') {echo " style='display: none'"; } ?>>
+                <div class="text-right" <?php if($_SESSION['authority_authorityID'] == '3') {echo " style='display: none'"; } ?>>
                 <a  href="<?php echo site_url("Vegetations/new_vegetation"); ?>" ><button  type="button" class="btn btn-success"><i class="material-icons" >add</i>เพิ่มพันธุ์ไม้</button></a>
                   </div>
                   <div class="table-responsive">
@@ -44,7 +44,7 @@ table {
                             <th class="text-center">ชื่อวงศ์</th>
                             <th class="text-center">ชื่อพื้นเมือง(ภูมิภาค)</th>
                             <th class="text-center">ประเภท</th>
-                            <th class="text-center"><div style="width: inherit;"></div></th>
+                            <th class="text-center"></th>
                         </tr>
                     </thead>
                     <tbody> 	
@@ -57,11 +57,11 @@ table {
                             <td><?php if ($row->region == "1") {
                                         echo "ภาคเหนือ";
                                       }elseif($row->region == "2"){
-                                        echo "ภาคกลาง";
+                                        echo "ภาคอีสาน";
                                       }elseif($row->region == "3"){
-                                        echo "ภาคใต้";
+                                        echo "ภาคตะวันตก";
                                       }elseif($row->region == "4"){
-                                        echo "ภาคตะวันออกเฉียงเหนือ";
+                                        echo "ภาคกลาง";
                                       }elseif($row->region == "5"){
                                         echo "ภาคตะวันออก";
                                       }elseif($row->region == "6"){
@@ -97,15 +97,26 @@ table {
                   dataType: 'json',
                   success: function(data){
                     vegetation = data['data'][0];
-                    
-                    $("#image_vegetation").attr('src',"<?php echo base_url()?>"+vegetation['URL']);
+                    // alert(vegetation['URL'] == null);
+                    $("#image_vegetation").attr('src',((vegetation['URL']) == null) ? "<?php echo base_url()?>image/vegetation/no-pic.jpg" : "<?php echo base_url()?>"+ vegetation['URL']);
                     $('#commonTH').val(vegetation['n_common_TH']);
                     $('#commonEN').val(vegetation['n_common_ENG']);
                     $('#n_scientific').val(vegetation['n_scientific']);
                     $('#n_family').val(vegetation['n_family']);
                     $('#localname').val(vegetation['localname']);
-                    $('#region').val(vegetation['region']);
-                    
+                    if (vegetation['region'] == 1) {
+                      $('#region').val('ภาคเหนือ');
+                    }else if(vegetation['region'] == 2) {
+                      $('#region').val('ภาคอีสาน');
+                    }else if(vegetation['region'] == 3) {
+                      $('#region').val('ภาคตะวันตก');
+                    }else if(vegetation['region'] == 4) {
+                      $('#region').val('ภาคกลาง');
+                    }else if(vegetation['region'] == 5) {
+                      $('#region').val('ภาคตะวันออก');
+                    }else if(vegetation['region'] == 6) {
+                      $('#region').val('ภาคใต้');
+                    }
                     $('#type').val(vegetation['typename']);
                     $('#appearance').val(vegetation['appearance']);
                     $('#origin').val(vegetation['plant_origin']);

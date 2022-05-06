@@ -18,6 +18,9 @@ if ($this->session->userdata('message_error')) {
 <?php 
 }
 ?>
+
+<!-- <?php var_dump($vegetationcount[0]->count_name); ?> -->
+<!-- <?php var_dump($plantcount); ?> -->
 <div class="row">
 <div class="col-lg-4 col-md-6 col-sm-6">
               <div class="card card-stats">
@@ -26,7 +29,7 @@ if ($this->session->userdata('message_error')) {
                     <i class="material-icons">forest</i>
                   </div>
                   <p class="card-category">จำนวนต้นไม้</p>
-                  <h3 class="card-title">34,245
+                  <h3 class="card-title"><?php echo $plantcount[0]->count_ID?>
                     <small>ต้น</small>
                   </h3>
                 </div>
@@ -45,7 +48,8 @@ if ($this->session->userdata('message_error')) {
                     <i class="material-icons">park</i>
                   </div>
                   <p class="card-category">จำนวนพรรณไม้</p>
-                  <h3 class="card-title">4,245
+                  
+                  <h3 class="card-title"><?php echo $vegetationcount[0]->count_name?>
                   <small>ชนิด</small>
                   </h3>
                 </div>
@@ -63,7 +67,7 @@ if ($this->session->userdata('message_error')) {
                     <i class="material-icons">map</i>
                   </div>
                   <p class="card-category">จำนวนโซน</p>
-                  <h3 class="card-title">7
+                  <h3 class="card-title"><?php echo $zonecount[0]->count_ID?>
                   <small>โซน</small>
                   </h3>
                 </div>

@@ -29,13 +29,13 @@ class PathmainModel extends CI_Model {
             return $query->result();
     }
     //เพิ่ม
-    public function insert_pathmain($data)
+    public function insert_pathmain($data,$data_img)
     {
         $sql = $this->db->insert('medicinalproperties', $data);
 
-        $plantspath_pathID = $this->db->insert_id();
-
-        $data_img["plantspath_pathID "] = $plantspath_pathID ; //อิงตาราง
+        
+        // var_dump($data_img);
+        // die();
         $sql2 = $this->db->insert('imagevegetation',$data_img);
 
        if( $sql && $sql2> 0){

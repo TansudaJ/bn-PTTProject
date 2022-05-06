@@ -15,16 +15,11 @@ class ZoneModel extends CI_Model {
 
     public function insert_zone($data)
     {
-        $sql1 = "INSERT INTO `zone`(`zoneID`, `nameEN`, `nameTH`, `detail`, `status`, `location`, `headzoneID`) 
+        $sql = "INSERT INTO `zone`(`zoneID`, `nameEN`, `nameTH`, `detail`, `status`, `location`, `headzoneID`) 
         VALUES (Null,'".$data["nameEN"]."','".$data["nameTH"]."','".$data["detail"]."','".$data["status"]."','".$data["location"]."','".$data["headzoneID"]."')";
-        $query1 = $this->db->query($sql1);
+        $query = $this->db->query($sql);
 
-        $sql2 = "INSERT INTO `imagezone`(`imagezoneID`, `imageURL`, `imageTitle`, `imagedetail`, `activeflag`, `zone_zoneID`) 
-        VALUES (Null,'".$data["imageURL"]."','".$data["imageTitle"]."','".$data["imagedetail"]."','".$data["activeflag"]."','".$data["zone_zoneID"]."')";
-        $query2 = $this->db->query($sql2);
-
-        
-       if( $query1 && $query2 >0){
+       if( $query>0){
            return (TRUE) ;
         }else {
             return (FALSE) ;

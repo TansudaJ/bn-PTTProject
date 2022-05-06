@@ -6,19 +6,12 @@ class Vegetations extends CI_Controller {
 	{
 		$this->load->model('VegetationModel');
 		$tmp = $this->VegetationModel->get_all_vegetations();
-		//$tmp2 = $this->UserModel->check_username_password('111','222');
-		
-//		var_dump($tmp);
-
 		$data = array('navbar_name'=>'จัดการข้อมูลพันธุ์ไม้');
 		$data_top = array('activebar'=>'vegetation');
 		$this->load->view('dashboard/top',$data_top);
 		$this->load->view('dashboard/navbar',$data);
 		$this->load->view('dashboard/topcontent');
-		//$this->load->view('users/user_form');
-		//$page_data = array('userList'=>$tmp,'datatml2'=>$tmp2);
 		$page_data['vegetationList'] = $tmp;
-		//$page_data['datatmp2'] = $tmp2;
 
 		$this->load->view('vegetations/vegetation_list',$page_data);
 
@@ -28,7 +21,6 @@ class Vegetations extends CI_Controller {
 	//loadหน้าเพิ่ม
 	public function new_vegetation()
 	{
-		//$this->checklogin();
 		$this->load->model('VegetationModel');
 		$tmp = $this->VegetationModel->get_all_vegetations();
 		$tmpt = $this->VegetationModel->get_all_types();
@@ -40,8 +32,10 @@ class Vegetations extends CI_Controller {
 		$this->load->view('dashboard/topcontent');
 		$page_data['vegetationForm'] = $tmp;
 		$page_data['typeList'] = $tmpt;
+		
+		$id = $this->uri->segment('3'); 
+		$page_data['localList'] = $this->VegetationModel->getregionbyID($id);
 		$this->load->view('vegetations/vegetation_form',$page_data);
-
 		$this->load->view('dashboard/footcontent');
 		$this->load->view('dashboard/footer');
 	}
@@ -51,7 +45,6 @@ class Vegetations extends CI_Controller {
 		// upload
 		$config['upload_path']          = 'image/vegetation';
         $config['allowed_types']        = 'gif|jpg|png';
-
 		
         $this->load->library('upload', $config);
 		// var_dump($_POST);
@@ -88,10 +81,9 @@ class Vegetations extends CI_Controller {
 		$data["plant_origin"] = $_POST["origin"];
 		$data["distribution"] = $_POST["distribution"];
 		$data["typeID"] = $_POST["typeID"];
-		$data["growth"] = $_POST["growth"];
-		$data["shape"] 	= $_POST["shape"];
-		$data["defoliation"] 	= $_POST["defoliation"];
-		$data["flowering_period"] 	= $_POST["fperiod"];
+		$data["ecological"] = $_POST["ecological"];
+		$data["produce_period"] = $_POST["produce_period"];
+		$data["flowering_period"] = $_POST["fperiod"];
 		$data["reference"] = $_POST["reference"];
 		$data["co2_storage"] = $_POST["co2_storage"];
 		$data["propagation"] = $_POST["propagation"];
@@ -100,7 +92,10 @@ class Vegetations extends CI_Controller {
 		$data_img["imagevegetationID "] = null;
 		$data_img["URL"] = $img_url;
 		$data_img["status"] = null;
+		$data_img["plantpath_pathID"] = null;
 		
+		// var_dump($data);
+		// die();
 
 		if ($img_url != "") {
 			$data_img['status'] = 1; 
@@ -129,11 +124,19 @@ class Vegetations extends CI_Controller {
 		$this->load->view('dashboard/top',$data_top);
 		$this->load->view('dashboard/navbar',$data);
 		$this->load->view('dashboard/topcontent');
+		
+		$page_data= array();
+
 		$page_data['typeList'] = $tmpt;
 		
+
+		
 		$id = $this->uri->segment('3'); 
-		$data['result'] = $this->VegetationModel->getvegetationbyID($id);
-		$this->load->view('vegetations/vegetation_edit',$data,$page_data);
+		$page_data['result'] = $this->VegetationModel->getvegetationbyID($id);
+		$page_data['localList'] = $this->VegetationModel->getregionbyID($id);
+		// var_dump($page_data);
+		// die();
+		$this->load->view('vegetations/vegetation_edit',$page_data);
 		$this->load->view('dashboard/footcontent');
 		$this->load->view('dashboard/footer');
 
@@ -188,7 +191,7 @@ class Vegetations extends CI_Controller {
 		$id = $this->input->post('employeeID');
 		$this->UserModel->update($data,$id);
 		if($data && $id){
-			$this->session->set_flashdata('message_error', 'แก้ไขข้อมุลผู้ใช้งานสำเร็จ');
+			$this->session->set_flashdata('message_error', 'แก้ไขข้อมูลผู้ใช้งานสำเร็จ');
 			redirect('Users/user');
 		}else{
 			$this->session->set_flashdata('message_error', 'แก้ไขข้อมูลผู้ใช้งานไม่สำเร็จ');
