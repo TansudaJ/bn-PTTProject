@@ -78,10 +78,10 @@
                       <div class="col-md-4">
                         <div class="form-group">
                           <label class="bmd-label-floating">สถานะการใช้งาน</label>
-                          <select class="form-select form-control "name="activeFlag" >
+                          <select class="form-select form-control "name="activeflag" >
                               <option value=""></option>
-                                <option value="0"<?php echo ($result[0]->activeFlag == 0 ) ? "selected":""; ?>>ไม่ใช้งาน</option>
-                                <option value="1"<?php echo ($result[0]->activeFlag == 1 ) ? "selected":""; ?>>ใช้งาน</option>
+                                <option value="0"<?php echo ($result[0]->activeflag == 0 ) ? "selected":""; ?>>ไม่ใช้งาน</option>
+                                <option value="1"<?php echo ($result[0]->activeflag == 1 ) ? "selected":""; ?>>ใช้งาน</option>
                             </select>
                         </div>
                       </div>

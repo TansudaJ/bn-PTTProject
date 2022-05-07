@@ -61,7 +61,7 @@ button.btn.btn-info:host {
                               echo "ไม่แสดง";
                             } ?></td>
                             <td><?php echo $row->location; ?></td>
-                            <td><?php echo ($row->activeFlag == 1) ? "ใช้งาน": "ไม่ใช้งาน"; ?></td>
+                            <td><?php echo ($row->activeflag == 1) ? "ใช้งาน": "ไม่ใช้งาน"; ?></td>
                             <td class="text-center">
                                   <button type="button" title="View" class="btn btn-info btn-sm" onclick="infoClick('<?php echo $row->zoneID; ?>')"><i class="material-icons">info</i></button>
                                   <a  href="<?php echo site_url("Zones/edit_zone_form/$row->zoneID"); ?>"><button type="button" title="Edit" class="btn btn-warning btn-sm"><i class="material-icons">edit</i></button></a>
