@@ -84,9 +84,7 @@ button.btn.btn-info:host {
                   success: function(data){
                     medicinalProperties = data['data'][0];
 
-
-
-                    $("#image_vegetation").attr('src',((medicinalProperties['URL']) == null) ? "<?php echo base_url()?>image/vegetation/no-pic.jpg" : "<?php echo base_url()?>"+ medicinalProperties['URL']);
+                    $("#image_path").attr('src',((medicinalProperties['URL']) == null) ? "<?php echo base_url()?>image/vegetation/no-pic.jpg" : "<?php echo base_url()?>"+ medicinalProperties['URL']);
                     $('#nameTH').val(medicinalProperties['n_common_TH']);
                     $('#pathname').val(medicinalProperties['plantpathname']);
                     $('#properties').val(medicinalProperties['properties']);

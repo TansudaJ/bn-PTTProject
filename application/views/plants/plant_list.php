@@ -68,9 +68,10 @@ button.btn.btn-info:host {
                                       }
                              ?></td>
                             <td><?php echo $row->exclusivity; ?></td>
-                            <td><img src="<?php echo base_url().$row->QRCode;?>" alt="" width="50px" height="50px"></td>
+                            <td><img src="<?php echo base_url().$row->QRCode;?>" alt="" width="100px" height="100px"></td>
                             <td class="text-center">
-                                  <button type="button" title="View" class="btn btn-info" onclick="infoClick('<?php echo $row->plantID; ?>')"><i class="material-icons">info</i></button>      
+                                  <button type="button" title="View" class="btn btn-info btn-sm" onclick="infoClick('<?php echo $row->plantID; ?>')"><i class="material-icons">info</i></button>
+                                  <a href="<?php echo site_url("Users/edit_user_form/$row->plantID"); ?>"><button type="button" title="Edit" class="btn btn-warning btn-sm" ><i class="material-icons">edit</i></button></a>      
                             </td>
                         </tr>
                     <?php }?>
@@ -95,9 +96,8 @@ button.btn.btn-info:host {
                   dataType: 'json',
                   success: function(data){
                     plant = data['data'][0];
-                    console.log(plantID);
-
-                    // $("#image_profile").attr('src',user['imageURL']); ภาพ
+                    
+                    $("#image_QRCode").attr('src',"<?php echo base_url()?>"+plant['QRCode']);
                     $('#namezone').val(plant['nameTH']);
                     $('#commonTH').val(plant['n_common_TH']);
                     $('#coordinates').val(plant['coordinates']);
@@ -135,7 +135,7 @@ button.btn.btn-info:host {
                 </div>
                 <!-- image -->
                 <div class="form-group">
-                  <img class="img-fluid rounded mx-auto d-block" id="image_profile" src="" style="width:50%; ">
+                  <img class="img-fluid rounded mx-auto d-block" id="image_QRCode" src="" style="width:50%; ">
                 </div>
                 <!-- row1 -->
                 <div class="form-group row">
