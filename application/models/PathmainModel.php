@@ -23,8 +23,9 @@ class PathmainModel extends CI_Model {
     //getidinfo
     public function get_pathmain_byID($id)
     {
-            $query = $this->db->query("SELECT * FROM ((medicinalproperties m INNER JOIN vegetation v ON m.vegetation_vegetationID=v.vegetationID) 
-            INNER JOIN plantpath p ON m.plantspath_pathID=p.pathID)
+            $query = $this->db->query("SELECT * FROM (((medicinalproperties m INNER JOIN vegetation v ON m.vegetation_vegetationID=v.vegetationID) 
+            INNER JOIN plantpath p ON m.plantspath_pathID=p.pathID) 
+            INNER JOIN imagevegetation im ON p.pathID=im.plantpath_pathID) 
             WHERE m.medicinalpropertiesID = '".$id."'" );
             return $query->result();
     }
@@ -44,4 +45,21 @@ class PathmainModel extends CI_Model {
             return (FALSE) ;
         }
     }
+
+    //getidedit
+    public function getpathmainbyID($id)
+    {
+        $query = $this->db->get_where("medicinalproperties",array("medicinalpropertiesID"=>$id));
+        $data = $query->result(); 
+        return $data;
+     }
+
+    //แก้ไข
+     public function update($data,$id,$data_img) { 
+        $this->db->set($data); 
+        $this->db->where("medicinalpropertiesID", $id); 
+        $this->db->update("medicinalproperties", $data);
+        $this->db->where("imagevegetationID", $id);
+        $this->db->update("imagevegetation", $data_img);
+     }
 }

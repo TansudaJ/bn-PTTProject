@@ -25,7 +25,7 @@
             <div class="col-md-12">
               <div class="card">
                 <div class="card-header card-header-success">
-                  <h3 class="card-title">เพิ่มข้อมูลผู้ใช้งาน</h3>
+                  <h3 class="card-title">แก้ไขข้อมูลผู้ใช้งาน</h3>
                 </div>
                 <div class="card-body">
                   <form>

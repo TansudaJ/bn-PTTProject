@@ -56,7 +56,7 @@ button.btn.btn-info:host {
                             <td><?php echo $row->plantpathname; ?></td>
                             <td class="text-center">
                               <button type="button" title="View" class="btn btn-info btn-sm" onclick="infoClick('<?php echo $row->medicinalPropertiesID; ?>')"><i class="material-icons">info</i></button>  
-                              <a  href="<?php echo site_url("Plantpaths/edit_plantpath_form/$row->medicinalPropertiesID"); ?>"><button type="button" title="Edit" class="btn btn-warning btn-sm"><i class="material-icons">edit</i></button></a>
+                              <a  href="<?php echo site_url("Pathmains/edit_pathmain_form/$row->medicinalPropertiesID"); ?>"><button type="button" title="Edit" class="btn btn-warning btn-sm"><i class="material-icons">edit</i></button></a>
                               <a onclick="return confirm('คุณต้องการลบส่วนประกอบต้นไม้ออกหรือไม่?')" href="<?php echo site_url("Plantpaths/delete_plantpath/$row->pathID"); ?>"><button type="button" title="Delete" class="btn btn-danger btn-sm"><i class="material-icons">delete</i></button>      
                             </td>
                         </tr>
@@ -83,17 +83,16 @@ button.btn.btn-info:host {
                   dataType: 'json',
                   success: function(data){
                     medicinalProperties = data['data'][0];
-                   
-                    // $("#image_profile").attr('src',user['imageURL']); ภาพ
+
+
+
+                    $("#image_vegetation").attr('src',((medicinalProperties['URL']) == null) ? "<?php echo base_url()?>image/vegetation/no-pic.jpg" : "<?php echo base_url()?>"+ medicinalProperties['URL']);
                     $('#nameTH').val(medicinalProperties['n_common_TH']);
                     $('#pathname').val(medicinalProperties['plantpathname']);
-                    // $('#coordinates').val(plant['coordinates']);
-                    // $('#diameter').val(plant['diameter']);
-                    // $('#height').val(plant['height']);
-                    // $('#planting_area').val(plant['planting_area']);
-                    // $('#actual').val(plant['actual']);
-                    // $('#show').val(plant['show']);
-                    // $('#exclusivity').val(plant['exclusivity']);
+                    $('#properties').val(medicinalProperties['properties']);
+                    $('#instruction').val(medicinalProperties['instruction']);
+                    $('#caution').val(medicinalProperties['caution']);
+                    $('#reference').val(medicinalProperties['reference']);
 
                     $('#info_modal').modal('toggle');
                   }
@@ -121,50 +120,45 @@ button.btn.btn-info:host {
                 </div>
                 <!-- image -->
                 <div class="form-group">
-                  <img class="img-fluid rounded mx-auto d-block" id="image_profile" src="" style="width:50%; ">
+                  <img class="img-fluid rounded mx-auto d-block" id="image_path" src="" style="width:50%; ">
                 </div>
                 <!-- row1 -->
                 <div class="form-group row">
                   <label for="nameTH" class="col-form-label">ชื่อพันธุ์ไม้:</label>
-                    <div class="col-sm-10" style="margin: -13px 0 0 22px;">
-                      <input type="text" class="form-control" id="nameTH" style="width:200px;">
+                    <div class="col-sm-10" style="margin: -13px 0 0 55px;">
+                      <input type="text" class="form-control" id="nameTH" style="width:180px;">
                     </div>
-                  <label for="pathname" class="col-form-label" style="margin: 0 0 0 255px;">ส่วนประกอบต้นไม้:</label>
-                    <div class="col-sm-10" style="margin: -36px 0 0 312px;">
-                      <input type="text" class="form-control" id="pathname" style="width:200px;">
+                  <label for="pathname" class="col-form-label" style="margin: 0 0 0 285px;">ส่วนประกอบต้นไม้:</label>
+                    <div class="col-sm-10" style="margin: -36px 0 0 385px;">
+                      <input type="text" class="form-control" id="pathname" style="width:130px;">
                     </div>
                 </div>
                 <!-- row2 -->
                 <div class="form-group row">
-                  <label for="coordinates" class="col-form-label">พิกัดต้นไม้:</label>
+                  <label for="properties" class="col-form-label">คุณสมบัติ:</label>
                     <div class="col-sm-10" style="margin: -10px 0 0 58px;">
-                      <input type="text" class="form-control" id="coordinates" style="width: 180px;">
+                      <textarea id="properties" rows="3" class="form-control" style="width:460px;"></textarea>
                     </div>
-                  <label for="localname" class="col-form-label" style="margin: 0 0 0 270px;">ความพิเศษ:</label>
-                    <div class="col-sm-10" style="margin: -36px 0 0px 338px;">
-                      <input type="text" class="form-control" id="localname" style="width:250px;">
-                    </div>
-                </div>
+                </div><br>
                 <!-- row3 -->
                 <div class="form-group row">
-                  <label for="diameter" class="col-form-label">เส้นผ่านศูนย์กลาง:</label>
-                    <div class="col-sm-10" style="margin: -13px 0 0 35px;">
-                      <input type="text" class="form-control" id="diameter" style="width:215px;">
+                  <label for="instruction" class="col-form-label">คำแนะนำ:</label>
+                    <div class="col-sm-10" style="margin: -36px 0 0px 58px;">
+                      <textarea id="instruction" rows="3" class="form-control" style="width:460px;"></textarea>
                     </div>
-                  <label for="localname" class="col-form-label" style="margin: 0 0 0 280px;">ความสูง:</label>
-                    <div class="col-sm-10" style="margin: -36px 0 0px 338px;">
-                      <input type="text" class="form-control" id="localname" style="width:250px;">
-                    </div>
-                </div>
+                </div><br>
                 <!-- row4 -->
                 <div class="form-group row">
-                  <label for="region" class="col-form-label">บริเวณที่ปลูก:</label>
-                    <div class="col-sm-10" style="margin: -13px 0 0 38px;">
-                      <input type="text" class="form-control" id="region" style="width:150px;">
+                  <label for="caution" class="col-form-label">คำเตือน/ข้อควรระวัง:</label>
+                    <div class="col-sm-10" style="margin: -13px 0 0 112px;">
+                      <textarea id="caution" rows="3" class="form-control" style="width:406px;"></textarea>
                     </div>
-                    <label for="type" class="col-form-label" style="margin: 0 0 0 218px;">สภาพปัจจุบัน:</label>
-                    <div class="col-sm-10" style="margin: -36px 0 0px 261px;">
-                      <input type="text" class="form-control" id="type" style="width:150px;">
+                </div>
+                <!-- row5 -->
+                <div class="form-group row">
+                  <label for="reference" class="col-form-label">แหล่งที่มาของข้อมูล:</label>
+                    <div class="col-sm-10" style="margin: -13px 0 0 112px;">
+                      <textarea id="reference" rows="3" class="form-control" style="width:406px;"></textarea>
                     </div>
                 </div>
               </form>

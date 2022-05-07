@@ -20,12 +20,11 @@
   }
 </style>
 <?php echo form_open_multipart('vegetations/save_edit_vegetation');?>
-<!-- <form method="post" action="<?php echo site_url("vegetations/new_vegetation_add");?>">  -->
 <div class="row">
             <div class="col-md-12">
               <div class="card">
                 <div class="card-header card-header-success">
-                  <h3 class="card-title">เพิ่มข้อมูลพันธุ์ไม้</h3>
+                  <h3 class="card-title">แก้ไขข้อมูลพันธุ์ไม้</h3>
                 </div><br>
                 <div class="card-body">
                   <form>
@@ -176,67 +175,65 @@
                       <div class="col-md-12">
                           <div class="form-group">
                             <label class="bmd-label-floating">ลักษณะ</label>
-                            <textarea class="form-control" rows="5" id="comment" name="appearance"><?php echo $result[0]->appearance ;?></textarea>
+                            <textarea class="form-control" rows="5" name="appearance"><?php echo $result[0]->appearance ;?></textarea>
                           </div>
                         </div> 
                     </div>
                     <div class="row">
-                      <div class="col-md-4">
+                      <div class="col-md-6">
                         <div class="form-group">
-                          <label class="bmd-label-floating">ถิ่นกำเนิด</label><span>
-                          <input type="text" name="origin" class="form-control" value="<?php echo $result[0]->n_family ;?>">
+                          <label class="bmd-label-floating">ถิ่นกำเนิด</label>
+                          <input type="text" name="origin" class="form-control" value="<?php echo $result[0]->plant_origin ;?>">
                         </div>
                       </div>
-                      <div class="col-md-4">
+                      <div class="col-md-6">
                         <div class="form-group">
-                          <label class="bmd-label-floating">การกระจายพันธุ์</label><span>
-                          <input type="text" name="distribution" class="form-control" value="<?php echo $result[0]->n_family ;?>">
-                        </div>
-                      </div>
-                      <div class="col-md-4">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">การเจริญเติบโต</label><span>
-                          <input type="text" name="ecological" class="form-control" value="<?php echo $result[0]->n_family ;?>">
+                          <label class="bmd-label-floating">การกระจายพันธุ์</label>
+                          <input type="text" name="distribution" class="form-control" value="<?php echo $result[0]->distribution ;?>">
                         </div>
                       </div>
                     </div>
                     <div class="row">
-                      <div class="col-md-4">
+                      <div class="col-md-6">
                         <div class="form-group">
-                          <label class="bmd-label-floating">รูปทรง</label><span>
-                          <input type="text" name="shape" class="form-control" value="<?php echo $result[0]->n_family ;?>">
+                          <label class="bmd-label-floating">การเจริญเติบโต</label>
+                          <input type="text" name="ecological" class="form-control" value="<?php echo $result[0]->ecological ;?>">
                         </div>
                       </div>
-                      <div class="col-md-4">
+                      <div class="col-md-6">
                         <div class="form-group">
-                          <label class="bmd-label-floating">การผลัดใบ</label><span>
-                          <input type="text" name="defoliation" class="form-control" value="<?php echo $result[0]->n_family ;?>">
-                        </div>
-                      </div>
-                      <div class="col-md-4">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">ช่วงออกดอก</label><span>
-                          <input type="text" name="fperiod" class="form-control" value="<?php echo $result[0]->n_family ;?>">
+                          <label class="bmd-label-floating">ช่วงติดผล</label>
+                          <input type="text" name="produce_period" class="form-control" value="<?php echo $result[0]->produce_period ;?>">
                         </div>
                       </div>
                     </div>
                     <div class="row">
-                      <div class="col-md-4">
+                      <div class="col-md-6">
                         <div class="form-group">
-                        <label class="bmd-label-floating">วิธีการขยายพันธุ์</label><span>
-                          <input type="text" name="propagation" class="form-control" value="<?php echo $result[0]->n_family ;?>">
+                          <label class="bmd-label-floating">ช่วงออกดอก</label>
+                          <input type="text" name="fperiod" class="form-control" value="<?php echo $result[0]->flowering_period ;?>">
                         </div>
                       </div>
-                      <div class="col-md-4">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                        <label class="bmd-label-floating">วิธีการขยายพันธุ์</label>
+                          <input type="text" name="propagation" class="form-control" value="<?php echo $result[0]->propagation ;?>">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
                         <div class="form-group">
                           <label class="bmd-label-floating">การกักเก็บคาร์บอนไดออกไซด์ (ตัน)</label>
-                          <input type="text" name="co2_storage" class="form-control" >
+                          <input type="text" name="co2_storage" class="form-control" value="<?php echo $result[0]->co2_storage ;?>">
                         </div>
                       </div>
-                      <div class="col-md-4">
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
                         <div class="form-group">
-                          <label class="bmd-label-floating">แหล่งที่มาของพันธุ์ไม้</label><span>
-                          <input type="text" name="reference" class="form-control" >
+                          <label class="bmd-label-floating">แหล่งที่มาของพันธุ์ไม้</label>
+                            <textarea class="form-control" name="reference" rows="5"><?php echo $result[0]->reference ;?></textarea>
                         </div>
                       </div>
                     </div>
@@ -244,10 +241,11 @@
                       <div class="col-md-12">
                           <div class="form-group">
                             <label class="bmd-label-floating">แหล่งที่มาของข้อมูล</label>
-                            <input type="text" name="reference_data" class="form-control" >
+                            <textarea class="form-control" name="reference_data" rows="5"><?php echo $result[0]->reference_data ;?></textarea>
                           </div>
                         </div> 
                     </div><br>
+                    <input type="hidden" name="vegetationID" class="form-control" value="<?php echo $result[0]->vegetationID ;?>">
                     <a href="<?php echo site_url("Vegetations/vegetation"); ?>" class="btn btn-warning pull-left">ย้อนกลับ</a>
                     <button type="submit" class="btn btn-success pull-right">บันทึก</button>
                     <div class="clearfix"></div>

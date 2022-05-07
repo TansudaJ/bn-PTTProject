@@ -171,62 +171,60 @@
                         </div> 
                     </div>
                     <div class="row">
-                      <div class="col-md-4">
+                      <div class="col-md-6">
                         <div class="form-group">
-                          <label class="bmd-label-floating">ถิ่นกำเนิด</label><span>
+                          <label class="bmd-label-floating">ถิ่นกำเนิด</label>
                           <input type="text" name="origin" class="form-control" >
                         </div>
                       </div>
-                      <div class="col-md-4">
+                      <div class="col-md-6">
                         <div class="form-group">
-                          <label class="bmd-label-floating">การกระจายพันธุ์</label><span>
+                          <label class="bmd-label-floating">การกระจายพันธุ์</label>
                           <input type="text" name="distribution" class="form-control" >
                         </div>
                       </div>
-                      <div class="col-md-4">
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
                         <div class="form-group">
-                          <label class="bmd-label-floating">การเจริญเติบโต</label><span>
+                          <label class="bmd-label-floating">การเจริญเติบโต</label>
                           <input type="text" name="ecological" class="form-control" >
                         </div>
                       </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-4">
+                      <div class="col-md-6">
                         <div class="form-group">
-                          <label class="bmd-label-floating">ช่วงติดผล</label><span>
+                          <label class="bmd-label-floating">ช่วงติดผล</label>
                           <input type="text" name="produce_period" class="form-control" >
                         </div>
                       </div>
-                      <!-- <div class="col-md-4">
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
                         <div class="form-group">
-                          <label class="bmd-label-floating">การผลัดใบ</label><span>
-                          <input type="text" name="defoliation" class="form-control" >
-                        </div>
-                      </div> -->
-                      <div class="col-md-4">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">ช่วงออกดอก</label><span>
+                          <label class="bmd-label-floating">ช่วงออกดอก</label>
                           <input type="text" name="fperiod" class="form-control" >
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                        <label class="bmd-label-floating">วิธีการขยายพันธุ์</label>
+                          <input type="text" name="propagation" class="form-control" >
                         </div>
                       </div>
                     </div>
                     <div class="row">
-                      <div class="col-md-4">
+                      <div class="col-md-6">
                         <div class="form-group">
-                        <label class="bmd-label-floating">วิธีการขยายพันธุ์</label><span>
-                          <input type="text" name="propagation" class="form-control" >
-                        </div>
-                      </div>
-                      <div class="col-md-4">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">การกักเก็บคาร์บอนไดออกไซด์ (ตัน)</label><span>
+                          <label class="bmd-label-floating">การกักเก็บคาร์บอนไดออกไซด์ (ตัน)</label>
                           <input type="text" name="co2_storage" class="form-control" >
                         </div>
                       </div>
-                      <div class="col-md-4">
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
                         <div class="form-group">
-                          <label class="bmd-label-floating">แหล่งที่มาของพันธุ์ไม้</label><span>
-                          <input type="text" name="reference" class="form-control" >
+                          <label class="bmd-label-floating">แหล่งที่มาของพันธุ์ไม้</label>
+                            <textarea class="form-control" name="reference" rows="5"></textarea>
                         </div>
                       </div>
                     </div>
@@ -234,7 +232,7 @@
                       <div class="col-md-12">
                           <div class="form-group">
                             <label class="bmd-label-floating">แหล่งที่มาของข้อมูล</label>
-                            <input type="text" name="reference_data" class="form-control" >
+                            <textarea class="form-control" name="reference_data" rows="5"></textarea>
                           </div>
                         </div> 
                     </div><br>

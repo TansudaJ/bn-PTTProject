@@ -51,12 +51,6 @@ class API001 extends CI_Controller {
 		$tmp = $this->PathmainModel->get_pathmain_byID($id);
 		$data['ststus'] = '200';
 		$data['data'] = $tmp;
-		if ($data['region'] == 1) {
-			echo "ภาคเหนือ";
-		}else{
-			echo "ภาคใต้";
-		}
-
 		echo header('Content-Type: text/html; charset=UTF-8');
 		echo json_encode($data);
 	}

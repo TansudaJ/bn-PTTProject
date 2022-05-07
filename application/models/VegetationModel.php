@@ -61,10 +61,12 @@ class VegetationModel extends CI_Model {
      }
 
     //แก้ไข
-     public function update($data,$id) { 
+     public function update($data,$id,$data_img) { 
         $this->db->set($data); 
-        $this->db->where("employeeID", $id); 
-        $this->db->update("employee", $data); 
+        $this->db->where("vegetationID", $id); 
+        $this->db->update("vegetation", $data);
+        $this->db->where("imagevegetationID", $id);
+        $this->db->update("imagevegetation", $data_img);
      }
     
 

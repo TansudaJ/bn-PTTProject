@@ -119,8 +119,9 @@ class Plants extends CI_Controller {
 		$data_img["imageplantID"] = null;
 		$data_img["URL"] = $img_plant;
 
-		// var_dump($data,$data_img);
-		// die();
+
+		var_dump($data,$data_img);
+		die();
 		
 		$this->load->model('PlantModel');
 		$tmp = $this->PlantModel->insert_plant($data);

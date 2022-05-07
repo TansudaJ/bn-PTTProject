@@ -147,7 +147,6 @@ class Vegetations extends CI_Controller {
 		// upload
 		$config['upload_path']          = 'image/vegetation';
         $config['allowed_types']        = 'gif|jpg|png';
-
 		
         $this->load->library('upload', $config);
 		// var_dump($_POST);
@@ -168,28 +167,29 @@ class Vegetations extends CI_Controller {
 				// echo $img_url;
         }
 
-		$this->load->model('VegetationModel');
-
 		$data = array( 
-		'employeeID' => $this->input->post('employeeID'),
-		'username' => $this->input->post('username'),
-		'password' => $this->input->post('password'),
-		'email' => $this->input->post('email'),
-		'PrefixID' => $this->input->post('PrefixID'),
-		'f_name' => $this->input->post('f_name'),
-		'l_name' => $this->input->post('l_name'),
-		'telno' => $this->input->post('telno'),
-		'authority_authorityID' => $this->input->post('authority_authorityID'),
-		'activeflag' => $this->input->post('activeflag')
+		'n_common_TH' => $this->input->post('n_common_TH')
+		// 'username' => $this->input->post('username'),
+		// 'password' => $this->input->post('password'),
+		// 'email' => $this->input->post('email'),
+		// 'PrefixID' => $this->input->post('PrefixID'),
+		// 'f_name' => $this->input->post('f_name'),
+		// 'l_name' => $this->input->post('l_name'),
+		// 'telno' => $this->input->post('telno'),
+		// 'authority_authorityID' => $this->input->post('authority_authorityID'),
+		// 'activeflag' => $this->input->post('activeflag')
 		);
 		
 		if ($img_url != "") {
-			$data['imageURL'] = $img_url;
-			// $data['status'] = 1; upพันไม้&ต้นไม้
+			$data_img['URL'] = $img_url;
 		}
 
+		var_dump($data,$data_img);
+		die();
+
+		$this->load->model('VegetationModel');
 		$id = $this->input->post('employeeID');
-		$this->UserModel->update($data,$id);
+		$this->UserModel->update($data,$id,$data_img);
 		if($data && $id){
 			$this->session->set_flashdata('message_error', 'แก้ไขข้อมูลผู้ใช้งานสำเร็จ');
 			redirect('Users/user');

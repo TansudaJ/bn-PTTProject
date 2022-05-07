@@ -39,7 +39,7 @@
                         <div class="form-group">
                           <label class="bmd-label-floating">ชื่อพันธุ์ไม้<span class="s">*</span></label>
                                 <select class="form-select form-control "name="vegetation_vegetationID" required>
-                                    <option value="">เลือกส่วนประกอบต้นไม้</option>
+                                    <option value="">เลือกพันธุ์ไม้</option>
                                     <?php foreach($vegetationList as $result){?>
                                       <option value="<?php echo $result->vegetationID;?>">
                                       <?php echo $result->n_common_TH;?>
