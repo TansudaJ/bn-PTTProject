@@ -43,4 +43,12 @@ class ImagemapModel extends CI_Model {
          $this->db->where("imagezoneID", $id); 
          $this->db->update("imagezone", $data); 
       }
+
+      public function delete($id) 
+      { 
+          $query = $this->db->query("UPDATE imagezone SET activeFlag = 0 where imagezoneID = ".$id);
+          if ($query>0) {
+              return true;
+          }
+      }
 }

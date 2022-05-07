@@ -25,7 +25,7 @@
             <div class="col-md-12">
               <div class="card">
                 <div class="card-header card-header-success">
-                  <h3 class="card-title">เพิ่มแผนที่</h3>
+                  <h3 class="card-title">แก้ไขข้อมูลแผนที่</h3>
                 </div><br>
                 <div class="card-body">
                   <form>
@@ -40,11 +40,21 @@
                           <label class="bmd-label-floating">โซน</label>
                             <select class="form-select form-control "name="zone_zoneID">
                                 <option value="">เลือกโซน</option>
-                                <?php foreach($zoneList as $result){?>
-                                  <option value="<?php echo $result->zoneID;?>">
-                                  <?php echo $result->nameTH;?>
+                                <?php foreach($zoneList as $zresult){?>
+                                  <option value="<?php echo $zresult->zoneID;?>"<?php echo ($result[0]->zone_zoneID == $zresult->zoneID ) ? "selected":""; ?>>
+                                  <?php echo $zresult->nameTH;?>
                                 </option>
                                 <?php } ?>
+                            </select>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">สถานะการใช้งาน</label>
+                          <select class="form-select form-control "name="activeFlag" >
+                              <option value=""></option>
+                                <option value="0"<?php echo ($result[0]->activeFlag == 0 ) ? "selected":""; ?>>ไม่ใช้งาน</option>
+                                <option value="1"<?php echo ($result[0]->activeFlag == 1 ) ? "selected":""; ?>>ใช้งาน</option>
                             </select>
                         </div>
                       </div>
@@ -65,6 +75,7 @@
                           </div>
                       </div>
                     </div>
+                    
                     <input type="hidden" name="imagezoneID" class="form-control" value="<?php echo $result[0]->imagezoneID ;?>">
                     <a href="<?php echo site_url("Imagemaps/imagemap"); ?>" class="btn btn-warning pull-left">ย้อนกลับ</a>
                     <button type="submit" class="btn btn-success pull-right">บันทึก</button>

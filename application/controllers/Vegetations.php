@@ -144,60 +144,52 @@ class Vegetations extends CI_Controller {
 	//ฟังก์ชันแก้ไข
 	public function save_edit_vegetation()
 	{
-		// upload
-		$config['upload_path']          = 'image/vegetation';
-        $config['allowed_types']        = 'gif|jpg|png';
-		
-        $this->load->library('upload', $config);
-		// var_dump($_POST);
-		$this->upload->initialize($config); 
-
-		$img_url = "";
-
-        if ( ! $this->upload->do_upload('URL'))
-        {
-                $error = array('error' => $this->upload->display_errors());
-				var_dump($error);
-                // $this->load->view('upload_form', $error);
-        }
-        else
-        {
-                $data_upload = array('upload_data' => $this->upload->data());
-                $img_url = "image/vegetation/".$data_upload["upload_data"]["file_name"];
-				// echo $img_url;
-        }
-
 		$data = array( 
-		'n_common_TH' => $this->input->post('n_common_TH')
-		// 'username' => $this->input->post('username'),
-		// 'password' => $this->input->post('password'),
-		// 'email' => $this->input->post('email'),
-		// 'PrefixID' => $this->input->post('PrefixID'),
-		// 'f_name' => $this->input->post('f_name'),
-		// 'l_name' => $this->input->post('l_name'),
-		// 'telno' => $this->input->post('telno'),
-		// 'authority_authorityID' => $this->input->post('authority_authorityID'),
-		// 'activeflag' => $this->input->post('activeflag')
+		'n_common_TH' => $this->input->post('n_common_TH'),
+		'n_common_ENG' => $this->input->post('n_common_ENG'),
+		'n_scientific' => $this->input->post('n_scientific'),
+		'n_family' => $this->input->post('n_family'),
+		'typeID' => $this->input->post('typeID'),
+		'appearance' => $this->input->post('appearance'),
+		'plant_origin' => $this->input->post('plant_origin'),
+		'distribution' => $this->input->post('distribution'),
+		'ecological' => $this->input->post('ecological'),
+		'activeFlag' => $this->input->post('activeFlag'),
+		'produce_period' => $this->input->post('produce_period'),
+		'flowering_period' => $this->input->post('flowering_period'),
+		'propagation' => $this->input->post('propagation'),
+		'co2_storage' => $this->input->post('co2_storage'),
+		'reference' => $this->input->post('reference'),
+		'reference_data' => $this->input->post('reference_data')
 		);
-		
-		if ($img_url != "") {
-			$data_img['URL'] = $img_url;
-		}
-
-		var_dump($data,$data_img);
-		die();
+		// var_dump($data);
+		// die();
 
 		$this->load->model('VegetationModel');
-		$id = $this->input->post('employeeID');
-		$this->UserModel->update($data,$id,$data_img);
+		$id = $this->input->post('vegetationID');
+		$this->VegetationModel->update($data,$id);
 		if($data && $id){
 			$this->session->set_flashdata('message_error', 'แก้ไขข้อมูลผู้ใช้งานสำเร็จ');
-			redirect('Users/user');
+			redirect('Vegetations/vegetation');
 		}else{
 			$this->session->set_flashdata('message_error', 'แก้ไขข้อมูลผู้ใช้งานไม่สำเร็จ');
-			redirect('Users/user');
+			redirect('Vegetations/vegetation');
 		}
 	}
+	//ลบ
+	public function delete_vegetation()
+	{
+		$this->load->model('VegetationModel');
+		 $id = $this->uri->segment('3'); 
+		 $this->VegetationModel->delete($id); 
+		 if($id){
+			 $this->session->set_flashdata('message_error', 'ลบโซนสำเร็จ');
+			 redirect('Vegetations/vegetation');
+		 }else{
+			 $this->session->set_flashdata('message_error', 'ลบโซนไม่สำเร็จ');
+			 redirect('Vegetations/vegetation');
+		 }
+	 }
 
 
 }

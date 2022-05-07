@@ -44,6 +44,7 @@ table {
                             <th class="text-center">ชื่อวงศ์</th>
                             <th class="text-center">ชื่อพื้นเมือง(ภูมิภาค)</th>
                             <th class="text-center">ประเภท</th>
+                            <th class="text-center">สถานะการใช้งาน</th>
                             <th class="text-center"></th>
                         </tr>
                     </thead>
@@ -69,10 +70,11 @@ table {
                                       }
                             ?> (<?php echo $row->localname; ?>)</td>
                             <td><?php echo $row->typename?></td>
+                            <td><?php echo ($row->activeFlag == 1) ? "ใช้งาน": "ไม่ใช้งาน"; ?></td>
                             <td class="text-center" style="width: fit-content;">
                                   <button type="button" title="View" class="btn btn-info btn-sm" onclick="infoClick('<?php echo $row->vegetationID; ?>')"><i class="material-icons">info</i></button>
                                   <a  href="<?php echo site_url("vegetations/edit_vegetation_form/$row->vegetationID"); ?>"><button type="button" title="Edit" class="btn btn-warning btn-sm"><i class="material-icons">edit</i></button></a>
-                                  <a onclick="return confirm('คุณต้องการลบส่วนประกอบต้นไม้ออกหรือไม่?')" href="<?php echo site_url("Plantpaths/delete_plantpath/$row->vegetationID"); ?>"><button type="button" title="Delete" class="btn btn-danger btn-sm"><i class="material-icons">delete</i></button></a>    
+                                  <a onclick="return confirm('คุณต้องการลบพันธุ์ไม้ออกหรือไม่?')" href="<?php echo site_url("vegetations/delete_vegetation/$row->vegetationID"); ?>"><button type="button" title="Delete" class="btn btn-danger btn-sm"><i class="material-icons">delete</i></button></a>    
                             </td>
                         </tr>
                     <?php }?>

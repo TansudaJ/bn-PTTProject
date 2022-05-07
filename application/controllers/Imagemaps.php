@@ -93,11 +93,13 @@ class Imagemaps extends CI_Controller {
 		$this->load->view('dashboard/top',$data_top);
 		$this->load->view('dashboard/navbar',$data);
 		$this->load->view('dashboard/topcontent');
+
+		$page_data= array();
 		$page_data['zoneList'] = $tmpz;
 		
 		$id = $this->uri->segment('3'); 
-		$data['result'] = $this->ImagemapModel->getimagemapbyID($id);
-		$this->load->view('imagemaps/imagemap_edit',$data,$page_data);
+		$page_data['result'] = $this->ImagemapModel->getimagemapbyID($id);
+		$this->load->view('imagemaps/imagemap_edit',$page_data);
 		$this->load->view('dashboard/footcontent');
 		$this->load->view('dashboard/footer');
 
@@ -105,6 +107,7 @@ class Imagemaps extends CI_Controller {
 	//ฟังก์ชันแก้ไข
 	public function save_edit_imagemap()
 	{
+		$this->load->model('ImagemapModel');
 		//upload
 		$config['upload_path']          = 'imagemap/';
         $config['allowed_types']        = 'gif|jpg|png';
@@ -124,28 +127,47 @@ class Imagemaps extends CI_Controller {
                 $img_url = "imagemap/".$data_upload["upload_data"]["file_name"];
         }
 
-		$this->load->model('ImagemapModel');
-
 		$data = array( 
 
+			'imagezoneID' => $this->input->post('imagezoneID'),
 			'imagedetail' => $this->input->post('imagedetail'),
 			'imageURL' => $this->input->post('imageURL'),
-			'zone_zoneID' => $this->input->post('zone_zoneID')
+			'zone_zoneID' => $this->input->post('zone_zoneID'),
+			'activeFlag' => $this->input->post('activeFlag')
 		);
 		
 		if ($img_url != "") {
 			$data['imageURL'] = $img_url;
-			$data["zone_zoneID"] = $_POST["zone_zoneID"];;
 		}
 
+		var_dump($data);
+		die();
+		
+		
 		$id = $this->input->post('imagezoneID');
 		$this->ImagemapModel->update($data,$id);
 		if($data && $id){
 			$this->session->set_flashdata('message_error', 'แก้ไขข้อมูลแผนที่สำเร็จ');
-			redirect('Users/user');
+			redirect('Imagemaps/imagemap');
 		}else{
 			$this->session->set_flashdata('message_error', 'แก้ไขข้อมูลแผนที่ไม่สำเร็จ');
-			redirect('Users/user');
+			redirect('Imagemaps/imagemap');
+		}
+	}
+
+	//ลบ
+	public function delete_imagemap()
+	{
+
+		$this->load->model('ImagemapModel');
+		$id = $this->uri->segment('3'); 
+		$this->ImagemapModel->delete($id); 
+		if($id){
+			$this->session->set_flashdata('message_error', 'ลบแผนที่สำเร็จ');
+			redirect('Imagemaps/imagemap');
+		}else{
+			$this->session->set_flashdata('message_error', 'ลบแผนที่ไม่สำเร็จ');
+			redirect('Imagemaps/imagemap');
 		}
 	}
 

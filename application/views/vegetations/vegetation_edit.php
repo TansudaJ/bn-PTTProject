@@ -73,6 +73,16 @@
                           </select>
                         </div>
                       </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">สถานะการใช้งาน</label>
+                          <select class="form-select form-control "name="activeFlag" >
+                              <option value=""></option>
+                                <option value="0"<?php echo ($result[0]->activeFlag == 0 ) ? "selected":""; ?>>ไม่ใช้งาน</option>
+                                <option value="1"<?php echo ($result[0]->activeFlag == 1 ) ? "selected":""; ?>>ใช้งาน</option>
+                            </select>
+                        </div>
+                      </div>
                     </div>
                     <div class="row">
                       <div class="col-md-4">
@@ -160,7 +170,7 @@
                       <div class="col-md-12">
                         <!-- <div class="form-group"> -->
                           <label class="bmd-label-floating">ภาพพันธุ์ไม้</label>
-                            <input type="file" name="URL" size="20" class="form-control">
+                            <input type="file" name="" size="20" class="form-control">
                             <label class="bmd-label-floating s" >*อัพไฟล์ที่มีนามสกุล gif หรือ .jpg หรือ .png</label>
                         <!-- </div> -->
                       </div>
@@ -183,7 +193,7 @@
                       <div class="col-md-6">
                         <div class="form-group">
                           <label class="bmd-label-floating">ถิ่นกำเนิด</label>
-                          <input type="text" name="origin" class="form-control" value="<?php echo $result[0]->plant_origin ;?>">
+                          <input type="text" name="plant_origin" class="form-control" value="<?php echo $result[0]->plant_origin ;?>">
                         </div>
                       </div>
                       <div class="col-md-6">
@@ -211,7 +221,7 @@
                       <div class="col-md-6">
                         <div class="form-group">
                           <label class="bmd-label-floating">ช่วงออกดอก</label>
-                          <input type="text" name="fperiod" class="form-control" value="<?php echo $result[0]->flowering_period ;?>">
+                          <input type="text" name="flowering_period" class="form-control" value="<?php echo $result[0]->flowering_period ;?>">
                         </div>
                       </div>
                       <div class="col-md-6">

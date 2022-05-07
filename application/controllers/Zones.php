@@ -143,16 +143,16 @@ class Zones extends CI_Controller {
    //ลบ
    public function delete_zone()
    {
-	$this->load->model('ZoneModel');
-	$id = $this->uri->segment('3'); 
-	$this->ZoneModel->delete($id); 
-	if($id){
-		$this->session->set_flashdata('message_error', 'ลบโซนสำเร็จ');
-		redirect('Zones/zone');
-	}else{
-		$this->session->set_flashdata('message_error', 'ลบโซนไม่สำเร็จ');
-		redirect('Zones/zone');
+		$this->load->model('ZoneModel');
+		$id = $this->uri->segment('3'); 
+		$this->ZoneModel->delete($id); 
+		if($id){
+			$this->session->set_flashdata('message_error', 'ลบโซนสำเร็จ');
+			redirect('Zones/zone');
+		}else{
+			$this->session->set_flashdata('message_error', 'ลบโซนไม่สำเร็จ');
+			redirect('Zones/zone');
+		}
 	}
-}
 
 }

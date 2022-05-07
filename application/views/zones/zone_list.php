@@ -65,7 +65,7 @@ button.btn.btn-info:host {
                             <td class="text-center">
                                   <button type="button" title="View" class="btn btn-info btn-sm" onclick="infoClick('<?php echo $row->zoneID; ?>')"><i class="material-icons">info</i></button>
                                   <a  href="<?php echo site_url("Zones/edit_zone_form/$row->zoneID"); ?>"><button type="button" title="Edit" class="btn btn-warning btn-sm"><i class="material-icons">edit</i></button></a>
-                                  <a onclick="return confirm('คุณต้องการลบส่วนประกอบต้นไม้ออกหรือไม่?')" href="<?php echo site_url("Zones/delete_zone/$row->zoneID"); ?>"><button type="button" title="Delete" class="btn btn-danger btn-sm"><i class="material-icons">delete</i></button></a>      
+                                  <a onclick="return confirm('คุณต้องการลบโซนออกหรือไม่?')" href="<?php echo site_url("Zones/delete_zone/$row->zoneID"); ?>"><button type="button" title="Delete" class="btn btn-danger btn-sm"><i class="material-icons">delete</i></button></a>      
                             </td>
                         </tr>
                     <?php }?>

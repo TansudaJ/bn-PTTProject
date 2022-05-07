@@ -44,6 +44,7 @@ button.btn.btn-info:host {
                         <tr>
                             <th class="text-center">รหัส</th>
                             <th class="text-center">ชื่อโซน</th>
+                            <th class="text-center">สถานะการใช้งาน</th>
                             <th class="text-center"></th>
                         </tr>
                     </thead>
@@ -52,10 +53,11 @@ button.btn.btn-info:host {
                         <tr>
                             <td><?php echo $row->imagezoneID; ?></td>
                             <td><?php echo $row->nameTH; ?></td>
+                            <td><?php echo ($row->activeFlag == 1) ? "ใช้งาน": "ไม่ใช้งาน"; ?></td>
                             <td class="text-center">
                                   <button type="button" title="View" class="btn btn-info btn-sm" onclick="infoClick('<?php echo $row->imagezoneID; ?>')"><i class="material-icons">info</i></button>
                                   <a  href="<?php echo site_url("Imagemaps/edit_imagemap_form/$row->imagezoneID"); ?>"><button type="button" title="Edit" class="btn btn-warning btn-sm"><i class="material-icons">edit</i></button></a> 
-                                  <a onclick="return confirm('คุณต้องการลบวิธีการดูแลรักษาออกหรือไม่?')" href="<?php echo site_url("Mainmethods/delete_mainmethod/$row->imagezoneID"); ?>"><button type="button" title="Delete" class="btn btn-danger btn-sm"><i class="material-icons">delete</i></button></a>    
+                                  <a onclick="return confirm('คุณต้องการลบวิธีการดูแลรักษาออกหรือไม่?')" href="<?php echo site_url("Imagemaps/delete_imagemap/$row->imagezoneID"); ?>"><button type="button" title="Delete" class="btn btn-danger btn-sm"><i class="material-icons">delete</i></button></a>    
                             </td>
                         </tr>
                     <?php }?>
@@ -84,7 +86,7 @@ button.btn.btn-info:host {
                     $("#imageURL").attr('src',"<?php echo base_url()?>"+imagezone['imageURL']);
                     $('#nameTH').val(imagezone['nameTH']);
                     $('#imagedetail').val(imagezone['imagedetail']);
-
+                    $('#activeFlag').val((imagezone['activeFlag'] == 1 ? 'ใช้งาน':'ไม่ใช้งาน'));
                     $('#info_modal').modal('toggle');
                   }
                 });
@@ -110,15 +112,19 @@ button.btn.btn-info:host {
                 <!-- row1 -->
                 <div class="form-group row">
                   <label for="nameTH" class="col-form-label">ชื่อโซน:</label>
-                    <div class="col-sm-10" style="margin: -13px 0 0px 106px;">
-                      <input type="text" class="form-control" id="nameTH" style="width:200px;">
+                    <div class="col-sm-10" style="margin: -13px 0 0px 41px;">
+                      <input type="text" class="form-control" id="nameTH" style="width: 180px;">
                     </div>
-                </div>
+                    <label for="activeFlag" class="col-form-label" style="margin: 0 0 0 255px;">สถานะการใช้งาน:</label>
+                    <div class="col-sm-10" style="margin: -36px 0 0px 350px;">
+                      <input type="text" class="form-control" id="activeFlag" style="width:90px;">
+                    </div>
+                </div><br>
                 <!-- row2 -->
                 <div class="form-group row">
                     <label for="imagedetail" class="col-form-label">รายละเอียด:</label>
-                      <div class="col-sm-10" style="margin: -13px 0 0px 64px;">
-                        <textarea class="form-control" id="imagedetail" cols="30" rows="3" style="width: 300px;"></textarea>
+                      <div class="col-sm-10" style="margin: 0 0 0px 64px;">
+                        <textarea class="form-control" id="imagedetail" rows="5" style="width: 376px;"></textarea>
                       </div>
                 </div>
               </form>
