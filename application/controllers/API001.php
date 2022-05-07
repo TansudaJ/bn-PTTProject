@@ -73,7 +73,15 @@ class API001 extends CI_Controller {
 		echo header('Content-Type: text/html; charset=UTF-8');
 		echo json_encode($data);
 	}
-
+	public function maintenancebyID($id)
+	{
+		$this->load->model('MaintenanceModel');
+		$tmp = $this->MaintenanceModel->get_maintenance_byID($id);
+		$data['ststus'] = '200';
+		$data['data'] = $tmp;
+		echo header('Content-Type: text/html; charset=UTF-8');
+		echo json_encode($data);
+	}
 	
 
 

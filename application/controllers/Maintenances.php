@@ -46,7 +46,7 @@ class Maintenances extends CI_Controller {
 	{
 		$data["maintenanceID"] = NULL;
 		$data["details"] = $_POST["details"];
-		$data["maintenancetype_maintenancetypeID"] = $_POST["maintenancetype_maintenancetypeID"];
+		$data["maintenancetype_maintenancetypeID"] = $_POST["maintenancetypeID"];
 		$data["details"] = $_POST["details"];
 		$data["employee_employeeID"] = $_SESSION["employeeID"];
 		$data["zone_zoneID"] = $_POST["zoneID"];
@@ -66,5 +66,75 @@ class Maintenances extends CI_Controller {
 			redirect('Maintenances/maintenance');
 		}
     }
+
+	//loadหน้าแก้ไข
+	public function edit_maintenance_form()
+	{
+		$this->load->model('MaintenanceModel');
+
+		$tmpm = $this->MaintenanceModel->get_all_maintenancetype();
+		$tmpv = $this->MaintenanceModel->get_all_vegetation();
+		$tmpz = $this->MaintenanceModel->get_all_zone();
+		
+		$data = array('navbar_name'=>'จัดการข้อมูลวิธีดูแลรักษา');
+		$data_top = array('activebar'=>'mainmethod');
+		$this->load->view('dashboard/top',$data_top);
+		$this->load->view('dashboard/navbar',$data);
+		$this->load->view('dashboard/topcontent');
+
+		$page_data= array();
+
+		$page_data['maintenancetypeList'] = $tmpm;
+		$page_data['vegetationList'] = $tmpv;
+		$page_data['zoneList'] = $tmpz;
+		$id = $this->uri->segment('3'); 
+		$page_data['result'] = $this->MaintenanceModel->getmaintenancebyID($id);
+		$this->load->view('maintenances/maintenance_edit',$page_data);
+		$this->load->view('dashboard/footcontent');
+		$this->load->view('dashboard/footer');
+        
+	   
+   }
+   //ฟังก์ชันแก้ไข
+   public function save_edit_maintenance()
+   {
+		$this->load->model('MaintenanceModel');
+		$data = array( 
+		   
+		   'maintenancetype_maintenancetypeID ' => $this->input->post('maintenancetype_maintenancetypeID'),
+		   'zone_zoneID' => $this->input->post('zone_zoneID'),
+		   'vegetation_vegetationID' => $this->input->post('vegetation_vegetationID'),
+		   'details' => $this->input->post('details'),
+		   'note' => $this->input->post('note'),
+		   'activeFlags' => $this->input->post('activeFlags')
+
+		); 
+		$id = $this->input->post('maintenanceID');
+		$this->MaintenanceModel->update($data,$id);
+		if($data && $id){
+			$this->session->set_flashdata('message_error', 'แก้ไขการดูแลรักษาสำเร็จ');
+			redirect('Maintenances/maintenance');
+		}else{
+			$this->session->set_flashdata('message_error', 'แก้ไขการดูแลรักษาไม่สำเร็จ');
+			redirect('Maintenances/maintenance');
+		}
+   }
+
+   //ลบ
+   public function delete_mainmethod()
+   {
+
+		$this->load->model('MaintenanceModel');
+		$id = $this->uri->segment('3'); 
+		$this->MaintenanceModel->delete($id); 
+		if($id){
+			$this->session->set_flashdata('message_error', 'ลบการดูแลรักษาสำเร็จ');
+			redirect('Maintenances/maintenance');
+		}else{
+			$this->session->set_flashdata('message_error', 'ลบการดูแลรักษาไม่สำเร็จ');
+			redirect('Maintenances/maintenance');
+		}
+	}
+	
 	
 }
