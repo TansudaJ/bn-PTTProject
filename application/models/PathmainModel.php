@@ -33,10 +33,6 @@ class PathmainModel extends CI_Model {
     public function insert_pathmain($data,$data_img)
     {
         $sql = $this->db->insert('medicinalproperties', $data);
-
-        
-        // var_dump($data_img);
-        // die();
         $sql2 = $this->db->insert('imagevegetation',$data_img);
 
        if( $sql && $sql2> 0){
@@ -55,11 +51,17 @@ class PathmainModel extends CI_Model {
      }
 
     //แก้ไข
-     public function update($data,$id,$data_img) { 
+     public function update($data,$id) { 
         $this->db->set($data); 
         $this->db->where("medicinalpropertiesID", $id); 
         $this->db->update("medicinalproperties", $data);
-        $this->db->where("imagevegetationID", $id);
-        $this->db->update("imagevegetation", $data_img);
+     }
+
+     public function delete($id) 
+     { 
+         $query = $this->db->query("UPDATE medicinalproperties SET activeflag = 0 where medicinalpropertiesID = ".$id);
+         if ($query>0) {
+             return true;
+         }
      }
 }

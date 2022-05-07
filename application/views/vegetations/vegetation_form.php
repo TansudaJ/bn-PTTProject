@@ -115,19 +115,24 @@
                               </tr>
                           </thead>
                           <tbody>
-                              <tr>
-                                  <td><input type="checkbox" name="record"></td>
-                                  <td></td>
-                                  <td></td>
-                              </tr>
+                              
                           </tbody>
                       </table>
                       <script>
                       $(document).ready(function(){
+                        const region = [];
+                          region[0]= "";
+                          region[1]= "ภาคเหนือ";
+                          region[2]= "ภาคอีสาน";
+                          region[3]= "ภาคตะวันตก";
+                          region[4]= "ภาคกลาง";
+                          region[5]= "ภาคตะวันออก";
+                          region[6]= "ภาคใต้";
+
                           $("#btn-add").click(function(){
                               var loname_name = $("#loname_name").val();
-                              var loname_region = $("#loname_region").val();
-                              var markup = "<tr><td><input type='checkbox' name='record'> <input type='hidden' name='loname_name[]' value='"+loname_name+"'><input type='hidden' name='loname_region[]' value='"+loname_region+"'></td><td>" + loname_name + "</td><td>" + loname_region + "</td></tr>";
+                              var loname_region = region[$("#loname_region").val()];
+                              var markup = "<tr><td><input type='checkbox' name='record' checked> <input type='hidden' name='loname_name[]' value='"+loname_name+"'><input type='hidden' name='loname_region[]' value='"+loname_region+"'></td><td>" + loname_name + "</td><td>" + loname_region + "</td></tr>";
                               $("table tbody").append(markup);
                           });
                           // Find and remove selected table rows

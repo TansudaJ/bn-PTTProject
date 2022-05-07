@@ -60,13 +60,23 @@
                                 </select>
                         </div>
                       </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">สถานะการใช้งาน</label>
+                          <select class="form-select form-control "name="activeflag" >
+                              <option value=""></option>
+                                <option value="0"<?php echo ($result[0]->activeflag == 0 ) ? "selected":""; ?>>ไม่ใช้งาน</option>
+                                <option value="1"<?php echo ($result[0]->activeflag == 1 ) ? "selected":""; ?>>ใช้งาน</option>
+                            </select>
+                        </div>
+                      </div>
                     </div>
                     <!-- ภาพส่วนประกอบ -->
                     <div class="row">
                       <div class="col-md-12">
                         <!-- <div class="form-group"> -->
                           <label class="bmd-label-floating">ภาพส่วนประกอบต้นไม้</label>
-                            <input type="file" name="URL" size="20" class="form-control">
+                            <input type="file" name="" size="20" class="form-control">
                             <label class="bmd-label-floating s" >*อัพไฟล์ที่มีนามสกุล gif หรือ .jpg หรือ .png</label>
                         <!-- </div> -->
                       </div>

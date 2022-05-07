@@ -75,8 +75,8 @@ class Plants extends CI_Controller {
         else
         {
 
-                $data = array('upload_data' => $this->upload->data());
-                $imgQRCode = "image/QRCode/".$data["upload_data"]["file_name"];
+                $data_upload = array('upload_data' => $this->upload->data());
+                $imgQRCode = "image/QRCode/".$data_upload["upload_data"]["file_name"];
 				// echo $img_url;
         }
 
@@ -101,13 +101,13 @@ class Plants extends CI_Controller {
         {
 
                 $data_upload = array('upload_data' => $this->upload->data());
-                $img_plant = "image/QRCode/".$data_upload["upload_data"]["file_name"];
+                $img_plant = "image/plant/".$data_upload["upload_data"]["file_name"];
 				// echo $img_url;
         }
 		
 		$data["plantID"] = NULL;
-		$data["vegetationID"] = $_POST["vegetationID"];
-		$data["zoneID"] = $_POST["zoneID"];
+		$data["vegetation_vegetationID"] = $_POST["vegetationID"];
+		$data["zone_zoneID"] = $_POST["zoneID"];
 		$data["coordinates"] = $_POST["coordinates"];
 		$data["diameter"] 	= $_POST["diameter"];
 		$data["height"] 	= $_POST["height"];
@@ -120,11 +120,11 @@ class Plants extends CI_Controller {
 		$data_img["URL"] = $img_plant;
 
 
-		var_dump($data,$data_img);
-		die();
+		// var_dump($data,$data_img);
+		// die();
 		
 		$this->load->model('PlantModel');
-		$tmp = $this->PlantModel->insert_plant($data);
+		$tmp = $this->PlantModel->insert_plant($data,$data_img);
 		if($tmp){
 			$this->session->set_flashdata('message_error', 'เพิ่มต้นไม้สำเร็จ');
 			redirect('Plants/plant');
@@ -141,14 +141,14 @@ class Plants extends CI_Controller {
 	{
 
 		$this->load->model('PlantModel');
-		$data = array('navbar_name'=>'จัดการข้อมูลผู้ใช้งาน');
-		$data_top = array('activebar'=>'user');
+		$data = array('navbar_name'=>'จัดการข้อมูลต้นไม้');
+		$data_top = array('activebar'=>'plant');
 		$this->load->view('dashboard/top',$data_top);
 		$this->load->view('dashboard/navbar',$data);
 		$this->load->view('dashboard/topcontent');
 		$id = $this->uri->segment('3'); 
-		$data['result'] = $this->PlantModel->getuserbyID($id);
-		$this->load->view('users/user_edit',$data);
+		$data['result'] = $this->PlantModel->getplantbyID($id);
+		$this->load->view('plants/plant_edit',$data);
 		$this->load->view('dashboard/footcontent');
 		$this->load->view('dashboard/footer');
 
@@ -156,27 +156,6 @@ class Plants extends CI_Controller {
    //ฟังก์ชันแก้ไข
    public function save_edit_user()
    {
-		$this->checklogin();
-		// upload
-		$config['upload_path']          = 'image/employee';
-        $config['allowed_types']        = 'gif|jpg|png';
-
-        $this->load->library('upload', $config);
-		$this->upload->initialize($config); 
-
-		$img_url = "";
-        if ( ! $this->upload->do_upload('imageURL'))
-        {
-                $error = array('error' => $this->upload->display_errors());
-				var_dump($error);
-        }
-        else
-        {
-
-                $data = array('upload_data' => $this->upload->data());
-                $img_url = "image/employee/".$data["upload_data"]["file_name"];
-        }
-
 		$this->load->model('UserModel');
 		$data = array( 
 		   'employeeID' => $this->input->post('employeeID'),
@@ -191,10 +170,6 @@ class Plants extends CI_Controller {
 		   'activeflag' => $this->input->post('activeflag')
 		);
 		
-		if ($img_url != "") {
-			$data['imageURL'] = $img_url;
-			// $data['status'] = 1; upพันไม้&ต้นไม้
-		}
 
 		$id = $this->input->post('employeeID');
 		$this->UserModel->update($data,$id);
@@ -206,18 +181,6 @@ class Plants extends CI_Controller {
 			redirect('Users/user');
 		}
    }
-
-	private function checklogin(){
-		if(!isset($_SESSION['logged_in'])){
-			$this->session->set_flashdata('message_error', 'กรุณาเข้าสู่ระบบ');
-			redirect('/login/');
-		}
-
-		if($_SESSION['authority_authorityID'] != '1'){
-			$this->session->set_flashdata('message_error', 'คุณไม่มีสิทธิ์ใช้งาน');
-			redirect('/Dashboards/dashboard');
-		}
-	}
 	
 
 }

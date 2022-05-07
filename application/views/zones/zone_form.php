@@ -46,7 +46,7 @@
                       </div>
                       <div class="col-md-4" style="margin: -32px 0px 0px 0px;">
                         <div class="form-group">
-                          <label class="bmd-label-floating">เลือกโซนหลัก</label>
+                          <label class="bmd-label-floating">เลือกโซน</label>
                           <select class="form-select form-control "name="headzoneID" >
                               <option value="">เลือกโซน</option>
                               <?php foreach($zoneList as $result){?>

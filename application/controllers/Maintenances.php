@@ -25,6 +25,8 @@ class Maintenances extends CI_Controller {
 		$tmp = $this->MaintenanceModel->get_all_maintenance();
 		$tmpm = $this->MaintenanceModel->get_all_maintenancetype();
 		$tmpv = $this->MaintenanceModel->get_all_vegetation();
+		$tmpz = $this->MaintenanceModel->get_all_zone();
+
 		$data = array('navbar_name'=>'ข้อมูลการดูแลรักษา');
 		$data_top = array('activebar'=>'maintenance');
 		$this->load->view('dashboard/top',$data_top);
@@ -33,7 +35,7 @@ class Maintenances extends CI_Controller {
 		$page_data['maintenanceForm'] = $tmp;
 		$page_data['maintenancetypeList'] = $tmpm;
 		$page_data['vegetationList'] = $tmpv;
-
+		$page_data['zoneList'] = $tmpz;
 		$this->load->view('maintenances/maintenance_form',$page_data);
 
 		$this->load->view('dashboard/footcontent');
@@ -46,7 +48,10 @@ class Maintenances extends CI_Controller {
 		$data["details"] = $_POST["details"];
 		$data["maintenancetype_maintenancetypeID"] = $_POST["maintenancetype_maintenancetypeID"];
 		$data["details"] = $_POST["details"];
-		
+		$data["employee_employeeID"] = $_SESSION["employeeID"];
+		$data["zone_zoneID"] = $_POST["zoneID"];
+		$data["vegetation_vegetationID"] = $_POST["vegetationID"];
+		$data["note"] = $_POST["note"];
 
 		// var_dump($data);
 		// die();

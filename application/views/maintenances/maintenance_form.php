@@ -35,6 +35,19 @@
                       </div>
                     </div><br>
                     <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">โซน<span class="s">*</span></label>
+                          <select class="form-select form-control "name="zoneID" required>
+                              <option value="">เลือกโซน</option>
+                              <?php foreach($zoneList as $result){?>
+                                <option value="<?php echo $result->zoneID;?>">
+                                <?php echo $result->nameTH;?>
+                            </option>
+                            <?php } ?>
+                          </select>
+                        </div>
+                      </div>
                       <div class="col-md-4">
                         <div class="form-group">
                           <label class="bmd-label-floating">พันธุ์ไม้<span class="s">*</span></label>
@@ -70,7 +83,14 @@
                           </div>
                       </div>
                     </div>
-                      
+                    <div class="row">
+                      <div class="col-md-12">
+                          <div class="form-group">
+                            <label class="bmd-label-floating">หมายเหตุ</label>
+                            <textarea class="form-control" rows="5" name="note"></textarea>
+                          </div>
+                      </div>
+                    </div>
                     <a href="<?php echo site_url("Maintenances/maintenance"); ?>" class="btn btn-warning pull-left">ย้อนกลับ</a>
                     <button type="submit" class="btn btn-success pull-right">บันทึก</button>
                     <div class="clearfix"></div>

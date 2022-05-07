@@ -49,7 +49,7 @@
                       <div class="col-md-4">
                         <div class="form-group">
                           <label class="bmd-label-floating">ชื่อวิทยาศาสตร์</label>
-                            <input type="text" name="	n_scientific" class="form-control" value="<?php echo $result[0]->	n_scientific ;?>">
+                            <input type="text" name="n_scientific" class="form-control" value="<?php echo $result[0]->	n_scientific ;?>">
                         </div>
                       </div>
                     </div>

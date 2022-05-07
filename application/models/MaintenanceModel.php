@@ -7,8 +7,8 @@ class MaintenanceModel extends CI_Model {
             
             $query = $this->db->query("SELECT * FROM (((((maintenance m INNER JOIN maintenancetype mt ON m.maintenancetype_maintenancetypeID = mt.maintenancetypeID) 
             INNER JOIN employee e ON m.employee_employeeID = e.employeeID) 
-            INNER JOIN plants ON m.plants_plantID = plants.plantID) 
-            INNER JOIN vegetation v ON plants.vegetation_vegetationID = v.vegetationID)
+            INNER JOIN zone z ON m.zone_zoneID = z.zoneID) 
+            INNER JOIN vegetation v ON m.vegetation_vegetationID = v.vegetationID)
             INNER JOIN prefix  ON prefix.PrefixID = e.PrefixID);");
             return $query->result();
     }
@@ -20,6 +20,11 @@ class MaintenanceModel extends CI_Model {
     //vList
     public function get_all_vegetation(){
         $query = $this->db->query("SELECT * FROM vegetation");
+        return $query->result();
+    }
+    //vList
+    public function get_all_zone(){
+        $query = $this->db->query("SELECT * FROM zone");
         return $query->result();
     }
 

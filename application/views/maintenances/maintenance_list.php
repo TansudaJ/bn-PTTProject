@@ -36,7 +36,7 @@ button.btn.btn-info:host {
                     <tbody> 	
                     <?php foreach($maintenanceList as $row){?>
                         <tr>
-                            <td><?php echo $row->maintenanceID ."-".$row->maintenancetypeID; ?></td>
+                            <td><?php echo $row->maintenanceID; ?></td>
                             <td><?php echo $row->n_common_TH; ?></td>
                             <td><?php echo $row->prefix_name."".$row->f_name ." ".$row->l_name; ?></td>
                             <td><?php echo $row->date; ?></td>

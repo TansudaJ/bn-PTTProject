@@ -45,6 +45,7 @@ button.btn.btn-info:host {
                             <th class="text-center">รหัส</th>
                             <th class="text-center">ชื่อพันธุ์ไม้</th>
                             <th class="text-center">ชื่อส่วนประกอบ</th>
+                            <th class="text-center">สถานะการใช้งาน</th>
                             <th class="text-center"></th>
                         </tr>
                     </thead>
@@ -54,10 +55,11 @@ button.btn.btn-info:host {
                             <td><?php echo $row->medicinalPropertiesID; ?></td>
                             <td><?php echo $row->n_common_TH; ?></td>
                             <td><?php echo $row->plantpathname; ?></td>
+                            <td><?php echo ($row->activeflag == 1) ? "ใช้งาน": "ไม่ใช้งาน"; ?></td>
                             <td class="text-center">
                               <button type="button" title="View" class="btn btn-info btn-sm" onclick="infoClick('<?php echo $row->medicinalPropertiesID; ?>')"><i class="material-icons">info</i></button>  
                               <a  href="<?php echo site_url("Pathmains/edit_pathmain_form/$row->medicinalPropertiesID"); ?>"><button type="button" title="Edit" class="btn btn-warning btn-sm"><i class="material-icons">edit</i></button></a>
-                              <a onclick="return confirm('คุณต้องการลบส่วนประกอบต้นไม้ออกหรือไม่?')" href="<?php echo site_url("Plantpaths/delete_plantpath/$row->pathID"); ?>"><button type="button" title="Delete" class="btn btn-danger btn-sm"><i class="material-icons">delete</i></button>      
+                              <a onclick="return confirm('คุณต้องการลบข้อมูลส่วนประกอบต้นไม้ออกหรือไม่?')" href="<?php echo site_url("Pathmains/delete_pathmain/$row->medicinalPropertiesID"); ?>"><button type="button" title="Delete" class="btn btn-danger btn-sm"><i class="material-icons">delete</i></button>      
                             </td>
                         </tr>
                     <?php }?>
@@ -84,7 +86,8 @@ button.btn.btn-info:host {
                   success: function(data){
                     medicinalProperties = data['data'][0];
 
-                    $("#image_path").attr('src',((medicinalProperties['URL']) == null) ? "<?php echo base_url()?>image/vegetation/no-pic.jpg" : "<?php echo base_url()?>"+ medicinalProperties['URL']);
+                    $("#image_path").attr('src',"<?php echo base_url()?>"+medicinalProperties['URL']);
+                    // $("#image_path").attr('src',((medicinalProperties['URL']) == null) ? "<?php echo base_url()?>image/vegetation/no-pic.jpg" : "<?php echo base_url()?>"+ medicinalProperties['URL']);
                     $('#nameTH').val(medicinalProperties['n_common_TH']);
                     $('#pathname').val(medicinalProperties['plantpathname']);
                     $('#properties').val(medicinalProperties['properties']);
