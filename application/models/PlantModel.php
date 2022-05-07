@@ -30,10 +30,11 @@ class PlantModel extends CI_Model {
 
     public function insert_plant($data,$data_img)
     {
-        $sql = "INSERT INTO `plants`(`plantID`, `coordinates`, `diameter`, `height`, `actual`, `show`, `exclusivity`, `QRCode` , `zone_zoneID`, `vegetation_vegetationID`) 
-        VALUES (Null,'".$data["coordinates"]."','".$data["diameter"]."','".$data["height"]."','".$data["actual"]."','".$data["show"]."','".$data["exclusivity"]."',
-        '".$data["QRCode"]."','".$data["zoneID"]."','".$data["vegetationID"]."')";
-        $query = $this->db->query($sql);
+        $query = $this->db->insert('plants',$data);
+
+        $plantID = $this->db->insert_id();
+        
+        $data_img["plants_plantID"] = $plantID;
 
         $sql2 = $this->db->insert('imageplant',$data_img);
         
