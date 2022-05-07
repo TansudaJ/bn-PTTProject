@@ -108,7 +108,7 @@ button.btn.btn-info:host {
         <div class="modal-dialog" role="document">
           <div class="modal-content" style="width: fit-content;">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">ข้อมูลต้นไม้</h5>
+              <h5 class="modal-title" id="exampleModalLabel">ข้อมูลส่วนประกอบ</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
