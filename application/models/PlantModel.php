@@ -19,6 +19,12 @@ class PlantModel extends CI_Model {
             $query = $this->db->query("SELECT * FROM zone ");
             return $query->result();
     }
+    //     pList       
+    public function get_all_plantpath()
+    {
+            $query = $this->db->query("SELECT * FROM plantpath ");
+            return $query->result();
+    }
     //getid info
     public function get_plant_byID($id)
     {

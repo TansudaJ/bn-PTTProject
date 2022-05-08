@@ -28,15 +28,11 @@ class Plants extends CI_Controller {
 
 	public function new_plant()
 	{
-		//$this->checklogin();
-		//$this->load->view('welcome_message');
 		$this->load->model('PlantModel');
 		$tmp = $this->PlantModel->get_all_plants();
 		$tmpv = $this->PlantModel->get_all_vegetation();
 		$tmpz = $this->PlantModel->get_all_zone();
-		//$tmp2 = $this->UserModel->check_username_password('111','222');
-		
-		//var_dump($tmp);die();
+		$tmpp = $this->PlantModel->get_all_plantpath();
 
 		$data = array('navbar_name'=>'จัดการข้อมูลต้นไม้');
 		$data_top = array('activebar'=>'plant');
@@ -46,6 +42,7 @@ class Plants extends CI_Controller {
 		$page_data['plantForm'] = $tmp;
 		$page_data['vegetationList'] = $tmpv;
 		$page_data['zoneList'] = $tmpz;
+		$page_data['pathList'] = $tmpp;
 
 		$this->load->view('plants/plant_form',$page_data);
 
@@ -118,8 +115,7 @@ class Plants extends CI_Controller {
 
 		$data_img["imageplantID"] = null;
 		$data_img["URL"] = $img_plant;
-
-
+		$data_img["plantpath_pathID"] = $_POST["plantpath_pathID"];
 		// var_dump($data,$data_img);
 		// die();
 		

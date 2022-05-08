@@ -132,7 +132,7 @@
                           $("#btn-add").click(function(){
                               var loname_name = $("#loname_name").val();
                               var loname_region = region[$("#loname_region").val()];
-                              var markup = "<tr><td><input type='checkbox' name='record' checked> <input type='hidden' name='loname_name[]' value='"+loname_name+"'><input type='hidden' name='loname_region[]' value='"+loname_region+"'></td><td>" + loname_name + "</td><td>" + loname_region + "</td></tr>";
+                              var markup = "<tr><td><input type='checkbox' name='record' checked> <input type='hidden' name='loname_name[]' value='"+loname_name+"'><input type='hidden' name='loname_region[]' value='"+ $("#loname_region").val() +"'></td><td>" + loname_name + "</td><td>" + loname_region + "</td></tr>";
                               $("table tbody").append(markup);
                           });
                           // Find and remove selected table rows

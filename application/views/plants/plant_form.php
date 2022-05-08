@@ -57,10 +57,17 @@
                           </select>
                         </div>
                       </div>
-                      <div class="col-md-4" style="margin: 30px 0 0 0;">
+                      <div class="col-md-4">
                         <div class="form-group">
-                          <label class="bmd-label-floating">พิกัดต้นไม้<span class="s">*</span></label>
-                          <input type="text" name="coordinates" class="form-control" required>
+                          <label class="bmd-label-floating">ส่วนประกอบ<span class="s">*</span></label>
+                          <select class="form-select form-control "name="plantpath_pathID" required>
+                              <option value="">เลือกส่วนประกอบ</option>
+                              <?php foreach($pathList as $result){?>
+                                <option value="<?php echo $result->pathID;?>">
+                                <?php echo $result->plantpathname;?>
+                            </option>
+                            <?php } ?>
+                          </select>
                         </div>
                       </div>
                     </div>
@@ -84,6 +91,12 @@
                         <div class="col-md-1" style="margin: 56px 0 0 -20px;">
                           เมตร
                         </div>
+                        <div class="col-md-4" style="margin: 30px 0 0 0;">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">พิกัดต้นไม้<span class="s">*</span></label>
+                          <input type="text" name="coordinates" class="form-control" required>
+                        </div>
+                      </div>
                     </div>
                     <div class="row">
                       <div class="col-md-4" style="margin: 30px 0 0 0">
