@@ -111,6 +111,8 @@ button.btn.btn-info:host {
                     $('#actual').val(plant['actual']);
                     $('#show').val((plant['show']) == 1 ? 'แสดง' : 'ไม่แสดง');
                     $('#exclusivity').val(plant['exclusivity']);
+                    $('#plantpathname').val(plant['plantpathname']);
+                    
 
                     $('#info_modal').modal('toggle');
                   }
@@ -139,7 +141,7 @@ button.btn.btn-info:host {
                 </div>
                 <!-- image -->
                 <div class="form-group">
-                  <img class="img-fluid rounded mx-auto d-block" id="" src="" style="width:50%; ">
+                  <img class="img-fluid rounded mx-auto d-block" id="image_plant" src="" style="width:50%; ">
                 </div>
                 <!-- row1 -->
                 <div class="form-group row">
@@ -150,6 +152,12 @@ button.btn.btn-info:host {
                   <label for="commonTH" class="col-form-label" style="margin: 0 0 0 255px;">ชื่อพันธุ์ไม้:</label>
                     <div class="col-sm-10" style="margin: -36px 0 0 312px;">
                       <input type="text" class="form-control" id="commonTH" style="width:200px;">
+                    </div>
+                </div>
+                <div class="form-group row">
+                  <label for="plantpathname" class="col-form-label">ส่วนประกอบ:</label>
+                    <div class="col-sm-10" style="margin: -13px 0 0 70px;">
+                      <input type="text" class="form-control" id="plantpathname" style="width:200px;">
                     </div>
                 </div>
                 <!-- row2 -->
@@ -169,9 +177,9 @@ button.btn.btn-info:host {
                     <div class="col-sm-10" style="margin: -13px 0 0 100px;">
                       <input type="text" class="form-control" id="diameter" style="width:180px;">
                     </div>
-                  <label for="localname" class="col-form-label" style="margin: 0 0 0 310px;">ความสูง:</label>
+                  <label for="height" class="col-form-label" style="margin: 0 0 0 310px;">ความสูง:</label>
                     <div class="col-sm-10" style="margin: -36px 0 0px 355px;">
-                      <input type="text" class="form-control" id="localname" style="width:180px;">
+                      <input type="text" class="form-control" id="height" style="width:180px;">
                     </div>
                 </div>
                 <!-- row4 -->

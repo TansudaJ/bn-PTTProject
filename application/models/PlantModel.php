@@ -28,9 +28,10 @@ class PlantModel extends CI_Model {
     //getid info
     public function get_plant_byID($id)
     {
-            $query = $this->db->query("SELECT * FROM (((plants p INNER JOIN zone z ON p.zone_zoneID = z.zoneID) 
+            $query = $this->db->query("SELECT * FROM ((((plants p INNER JOIN zone z ON p.zone_zoneID = z.zoneID) 
             INNER JOIN vegetation v ON p.vegetation_vegetationID = v.vegetationID) 
             LEFT JOIN imageplant ip ON p.plantID=ip.plants_plantID) 
+            INNER JOIN plantpath pp ON pp.pathID = ip.plantpath_pathID)
             WHERE p.plantID = '".$id."'" );
             return $query->result();
     }
