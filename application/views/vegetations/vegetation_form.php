@@ -227,6 +227,14 @@
                     </div>
                     <div class="row">
                       <div class="col-md-12">
+                          <div class="form-group">
+                            <label class="bmd-label-floating">ข้อแนะนำและข้อควรระวัง</label>
+                            <textarea class="form-control" name="caution" rows="5"></textarea>
+                          </div>
+                        </div> 
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
                         <div class="form-group">
                           <label class="bmd-label-floating">แหล่งที่มาของพันธุ์ไม้</label>
                             <textarea class="form-control" name="reference" rows="5"></textarea>

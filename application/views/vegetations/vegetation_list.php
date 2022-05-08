@@ -131,6 +131,7 @@ table {
                     $('#co2_storage').val(vegetation['co2_storage']);
                     $('#reference').val(vegetation['reference']);
                     $('#reference_data').val(vegetation['reference_data']);
+                    $('#caution').val(vegetation['caution']);
 
                     $('#info_modal').modal('toggle');
                   }
@@ -266,21 +267,28 @@ table {
                     <div class="col-sm-10" style="margin: -13px 0 0 203px;">
                     <input type="text" class="form-control" id="co2_storage" style="width: 387px;">
                     </div>
-                </div>
+                </div><br>
                 <!-- row14 -->
+                <div class="form-group row">
+                  <label for="caution" class="col-form-label">ข้อแนะนำและข้อควรระวัง:</label>
+                    <div class="col-sm-10" style="margin: -13px 0 0 90px;">
+                    <textarea class="form-control" id="caution" rows="4" style="width: 450px; margin: 0 0 0 50px;"></textarea>
+                    </div>
+                </div><br>
+                <!-- row15 -->
                 <div class="form-group row">
                   <label for="reference" class="col-form-label">แหล่งที่มาของพันธุ์ไม้:</label>
                     <div class="col-sm-10" style="margin: -13px 0 0 90px;">
-                    <textarea class="form-control" id="reference" rows="2" style="width: 475px; margin: 0 0 0 25px;"></textarea>
+                    <textarea class="form-control" id="reference" rows="4" style="width: 475px; margin: 0 0 0 25px;"></textarea>
                     </div>
-                </div>
-                <!-- row15 -->
+                </div><br>
+                <!-- row16 -->
                 <div class="form-group row">
                   <label for="reference_data" class="col-form-label">แหล่งที่มาของข้อมูล:</label>
                     <div class="col-sm-10" style="margin: -13px 0 0 90px;">
-                    <textarea class="form-control" id="reference_data" rows="2" style="width: 475px; margin: 0 0 0 25px;"></textarea>
+                    <textarea class="form-control" id="reference_data" rows="4" style="width: 475px; margin: 0 0 0 25px;"></textarea>
                     </div>
-                </div>
+                </div><br>
               </form>
             </div>
             <div class="modal-footer">

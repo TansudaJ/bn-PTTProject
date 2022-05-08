@@ -88,6 +88,7 @@ class Vegetations extends CI_Controller {
 		$data["co2_storage"] = $_POST["co2_storage"];
 		$data["propagation"] = $_POST["propagation"];
 		$data["reference_data"] = $_POST["reference_data"];
+		$data["caution"] = $_POST["caution"];
 
 		$data_img["imagevegetationID "] = null;
 		$data_img["URL"] = $img_url;
@@ -160,7 +161,8 @@ class Vegetations extends CI_Controller {
 		'propagation' => $this->input->post('propagation'),
 		'co2_storage' => $this->input->post('co2_storage'),
 		'reference' => $this->input->post('reference'),
-		'reference_data' => $this->input->post('reference_data')
+		'reference_data' => $this->input->post('reference_data'),
+		'caution' => $this->input->post('caution')
 		);
 		// var_dump($data);
 		// die();
