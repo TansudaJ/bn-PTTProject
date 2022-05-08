@@ -22,7 +22,7 @@
             <div class="col-md-12">
               <div class="card">
                 <div class="card-header card-header-success">
-                  <h3 class="card-title">เพิ่มข้อมูลส่วนประกอบต้นไม้</h3>
+                  <h3 class="card-title">แก้ไขข้อมูลส่วนประกอบต้นไม้</h3>
                 </div><br>
                 <div class="card-body">
                   <form>
