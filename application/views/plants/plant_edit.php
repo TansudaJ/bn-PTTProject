@@ -19,7 +19,7 @@
             <div class="col-md-12">
               <div class="card">
                 <div class="card-header card-header-success">
-                  <h3 class="card-title">เพิ่มข้อมูลต้นไม้</h3>
+                  <h3 class="card-title">แก้ไขข้อมูลต้นไม้</h3>
                 </div><br>
                 <div class="card-body">
                   <form>
@@ -47,7 +47,7 @@
                       <div class="col-md-4">
                         <div class="form-group">
                           <label class="bmd-label-floating">ชื่อพันธุ์ไม้</label>
-                          <select class="form-select form-control "name="vegetation_vegetationID">
+                          <select class="form-select form-control" name="vegetation_vegetationID">
                               <option value="">เลือกพันธุ์ไม้</option>
                               <?php foreach($vegetationList as $vresult){?>
                                 <option value="<?php echo $vresult->vegetationID;?>"<?php echo ($result[0]->vegetation_vegetationID == $vresult->vegetationID ) ? "selected":""; ?>>
@@ -57,10 +57,17 @@
                           </select>
                         </div>
                       </div>
-                      <div class="col-md-4" style="margin: 30px 0 0 0;">
+                      <div class="col-md-4">
                         <div class="form-group">
-                          <label class="bmd-label-floating">พิกัดต้นไม้</label>
-                          <input type="text" name="coordinates" class="form-control" value="<?php echo $result[0]->coordinates ;?>">
+                          <label class="bmd-label-floating">ส่วนประกอบ</label>
+                          <select class="form-select form-control" name="plantpath_pathID">
+                              <option value="">เลือกส่วนประกอบ</option>
+                              <?php foreach($pathList as $presult){?>
+                                <option value="<?php echo $presult->pathID;?>" <?php echo ($result[0]->pathID == $presult->pathID ) ? "selected":""; ?>>
+                                <?php echo $presult->plantpathname;?>
+                            </option>
+                            <?php } ?>
+                          </select>
                         </div>
                       </div>
                     </div>
@@ -84,14 +91,10 @@
                         <div class="col-md-1" style="margin: 56px 0 0 -20px;">
                           เมตร
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-4" style="margin: 30px 0 0 0;">
                         <div class="form-group">
-                          <label class="bmd-label-floating">สถานะการใช้งาน</label>
-                          <select class="form-select form-control "name="active" >
-                              <option value=""></option>
-                                <option value="0"<?php echo ($result[0]->active == 0 ) ? "selected":""; ?>>ไม่ใช้งาน</option>
-                                <option value="1"<?php echo ($result[0]->active == 1 ) ? "selected":""; ?>>ใช้งาน</option>
-                            </select>
+                          <label class="bmd-label-floating">พิกัดต้นไม้</label>
+                          <input type="text" name="coordinates" class="form-control" value="<?php echo $result[0]->coordinates ;?>">
                         </div>
                       </div>
                     </div>
@@ -118,6 +121,18 @@
                                 <input type="text" name="exclusivity" class="form-control" value="<?php echo $result[0]->exclusivity ;?>">
                             </div>
                         </div>
+                    </div>
+                    <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">สถานะการใช้งาน</label>
+                          <select class="form-select form-control "name="active" >
+                              <option value=""></option>
+                                <option value="0"<?php echo ($result[0]->active == 0 ) ? "selected":""; ?>>ไม่ใช้งาน</option>
+                                <option value="1"<?php echo ($result[0]->active == 1 ) ? "selected":""; ?>>ใช้งาน</option>
+                            </select>
+                        </div>
+                      </div>
                     </div>
                     <!-- row4 uploadsFile ภาพ -->
                     <div class="row">

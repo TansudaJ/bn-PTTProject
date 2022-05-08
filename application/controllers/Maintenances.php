@@ -76,8 +76,8 @@ class Maintenances extends CI_Controller {
 		$tmpv = $this->MaintenanceModel->get_all_vegetation();
 		$tmpz = $this->MaintenanceModel->get_all_zone();
 		
-		$data = array('navbar_name'=>'จัดการข้อมูลวิธีดูแลรักษา');
-		$data_top = array('activebar'=>'mainmethod');
+		$data = array('navbar_name'=>'ข้อมูลการดูแลรักษา');
+		$data_top = array('activebar'=>'maintenance');
 		$this->load->view('dashboard/top',$data_top);
 		$this->load->view('dashboard/navbar',$data);
 		$this->load->view('dashboard/topcontent');

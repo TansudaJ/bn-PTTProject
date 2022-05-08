@@ -25,6 +25,7 @@ class PlantModel extends CI_Model {
             $query = $this->db->query("SELECT * FROM plantpath ");
             return $query->result();
     }
+    
     //getid info
     public function get_plant_byID($id)
     {

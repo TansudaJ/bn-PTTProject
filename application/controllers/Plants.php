@@ -139,6 +139,7 @@ class Plants extends CI_Controller {
 		$this->load->model('PlantModel');
 		$tmpv = $this->PlantModel->get_all_vegetation();
 		$tmpz = $this->PlantModel->get_all_zone();
+		$tmpp = $this->PlantModel->get_all_plantpath();
 
 		$data = array('navbar_name'=>'จัดการข้อมูลต้นไม้');
 		$data_top = array('activebar'=>'plant');
@@ -149,7 +150,7 @@ class Plants extends CI_Controller {
 		$page_data = array();
 		$page_data['vegetationList'] = $tmpv;
 		$page_data['zoneList'] = $tmpz;
-
+		$page_data['pathList'] = $tmpp;
 
 		$id = $this->uri->segment('3'); 
 		$page_data['result'] = $this->PlantModel->getplantbyID($id);
@@ -172,6 +173,7 @@ class Plants extends CI_Controller {
 		   'zone_zoneID' => $this->input->post('zone_zoneID'),
 		   'vegetation_vegetationID' => $this->input->post('vegetation_vegetationID'),
 		   'active' => $this->input->post('active')
+		//    'plantpath_pathID' => $this->input->post('plantpath_pathID')
 		);
 		
 
