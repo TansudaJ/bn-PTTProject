@@ -70,7 +70,7 @@ button.btn.btn-info:host {
                              ?></td>
                             <td><?php echo $row->exclusivity; ?></td>
                             <td><img src="<?php echo base_url().$row->QRCode;?>" alt="" width="100px" height="100px"></td>
-                            <td><?php echo ($row->activeFlag == 1) ? "ใช้งาน": "ไม่ใช้งาน"; ?></td>
+                            <td><?php echo ($row->active == 1) ? "ใช้งาน": "ไม่ใช้งาน"; ?></td>
                             <td class="text-center">
                                   <button type="button" title="View" class="btn btn-info btn-sm" onclick="infoClick('<?php echo $row->plantID; ?>')"><i class="material-icons">info</i></button>
                                   <a href="<?php echo site_url("Plants/edit_plant_form/$row->plantID"); ?>"><button type="button" title="Edit" class="btn btn-warning btn-sm" ><i class="material-icons">edit</i></button></a>

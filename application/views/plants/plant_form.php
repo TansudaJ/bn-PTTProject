@@ -14,8 +14,7 @@
     color: red;
    }
 </style>
-<?php echo form_open_multipart('plants/new_plant_add"');?>
-<!-- <form method="post" action="<?php echo site_url("plants/new_plant_add");?>">  -->
+<?php echo form_open_multipart('plants/new_plant_add');?>
 <div class="row">
             <div class="col-md-12">
               <div class="card">

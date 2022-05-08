@@ -50,7 +50,7 @@ class PlantModel extends CI_Model {
      //getidedit
     public function getplantbyID($id)
     {
-        $query = $this->db->get_where("plant",array("plantID"=>$id));
+        $query = $this->db->get_where("plants",array("plantID"=>$id));
         $data = $query->result(); 
         return $data;
      }
@@ -58,13 +58,13 @@ class PlantModel extends CI_Model {
     //แก้ไข
      public function update($data,$id) { 
         $this->db->set($data); 
-        $this->db->where("medicinalpropertiesID", $id); 
-        $this->db->update("medicinalproperties", $data);
+        $this->db->where("plantID", $id); 
+        $this->db->update("plants", $data);
      }
 
      public function delete($id) 
      { 
-         $query = $this->db->query("UPDATE medicinalproperties SET activeflag = 0 where medicinalpropertiesID = ".$id);
+         $query = $this->db->query("UPDATE plants SET active = 0 where plantID = ".$id);
          if ($query>0) {
              return true;
          }

@@ -141,46 +141,70 @@ class Plants extends CI_Controller {
 	{
 
 		$this->load->model('PlantModel');
+		$tmpv = $this->PlantModel->get_all_vegetation();
+		$tmpz = $this->PlantModel->get_all_zone();
+
 		$data = array('navbar_name'=>'จัดการข้อมูลต้นไม้');
 		$data_top = array('activebar'=>'plant');
 		$this->load->view('dashboard/top',$data_top);
 		$this->load->view('dashboard/navbar',$data);
 		$this->load->view('dashboard/topcontent');
+
+		$page_data = array();
+		$page_data['vegetationList'] = $tmpv;
+		$page_data['zoneList'] = $tmpz;
+
+
 		$id = $this->uri->segment('3'); 
-		$data['result'] = $this->PlantModel->getplantbyID($id);
-		$this->load->view('plants/plant_edit',$data);
+		$page_data['result'] = $this->PlantModel->getplantbyID($id);
+		$this->load->view('plants/plant_edit',$page_data);
 		$this->load->view('dashboard/footcontent');
 		$this->load->view('dashboard/footer');
 
    }
    //ฟังก์ชันแก้ไข
-   public function save_edit_user()
+   public function save_edit_plant()
    {
-		$this->load->model('UserModel');
+		$this->load->model('PlantModel');
 		$data = array( 
-		   'employeeID' => $this->input->post('employeeID'),
-		   'username' => $this->input->post('username'),
-		   'password' => $this->input->post('password'),
-		   'email' => $this->input->post('email'),
-		   'PrefixID' => $this->input->post('PrefixID'),
-		   'f_name' => $this->input->post('f_name'),
-		   'l_name' => $this->input->post('l_name'),
-		   'telno' => $this->input->post('telno'),
-		   'authority_authorityID' => $this->input->post('authority_authorityID'),
-		   'activeflag' => $this->input->post('activeflag')
+		   'coordinates' => $this->input->post('coordinates'),
+		   'diameter' => $this->input->post('diameter'),
+		   'height' => $this->input->post('height'),
+		   'actual' => $this->input->post('actual'),
+		   'show' => $this->input->post('show'),
+		   'exclusivity' => $this->input->post('exclusivity'),
+		   'zone_zoneID' => $this->input->post('zone_zoneID'),
+		   'vegetation_vegetationID' => $this->input->post('vegetation_vegetationID'),
+		   'active' => $this->input->post('active')
 		);
 		
 
-		$id = $this->input->post('employeeID');
-		$this->UserModel->update($data,$id);
+		$id = $this->input->post('plantID');
+		$this->PlantModel->update($data,$id);
 		if($data && $id){
-			$this->session->set_flashdata('message_error', 'แก้ไขข้อมุลผู้ใช้งานสำเร็จ');
-			redirect('Users/user');
+			$this->session->set_flashdata('message_error', 'แก้ไขข้อมูลต้นไม้สำเร็จ');
+			redirect('Plants/plant');
 		}else{
-			$this->session->set_flashdata('message_error', 'แก้ไขข้อมูลผู้ใช้งานไม่สำเร็จ');
-			redirect('Users/user');
+			$this->session->set_flashdata('message_error', 'แก้ไขข้อมูลต้นไม้ไม่สำเร็จ');
+			redirect('Plants/plant');
 		}
    }
+
+   //ลบ
+	public function delete_plant()
+	{
+		$this->load->model('PlantModel');
+		 $id = $this->uri->segment('3'); 
+		 $this->PlantModel->delete($id); 
+		 if($id){
+			 $this->session->set_flashdata('message_error', 'ลบต้นไม้สำเร็จ');
+			 redirect('Plants/plant');
+		 }else{
+			 $this->session->set_flashdata('message_error', 'ลบต้นไม้ไม่สำเร็จ');
+			 redirect('Plants/plant');
+		 }
+	 }
+
 	
 
 }
