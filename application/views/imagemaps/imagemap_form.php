@@ -60,8 +60,8 @@
                     <div class="row">
                       <div class="col-md-12">
                           <div class="form-group">
-                            <label class="bmd-label-floating">ข้อมูลแผนที่<span class="s">*</span></label>
-                            <textarea class="form-control" rows="5" id="imagedetail" name="imagedetail" required></textarea>
+                            <label class="bmd-label-floating">ข้อมูลแผนที่</label>
+                            <textarea class="form-control" rows="5" id="imagedetail" name="imagedetail"></textarea>
                           </div>
                       </div>
                     </div>
