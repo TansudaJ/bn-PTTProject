@@ -20,7 +20,7 @@ table {
                 </div>
                 <div class="card-body">
                 <div class="text-right">
-                <a  href="<?php echo site_url("Reports/export_report"); ?>" ><button  type="submit" class="btn btn-success" name="btn_export" id="btn_export">ออกรายงาน</button></a>
+                <a  href="<?php echo site_url("Reports/spreadsheet_export"); ?>" ><button  type="submit" class="btn btn-success" id="btn_export" target="_blank">ออกรายงาน</button></a>
                   </div>
                   <div class="table-responsive">
                   <table id="example1" class="table table-striped table-bordered" style="width:100%">

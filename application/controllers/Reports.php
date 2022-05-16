@@ -1,12 +1,20 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+require 'vendor/autoload.php';
+ 
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+
 class Reports extends CI_Controller {
-    function index(){
+	
+	public function __construct() {
+		parent::__construct();
+	}
+    
         //SELECT v.*,COUNT(p.plantID) FROM vegetation v LEFT JOIN plants p on v.vegetationID = p.vegetation_vegetationID GROUP BY v.vegetationID;
 
         //SELECT z.*,v.n_common_TH, COUNT(p.plantID) FROM zone z LEFT JOIN plants p on z.zoneID = p.zone_zoneID JOIN vegetation v on v.vegetationID = p.vegetation_vegetationID GROUP BY z.zoneID
-    }
 
     public function report()
 	{
@@ -26,14 +34,41 @@ class Reports extends CI_Controller {
 		$this->load->view('dashboard/footer');
 	}
 
-	public function export_report_excel()
+	public function spreadsheet_export()
 	{
-			// โหลด excel library
-			$this->load->library('Excel');
+
 			//โหลดโมเดล
 			$this->load->model('ReportModel');
-			$tmp = $this->ReportModel->get_all_vegereports();
+
+			//fetch my data
+			$vegelist=$this->ReportModel->get_all_vegereports();
 			
+			header('Content-Type: application/vnd.ms-excel');
+			header('Content-Disposition: attachment;filename="รายงานข้อมูลพันธุ์ไม้.xlsx"');
+			$spreadsheet = new Spreadsheet();
+			$sheet = $spreadsheet->getActiveSheet();
+			$sheet->setCellValue('A1', 'S.No');
+			$sheet->setCellValue('B1', 'Product Name');
+			// $sheet->setCellValue('C1', 'Quantity');
+			// $sheet->setCellValue('D1', 'Price');
+			$sheet->setCellValue('E1', 'Subtotal');
+
+			$i=2;
+			foreach ($vegelist as $row) {
+				//echo $prod->product_name;
+				$sheet->setCellValue('A'.$i,$row->vegetationID);
+				$sheet->setCellValue('B'.$i,$row->n_common_TH);
+				// $sheet->setCellValue('C'.$i,$row->product_quantity);
+				// $sheet->setCellValue('D'.$i,$row->product_price);
+				$sheet->setCellValue('E'.$i,'=C'.$i.'*D'.$i);
+				$i++;
+			}
+			//TOTAL
+			$sheet->setCellValue('D8','Total');
+			$sheet->setCellValue('E8','=SUM(E2:E'.($i-1).')');
+
+			$writer = new Xlsx($spreadsheet);
+			$writer->save("php://output");
 			
 	}
 
