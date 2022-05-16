@@ -67,12 +67,12 @@ The above copyright notice and this permission notice shall be included in all c
 
           <?php if($_SESSION['authority_authorityID'] == '1' || $_SESSION['authority_authorityID'] == '2'){?>
           <li class="nav-item dropdown <?php if ($activebar == "vegetation"){echo "active";} ?>">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" style="font-size: 14px;" aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link dropdown-toggle" href="#vege" role="button" data-toggle="collapse" style="font-size: 14px;" aria-haspopup="true" aria-expanded="false">
             <i class="material-icons">park</i>จัดการข้อมูลพันธุ์ไม้
             </a>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item <?php if ($activebar == "vegetation"){echo "active";} ?>" href="<?php echo site_url("Vegetations/vegetation"); ?>">ข้อมูลพันธุ์ไม้</a>
-              <a class="dropdown-item <?php if ($activebar == "pathmain"){echo "active";} ?>" href="<?php echo site_url("Pathmains/pathmain"); ?>">ข้อมูลส่วนประกอบ</a>
+            <div class="collapse in" id="vege">
+              <a class="dropdown-item <?php if ($activebar == "vegetation"){echo "active";} ?>" href="<?php echo site_url("Vegetations/vegetation");?>" style="margin: 0 0 0 62px;">ข้อมูลพันธุ์ไม้</a>
+              <a class="dropdown-item <?php if ($activebar == "pathmain"){echo "active";} ?>" href="<?php echo site_url("Pathmains/pathmain");?>" style="margin: 0 0 0 62px;">ข้อมูลส่วนประกอบ</a>
             </div>
           </li>
           <?php } ?>
@@ -123,10 +123,21 @@ The above copyright notice and this permission notice shall be included in all c
           <!-- ของพนักงานทั่วไป -->
           <li class="nav-item <?php if ($activebar == "maintenance"){echo "active";} ?> ">
             <a class="nav-link" href="<?php echo site_url("Maintenances/maintenance"); ?>">
-              <i class="material-icons">library_books</i>
+              <i class="material-icons">assignment</i>
               <p>การดูแลรักษา</p>
             </a>
           </li>
+          <!-- ออกรายงาน -->
+          <li class="nav-item dropdown <?php if ($activebar == "vegereport"){echo "active";} ?>">
+            <a class="nav-link dropdown-toggle" href="#report" role="button" data-toggle="collapse" style="font-size: 14px;" aria-haspopup="true" aria-expanded="false">
+            <i class="material-icons">library_books</i>การออกรายงาน
+            </a>
+            <div  class="collapse" id="report">
+              <a class="dropdown-item <?php if ($activebar == "vegereport"){echo "active";} ?>" href="<?php echo site_url("Reports/report");?>" style="margin: 0 0 0 62px;">ออกรายงานพันธุ์ไม้</a>
+              <a class="dropdown-item <?php if ($activebar == "pathmain"){echo "active";} ?>" href="<?php echo site_url("Pathmains/pathmain");?>" style="margin: 0 0 0 62px;">ข้อมูลส่วนประกอบ</a>
+            </div>
+          </li>
+
         </ul>
       </div>
     </div>
