@@ -135,6 +135,7 @@ The above copyright notice and this permission notice shall be included in all c
             <div  class="collapse" id="report">
               <a class="dropdown-item <?php if ($activebar == "vegereport"){echo "active";} ?>" href="<?php echo site_url("Reports/vegereport");?>" style="margin: 0 0 0 62px;">ออกรายงานพันธุ์ไม้</a>
               <a class="dropdown-item <?php if ($activebar == "zonereport"){echo "active";} ?>" href="<?php echo site_url("Reports/zonereport");?>" style="margin: 0 0 0 62px;">ออกรายงานโซน</a>
+              <a class="dropdown-item <?php if ($activebar == "maintenancereport"){echo "active";} ?>" href="<?php echo site_url("Reports/maintenancereport");?>" style="margin: 0 0 0 62px;">ออกรายงานการดูแลรักาษา</a>
             </div>
           </li>
 

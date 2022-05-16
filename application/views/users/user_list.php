@@ -48,10 +48,10 @@ if ($this->session->userdata('message_error')) {
                                       } ?></td>
                             <td class="text-center">
                                 <?php if($row->activeflag == '1') { ?>
-                                  <span class="badge badge-success">Active</span>
+                                  <span class="badge badge-success">ใช้งาน</span>
                                 <?php } 
                                 else { ?>
-                                <span class="badge badge-danger">Inactive</span>
+                                <span class="badge badge-danger">ไม่ใช้งาน</span>
                                 <?php } ?>
                             </td>
                             <td class="text-center"><?php echo $row->n_authority; ?></td>
@@ -94,7 +94,7 @@ if ($this->session->userdata('message_error')) {
                     $('#username').val(user['username']);
                     $('#password').val(user['password']);
                     $('#authority').val(user['n_authority']);
-                    $('#activeflag').val((user['activeflag'] == 0 ) ? 'Inactive':'Active');
+                    $('#activeflag').val((user['activeflag'] == 1 ) ? 'ใช้งาน':'ไม่ใช้งาน');
 
                     $('#info_modal').modal('toggle');
                   }
@@ -159,10 +159,10 @@ if ($this->session->userdata('message_error')) {
                 <div class="form-group row">
                   <label for="authority" class="col-form-label">สิทธิการใช้งาน:</label>
                     <div class="col-sm-10" style="margin: -13px 0 0px 80px;">
-                      <input type="text" class="form-control" id="authority" style="width:80px;">
+                      <input type="text" class="form-control" id="authority" style="width:135px;">
                     </div>
-                  <label for="activeflag" class="col-form-label" style="margin: 0 0 0 195px;">สถานะ:</label>
-                    <div class="col-sm-10" style="margin: -36px 0 0px 235px;">
+                  <label for="activeflag" class="col-form-label" style="margin: 0 0 0 245px;">สถานะ:</label>
+                    <div class="col-sm-10" style="margin: -36px 0 0px 280px;">
                       <input type="text" class="form-control" id="activeflag" style="width:80px;">
                     </div>
                 </div>
