@@ -45,13 +45,21 @@ class Reports extends CI_Controller {
 			
 			header('Content-Type: application/vnd.ms-excel');
 			header('Content-Disposition: attachment;filename="รายงานข้อมูลพันธุ์ไม้.xlsx"');
+			
 			$spreadsheet = new Spreadsheet();
+			// กำหนดค่าเริ่มต้น รูปแบบ
+			$spreadsheet->getDefaultStyle()->getFont()->setName('TH SarabunPSK');
+			$spreadsheet->getDefaultStyle()->getFont()->setSize(16);
+
+			foreach (range('A', 'I') as $letra) {            
+				$spreadsheet->getActiveSheet()->getColumnDimension($letra)->setAutoSize(true);
+			}
 			$sheet = $spreadsheet->getActiveSheet();
+			$sheet->getStyle('A1:I1')->getFont()->setBold(true);
 			$sheet->setCellValue('A1', 'S.No');
 			$sheet->setCellValue('B1', 'Product Name');
 			// $sheet->setCellValue('C1', 'Quantity');
 			// $sheet->setCellValue('D1', 'Price');
-			$sheet->setCellValue('E1', 'Subtotal');
 
 			$i=2;
 			foreach ($vegelist as $row) {
@@ -60,12 +68,8 @@ class Reports extends CI_Controller {
 				$sheet->setCellValue('B'.$i,$row->n_common_TH);
 				// $sheet->setCellValue('C'.$i,$row->product_quantity);
 				// $sheet->setCellValue('D'.$i,$row->product_price);
-				$sheet->setCellValue('E'.$i,'=C'.$i.'*D'.$i);
 				$i++;
 			}
-			//TOTAL
-			$sheet->setCellValue('D8','Total');
-			$sheet->setCellValue('E8','=SUM(E2:E'.($i-1).')');
 
 			$writer = new Xlsx($spreadsheet);
 			$writer->save("php://output");
