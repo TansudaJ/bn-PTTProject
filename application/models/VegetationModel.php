@@ -2,11 +2,14 @@
 class VegetationModel extends CI_Model {
     public function get_all_vegetations()
     {
-            $query = $this->db->query("SELECT * FROM ((vegetation v INNER JOIN localname l ON v.vegetationID = l.vegetation_vegetationID) 
-            INNER JOIN type t ON v.typeID = t.typeID);");
+            $query = $this->db->query("SELECT * FROM (vegetation v INNER JOIN type t ON v.typeID = t.typeID);");
             return $query->result();
     }
-
+    public function get_all_locals($vegetationID)
+    {
+            $query = $this->db->query("SELECT * FROM localname WHERE vegetation_vegetationID = $vegetationID");
+            return $query->result();
+    }
     public function get_vegetation_byID($id)
     {
             $query = $this->db->query("SELECT * FROM (((vegetation v INNER JOIN localname l ON v.vegetationID = l.vegetation_vegetationID) 

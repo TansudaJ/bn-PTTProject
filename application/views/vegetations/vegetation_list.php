@@ -55,20 +55,25 @@ table {
                             <td><?php echo $row->n_common_TH ." (".$row->n_common_ENG.")"; ?></td>
                             <td><?php echo $row->n_scientific; ?></td>
                             <td><?php echo $row->n_family; ?></td>
-                            <td><?php if ($row->region == "1") {
+                            <td>
+                            <?php foreach ($localnamelist[$row->vegetationID] as $rowl){?>
+                            <?php echo $rowl->localname; ?> 
+                            (<?php if ($rowl->region == "1") {
                                         echo "ภาคเหนือ";
-                                      }elseif($row->region == "2"){
+                                      }elseif($rowl->region == "2"){
                                         echo "ภาคอีสาน";
-                                      }elseif($row->region == "3"){
+                                      }elseif($rowl->region == "3"){
                                         echo "ภาคตะวันตก";
-                                      }elseif($row->region == "4"){
+                                      }elseif($rowl->region == "4"){
                                         echo "ภาคกลาง";
-                                      }elseif($row->region == "5"){
+                                      }elseif($rowl->region == "5"){
                                         echo "ภาคตะวันออก";
-                                      }elseif($row->region == "6"){
+                                      }elseif($rowl->region == "6"){
                                         echo "ภาคใต้";
                                       }
-                            ?> (<?php echo $row->localname; ?>)</td>
+                            ?>)
+                             <?php }?>
+                          </td>
                             <td><?php echo $row->typename?></td>
                             <td><?php echo ($row->activeFlag == 1) ? "ใช้งาน": "ไม่ใช้งาน"; ?></td>
                             <td class="text-center" style="width: fit-content;">
@@ -77,6 +82,7 @@ table {
                                   <a onclick="return confirm('คุณต้องการลบพันธุ์ไม้ออกหรือไม่?')" href="<?php echo site_url("vegetations/delete_vegetation/$row->vegetationID"); ?>"><button type="button" title="Delete" class="btn btn-danger btn-sm"><i class="material-icons">delete</i></button></a>    
                             </td>
                         </tr>
+                     
                     <?php }?>
                     </tbody>
                 </table>

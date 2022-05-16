@@ -6,12 +6,22 @@ class Vegetations extends CI_Controller {
 	{
 		$this->load->model('VegetationModel');
 		$tmp = $this->VegetationModel->get_all_vegetations();
+		$localnamelist = array();
+		
+		
 		$data = array('navbar_name'=>'จัดการข้อมูลพันธุ์ไม้');
 		$data_top = array('activebar'=>'vegetation');
 		$this->load->view('dashboard/top',$data_top);
 		$this->load->view('dashboard/navbar',$data);
 		$this->load->view('dashboard/topcontent');
+		
+		foreach($tmp as $row){
+			$tmpl = $this->VegetationModel->get_all_locals($row->vegetationID);
+			$localnamelist["$row->vegetationID"] = $tmpl;
+		}
 		$page_data['vegetationList'] = $tmp;
+		
+		$page_data['localnamelist'] = $localnamelist;
 
 		$this->load->view('vegetations/vegetation_list',$page_data);
 
