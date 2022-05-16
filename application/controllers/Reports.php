@@ -26,4 +26,15 @@ class Reports extends CI_Controller {
 		$this->load->view('dashboard/footer');
 	}
 
+	public function export_report_excel()
+	{
+			// โหลด excel library
+			$this->load->library('Excel');
+			//โหลดโมเดล
+			$this->load->model('ReportModel');
+			$tmp = $this->ReportModel->get_all_vegereports();
+			
+			
+	}
+
 }

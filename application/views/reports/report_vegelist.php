@@ -8,6 +8,9 @@ th {
 table {
   margin: 0;
 }
+#btn_export{
+  font-size: medium;
+}
 </style>
 <div class="row">
             <div class="col-md-12">
@@ -17,7 +20,7 @@ table {
                 </div>
                 <div class="card-body">
                 <div class="text-right">
-                <a  href="<?php echo site_url("Vegetations/new_vegetation"); ?>" ><button  type="button" class="btn btn-success"><i class="material-icons" >add</i>เพิ่มพันธุ์ไม้</button></a>
+                <a  href="<?php echo site_url("Reports/export_report"); ?>" ><button  type="submit" class="btn btn-success" name="btn_export" id="btn_export">ออกรายงาน</button></a>
                   </div>
                   <div class="table-responsive">
                   <table id="example1" class="table table-striped table-bordered" style="width:100%">
