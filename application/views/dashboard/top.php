@@ -133,8 +133,8 @@ The above copyright notice and this permission notice shall be included in all c
             <i class="material-icons">library_books</i>การออกรายงาน
             </a>
             <div  class="collapse" id="report">
-              <a class="dropdown-item <?php if ($activebar == "vegereport"){echo "active";} ?>" href="<?php echo site_url("Reports/report");?>" style="margin: 0 0 0 62px;">ออกรายงานพันธุ์ไม้</a>
-              <a class="dropdown-item <?php if ($activebar == "pathmain"){echo "active";} ?>" href="<?php echo site_url("Pathmains/pathmain");?>" style="margin: 0 0 0 62px;">ข้อมูลส่วนประกอบ</a>
+              <a class="dropdown-item <?php if ($activebar == "vegereport"){echo "active";} ?>" href="<?php echo site_url("Reports/vegereport");?>" style="margin: 0 0 0 62px;">ออกรายงานพันธุ์ไม้</a>
+              <a class="dropdown-item <?php if ($activebar == "zonereport"){echo "active";} ?>" href="<?php echo site_url("Reports/zonereport");?>" style="margin: 0 0 0 62px;">ออกรายงานโซน</a>
             </div>
           </li>
 

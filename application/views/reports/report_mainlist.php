@@ -20,29 +20,27 @@ table {
                 </div>
                 <div class="card-body">
                 <div class="text-right">
-                <a  href="<?php echo site_url("Reports/spreadsheet_export_vege"); ?>" ><button  type="submit" class="btn btn-success" id="btn_export" target="_blank">ออกรายงาน</button></a>
+                <a  href="<?php echo site_url("Reports/spreadsheet_export_zone"); ?>" ><button  type="submit" class="btn btn-success" id="btn_export" target="_blank">ออกรายงาน</button></a>
                   </div>
                   <div class="table-responsive">
                   <table id="example1" class="table table-striped table-bordered" style="width:100%">
                     <thead>
                         <tr>
                             <th class="text-center">รหัส</th>
-                            <th class="text-center">ชื่อ</th>
-                            <th class="text-center">ชื่อวิทยาศาสตร์</th>
-                            <th class="text-center">ชื่อวงศ์</th>
-                            <th class="text-center">ประเภท</th>
-                            <th class="text-center">จำนวนต้นไม้ในพันธุ์ไม้ (ต้น)</th>
+                            <th class="text-center">ชื่อโซน</th>
+                            <th class="text-center">พันธุ์ไม้</th>
+                            <th class="text-center">สถานะบนแผนที่</th>
+                            <th class="text-center">จำนวนต้นไม้ในโซน (ต้น)</th>
 
                         </tr>
                     </thead>
                     <tbody> 	
-                    <?php foreach ($vegetationList as $row){?>
+                    <?php foreach ($zoneList as $row){?>
                         <tr>
-                            <td class="text-center"><?php echo $row->vegetationID; ?></td>
-                            <td><?php echo $row->n_common_TH ." (".$row->n_common_ENG.")"; ?></td>
-                            <td><?php echo $row->n_scientific; ?></td>
-                            <td><?php echo $row->n_family; ?></td>
-                            <td><?php echo $row->typename; ?></td>
+                            <td class="text-center"><?php echo $row->headzoneID .'-'.$row->zoneID; ?></td>
+                            <td><?php echo $row->nameTH ." (".$row->nameEN.")"; ?></td>
+                            <td><?php echo $row->n_common_TH; ?></td>
+                            <td><?php echo ($row->status == 1) ? 'แสดง':'ไม่แสดง'; ?></td>
                             <td class="text-center"><?php echo $row->countp;?></td>
                         </tr>
                      
