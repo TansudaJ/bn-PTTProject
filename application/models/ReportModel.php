@@ -23,8 +23,7 @@ class ReportModel extends CI_Model {
             JOIN employee e ON e.employeeID=m.employee_employeeID 
             JOIN prefix p ON p.PrefixID=e.PrefixID 
             JOIN vegetation v ON v.vegetationID=m.vegetation_vegetationID 
-            JOIN zone z ON z.zoneID=m.zone_zoneID 
-            GROUP BY v.vegetationID;");
+            JOIN zone z ON z.zoneID=m.zone_zoneID;");
             return $query->result();
     }
 
