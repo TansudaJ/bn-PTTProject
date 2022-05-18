@@ -51,7 +51,7 @@
                   
                   
                   <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="<?php echo site_url("Login/logout"); ?>">Log out</a>
+                  <a class="dropdown-item" href="<?php echo site_url("Login/logout"); ?>">ออกจากระบบ</a>
                 </div>
               </li>
             </ul>
