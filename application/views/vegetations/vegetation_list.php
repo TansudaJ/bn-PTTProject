@@ -129,8 +129,7 @@ table {
                     $('#appearance').val(vegetation['appearance']);
                     $('#origin').val(vegetation['plant_origin']);
                     $('#distribution').val(vegetation['distribution']);
-                    $('#growth').val(vegetation['growth']);
-                    $('#shape').val(vegetation['shape']);
+                    $('#ecological').val(vegetation['ecological']);
                     $('#defoliation').val(vegetation['defoliation']);
                     $('#fperiod').val(vegetation['flowering_period']);
                     $('#propagation').val(vegetation['propagation']);
@@ -234,16 +233,9 @@ table {
                 </div>
                 <!-- row8 -->
                 <div class="form-group row">
-                  <label for="growth" class="col-form-label">การเจริญเติบโต:</label>
+                  <label for="ecological" class="col-form-label">การเจริญเติบโต:</label>
                     <div class="col-sm-10" style="margin: -10px 0 0px 40px;">
-                    <textarea class="form-control" id="growth" rows="2" style="width: 505px; margin: 0 0 0 45px;"></textarea>
-                    </div>
-                </div>
-                <!-- row9 -->
-                <div class="form-group row">
-                  <label for="shape" class="col-form-label">รูปทรง:</label>
-                    <div class="col-sm-10" style="margin: -13px 0 0 35px;">
-                    <input type="text" class="form-control" id="shape" style="width: 555px;">
+                    <textarea class="form-control" id="ecological" rows="2" style="width: 505px; margin: 0 0 0 45px;"></textarea>
                     </div>
                 </div>
                 <!-- row10 -->
