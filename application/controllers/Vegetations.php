@@ -181,10 +181,10 @@ class Vegetations extends CI_Controller {
 		$id = $this->input->post('vegetationID');
 		$this->VegetationModel->update($data,$id);
 		if($data && $id){
-			$this->session->set_flashdata('message_error', 'แก้ไขข้อมูลผู้ใช้งานสำเร็จ');
+			$this->session->set_flashdata('message_error', 'แก้ไขข้อมูลพันธุ์ไม้สำเร็จ');
 			redirect('Vegetations/vegetation');
 		}else{
-			$this->session->set_flashdata('message_error', 'แก้ไขข้อมูลผู้ใช้งานไม่สำเร็จ');
+			$this->session->set_flashdata('message_error', 'แก้ไขข้อมูลพันธุ์ไม้ไม่สำเร็จ');
 			redirect('Vegetations/vegetation');
 		}
 	}
@@ -195,10 +195,10 @@ class Vegetations extends CI_Controller {
 		 $id = $this->uri->segment('3'); 
 		 $this->VegetationModel->delete($id); 
 		 if($id){
-			 $this->session->set_flashdata('message_error', 'ลบโซนสำเร็จ');
+			 $this->session->set_flashdata('message_error', 'ลบพันธุ์ไม้สำเร็จ');
 			 redirect('Vegetations/vegetation');
 		 }else{
-			 $this->session->set_flashdata('message_error', 'ลบโซนไม่สำเร็จ');
+			 $this->session->set_flashdata('message_error', 'ลบพันธุ์ไม้ไม่สำเร็จ');
 			 redirect('Vegetations/vegetation');
 		 }
 	 }

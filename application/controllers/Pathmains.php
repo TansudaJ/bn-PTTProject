@@ -98,11 +98,11 @@ class Pathmains extends CI_Controller {
 		$this->load->model('PathmainModel');
 		$tmp = $this->PathmainModel->insert_pathmain($data,$data_img);
 		if($tmp){
-			$this->session->set_flashdata('message_error', 'เพิ่มข้อมูลส่วนประกอบต้นไม้สำเร็จ');
+			$this->session->set_flashdata('message_error', 'เพิ่มข้อมูลส่วนประกอบสำเร็จ');
 			redirect('Pathmains/pathmain');
 
 		}else{
-			$this->session->set_flashdata('message_error', 'เพิ่มข้อมูลส่วนประกอบต้นไม้ไม่สำเร็จ');
+			$this->session->set_flashdata('message_error', 'เพิ่มข้อมูลส่วนประกอบไม่สำเร็จ');
 			redirect('Pathmains/pathmain');
 		}
     }
@@ -150,10 +150,10 @@ class Pathmains extends CI_Controller {
 		$id = $this->input->post('medicinalPropertiesID');
 		$this->PathmainModel->update($data,$id);
 		if($data && $id){
-			$this->session->set_flashdata('message_error', 'แก้ไขข้อมูลส่วนประกอบต้นไม้สำเร็จ');
+			$this->session->set_flashdata('message_error', 'แก้ไขข้อมูลส่วนประกอบสำเร็จ');
 			redirect('Pathmains/pathmain');
 		}else{
-			$this->session->set_flashdata('message_error', 'แก้ไขข้อมูลส่วนประกอบต้นไม้ไม่สำเร็จ');
+			$this->session->set_flashdata('message_error', 'แก้ไขข้อมูลส่วนประกอบไม่สำเร็จ');
 			redirect('Pathmains/pathmain');
 		}
 	}
@@ -165,10 +165,10 @@ class Pathmains extends CI_Controller {
 		$id = $this->uri->segment('3'); 
 		$this->PathmainModel->delete($id); 
 		if($id){
-			$this->session->set_flashdata('message_error', 'ลบข้อมูลส่วนประกอบต้นไม้สำเร็จ');
+			$this->session->set_flashdata('message_error', 'ลบข้อมูลส่วนประกอบสำเร็จ');
 			redirect('Pathmains/pathmain');
 		}else{
-			$this->session->set_flashdata('message_error', 'ลบข้อมูลส่วนประกอบต้นไม้ไม่สำเร็จ');
+			$this->session->set_flashdata('message_error', 'ลบข้อมูลส่วนประกอบไม่สำเร็จ');
 			redirect('Pathmains/pathmain');
 		}
 	}
