@@ -220,7 +220,7 @@
                     <div class="row">
                       <div class="col-md-6">
                         <div class="form-group">
-                          <label class="bmd-label-floating">การกักเก็บคาร์บอนไดออกไซด์ (ตัน)</label>
+                          <label class="bmd-label-floating">การดูดซับคาร์บอนไดออกไซด์ (ตัน)</label>
                           <input type="text" name="co2_storage" class="form-control" >
                         </div>
                       </div>

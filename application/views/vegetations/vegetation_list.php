@@ -261,7 +261,7 @@ table {
                 </div>
                 <!-- row13 -->
                 <div class="form-group row">
-                  <label for="co2_storage" class="col-form-label">การกักเก็บคาร์บอนไดร์ออกไซด์(ตัน):</label>
+                  <label for="co2_storage" class="col-form-label">การดูดซับคาร์บอนไดร์ออกไซด์(ตัน):</label>
                     <div class="col-sm-10" style="margin: -13px 0 0 203px;">
                     <input type="text" class="form-control" id="co2_storage" style="width: 387px;">
                     </div>
