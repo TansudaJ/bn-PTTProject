@@ -59,9 +59,10 @@
                     </div><br>
                     <div class="row">
                       <div class="col-md-12">
+                        <a href="https://www.image-map.net/" target="_blank">ลิ้งสำหรับระบุ poly รูปภาพ</a><br>
                           <div class="form-group">
                             <label class="bmd-label-floating">ข้อมูลแผนที่</label>
-                            <textarea class="form-control" rows="5" id="imagedetail" name="imagedetail"></textarea>
+                            <textarea class="form-control" rows="5" id="imagedetail" name="imagedetail" title="โปรดกรอก poly ของภาพแผนที่"></textarea>
                           </div>
                       </div>
                     </div>

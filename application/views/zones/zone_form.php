@@ -47,7 +47,7 @@
                       <div class="col-md-4" style="margin: -32px 0px 0px 0px;">
                         <div class="form-group">
                           <label class="bmd-label-floating">เลือกโซน</label>
-                          <select class="form-select form-control "name="headzoneID" >
+                          <select class="form-select form-control "name="headzoneID" title="โปรดเลือกโซนหลักของโซนย่อยนี้">
                               <option value="">เลือกโซน</option>
                               <?php foreach($zoneList as $result){?>
                                 <option value="<?php echo $result->zoneID;?>">
@@ -63,13 +63,15 @@
                       <div class="col-md-4" style="margin: 30px 0px 0 0px;">
                         <div class="form-group">
                           <label class="bmd-label-floating">พิกัด<span class="s">*</span></label>
-                          <input type="text" name="location" class="form-control" required>
+                          <input type="text" name="location" class="form-control" required 
+                          title="โปรดกรอกพิกัดของโซน">
                         </div>
                       </div>
                       <div class="col-md-4">
                         <div class="form-group">
                           <label class="bmd-label-floating">สถานะ<span class="s">*</span></label>
-                          <select class="form-select form-control "name="status" required>
+                          <select class="form-select form-control "name="status" required 
+                          title="โปรดเลือกสถานะการแสดงบนแผนที่ของโซนนี้">
                               <option value=""></option>
                                 <option value="0">ไม่แสดง</option>
                                 <option value="1">แสดง</option>
@@ -81,8 +83,8 @@
                     <div class=row>
                       <div class="col-md-12">
                         <div class="form-group">
-                            <label class="bmd-label-floating">รายละเอียด</label><span>
-                            <textarea class="form-control" rows="5" name="detail"></textarea>
+                            <label class="bmd-label-floating">รายละเอียด</label>
+                            <textarea class="form-control" rows="5" name="detail" title="โปรดกรอกคำอธิบายโซน"></textarea>
                         </div>
                       </div>
                     </div>

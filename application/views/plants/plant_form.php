@@ -94,7 +94,7 @@
                         <div class="col-md-4" style="margin: 30px 0 0 0;">
                         <div class="form-group">
                           <label class="bmd-label-floating">พิกัดต้นไม้<span class="s">*</span></label>
-                          <input type="text" name="coordinates" class="form-control" required>
+                          <input type="text" name="coordinates" class="form-control" required title="โปรดกรอกพิกัดของต้นไม้">
                         </div>
                       </div>
                     </div>
@@ -102,7 +102,8 @@
                       <div class="col-md-4" style="margin: 30px 0 0 0">
                             <div class="form-group">
                               <label class="bmd-label-floating">สภาพปัจจุบัน<span class="s">*</span></label>
-                                <input type="text" name="actual" class="form-control" required>
+                                <input type="text" name="actual" class="form-control" required 
+                                title="โปรดกรอกสภาพปัจจุบันของต้นไม้ เช่น สมบูรณ์ดี ย้ายที่">
                             </div>
                       </div>
                       <div class="col-md-4">
@@ -125,7 +126,9 @@
                     <!-- row4 uploadsFile ภาพ -->
                     <div class="row">
                       <div class="col-md-12">
-                          <label class="bmd-label-floating">ภาพQRCode</label>
+                          <a href="https://me-qr.com/th/?bannerid=4797045193&campaignid=12874623582&adgroupid=120965962269&feeditemid=&targetid=kwd-174630914&loc_interest_ms=&loc_physical_ms=1012747&matchtype=b&network=g&device=c&devicemodel=&gclid=Cj0KCQjwnNyUBhCZARIsAI9AYlEfECd3--EJrYaoS16QCKyJ64RpMb1LlNbw9uqu_qNuyqtVYOhN3LgaAqEwEALw_wcB&ifmobile:[value]=&ifnotmobile:[value]=[value]&ifsearch:[value]=[value]&ifcontent:[value]=&creative=517907940719&keyword=qr%20code&placement=&target=&param1=&param2=&adposition=&gclid=Cj0KCQjwnNyUBhCZARIsAI9AYlEfECd3--EJrYaoS16QCKyJ64RpMb1LlNbw9uqu_qNuyqtVYOhN3LgaAqEwEALw_wcB" target="_blank">เข้าสู่เว็บไซต์ Gen QRCode</a>
+                          
+                          <br><label class="bmd-label-floating">ภาพQRCode</label>
                             <input type="file" name="QRCode" size="20" class="form-control">
                             <label class="bmd-label-floating s" >*อัพไฟล์ที่มีนามสกุล gif หรือ .jpg หรือ .png</label>
                       </div>
