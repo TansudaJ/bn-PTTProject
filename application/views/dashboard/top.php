@@ -84,6 +84,16 @@ The above copyright notice and this permission notice shall be included in all c
             </a>
           </li>
 
+          <li class="nav-item dropdown <?php if ($activebar == "ecosystem"){echo "active";} ?>">
+            <a class="nav-link dropdown-toggle" href="#eco" role="button" data-toggle="collapse" style="font-size: 14px;" aria-haspopup="true" aria-expanded="false">
+            <i class="material-icons">emoji_nature</i>ระบบนิเวศภายในสวน
+            </a>
+            <div class="collapse in" id="eco">
+              <a class="dropdown-item <?php if ($activebar == "ecosystem"){echo "active";} ?>" href="<?php echo site_url("Ecosytems/ecosytem");?>" style="margin: 0 0 0 62px;">พืช</a>
+              <a class="dropdown-item <?php if ($activebar == "animals"){echo "active";} ?>" href="<?php echo site_url("Animals/animal");?>" style="margin: 0 0 0 62px;">สัตว์</a>
+            </div>
+          </li>
+
           <?php if($_SESSION['authority_authorityID'] == '1' || $_SESSION['authority_authorityID'] == '2'){?>
           <li class="nav-item <?php if ($activebar == "zone"){echo "active";} ?>">
             <a class="nav-link" href="<?php echo site_url("Zones/zone"); ?>">

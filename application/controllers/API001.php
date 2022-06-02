@@ -82,9 +82,6 @@ class API001 extends CI_Controller {
 		echo header('Content-Type: text/html; charset=UTF-8');
 		echo json_encode($data);
 	}
-	
-
-
 
     private function checklogin(){
 		if(!isset($_SESSION['logged_in'])){
